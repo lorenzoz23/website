@@ -14,8 +14,7 @@ import {
   Menu,
   RangeInput
 } from 'grommet';
-import { FormClose, Gift, Bar } from 'grommet-icons';
-import { isContext } from 'vm';
+import { FormClose, Gift } from 'grommet-icons';
 
 const theme = {
   global: {
