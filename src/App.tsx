@@ -9,12 +9,12 @@ import {
   Heading,
   Image,
   Layer,
-  ResponsiveContext,
-  Video,
   Menu,
-  RangeInput
+  RangeInput,
+  ResponsiveContext,
+  Video
 } from 'grommet';
-import { FormClose, Gift } from 'grommet-icons';
+import { FormClose, Gift, Projects, Music, Code, Home } from 'grommet-icons';
 
 const theme = {
   global: {
@@ -46,10 +46,30 @@ const AppBar = (props: any) => (
 );
 
 function App() {
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [value, setValue] = React.useState(10);
+  const [showSidebar, setShowSidebar] = React.useState(false);
+  const [value, setValue] = React.useState(0);
+  const [menuLabel, setMenuLabel] = React.useState('home');
+  const iconArr = [
+    <Home size="medium" />,
+    <Code size="medium" />,
+    <Music size="medium" />,
+    <Projects size="medium" />
+  ];
 
   const btnTxt = "i'm feeling like " + value + '% of my total self today!';
+  const menuTitle = (
+    <Heading level="2" margin="none">
+      {menuLabel}
+    </Heading>
+  );
+  const icon =
+    menuLabel == 'projects'
+      ? iconArr[1]
+      : menuLabel == 'music'
+      ? iconArr[2]
+      : menuLabel == 'other'
+      ? iconArr[3]
+      : iconArr[0];
   return (
     <Grommet theme={theme} full>
       <ResponsiveContext.Consumer>
@@ -58,17 +78,27 @@ function App() {
             <AppBar>
               <Menu
                 dropBackground="#71F981"
-                label={
-                  <Heading level="3" margin="none">
-                    my website
-                  </Heading>
-                }
+                label={icon}
                 items={[
-                  { label: 'projects' },
-                  { label: 'music' },
-                  { label: 'other' }
+                  {
+                    label: 'home',
+                    onClick: () => setMenuLabel('home')
+                  },
+                  {
+                    label: 'projects',
+                    onClick: () => setMenuLabel('projects')
+                  },
+                  {
+                    label: 'music',
+                    onClick: () => setMenuLabel('music')
+                  },
+                  {
+                    label: 'other',
+                    onClick: () => setMenuLabel('other')
+                  }
                 ]}
               />
+              {menuTitle}
               <Button
                 hoverIndicator
                 icon={<Gift />}
