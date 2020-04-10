@@ -1,0 +1,10 @@
+const [menuLabel, setMenuLabel] = React.useState('lorenzo zenitsky');
+const iconArr = [<Home />, <Code />, <Music />, <Projects />];
+
+menuLabel === 'my projects'
+      ? iconArr[1]
+      : menuLabel === 'my music'
+      ? iconArr[2]
+      : menuLabel === 'my bad'
+      ? iconArr[3]
+      : iconArr[0];
