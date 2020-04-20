@@ -8,3 +8,9 @@ menuLabel === 'my projects'
       : menuLabel === 'my bad'
       ? iconArr[3]
       : iconArr[0];
+
+const [numPages, setNumPages] = React.useState(1);
+const [pageNumber] = React.useState(1);
+<Box>
+page {pageNumber} of {numPages}
+</Box>

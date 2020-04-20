@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
-import { Box } from 'grommet';
+import { Box, Button } from 'grommet';
 import { Document, Page, pdfjs } from 'react-pdf';
 
 import resume from '../component_assets/resume.pdf';
 
 const HomePage = () => {
-  const [numPages, setNumPages] = React.useState(1);
-  const [pageNumber] = React.useState(1);
-
   useEffect(() => {
     pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
   });
+
+  const downloadResume = () => {
+    window.open(resume, '_blank');
+  };
 
   return (
     <Box
@@ -26,14 +27,11 @@ const HomePage = () => {
         file={resume}
         noData="aw shucks!"
         onLoadError={console.error}
-        onLoadSuccess={() => setNumPages}
         error="Resume on break. Be back in 5."
       >
-        <Page pageNumber={pageNumber} height={1000} />
+        <Page height={900} pageNumber={1} />
       </Document>
-      <Box>
-        page {pageNumber} of {numPages}
-      </Box>
+      <Button margin="small" label="download resume" onClick={downloadResume} />
     </Box>
   );
 };
