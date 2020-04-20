@@ -8,10 +8,11 @@ import {
   ResponsiveContext,
   Button,
   Collapsible,
+  Text,
   Video,
   Layer
 } from 'grommet';
-import { FormClose, Gift } from 'grommet-icons';
+import { FormClose, Gift, Eject } from 'grommet-icons';
 
 const WarZone = () => {
   const [value, setValue] = React.useState(23);
@@ -24,7 +25,10 @@ const WarZone = () => {
       {(size) => (
         <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
           <Box flex align="center" justify="center">
-            <Carousel controls="selectors" margin="medium" play={10000}>
+            <Heading level="3">
+              welcome to my demented playground of UI fun!
+            </Heading>
+            <Carousel controls="selectors" margin="small" play={10000}>
               <Image fit="cover" src="website-images/niles.jpg" />
               <Image fit="cover" src="website-images/64slices.png" />
               <Image fit="cover" src="website-images/niles2.jpg" />
@@ -34,33 +38,41 @@ const WarZone = () => {
               value={value}
               onChange={(event: any) => setValue(event.target.value)}
             />
-            <Heading level="4" margin="none">
-              {btnTxt}
-            </Heading>
+            <Text textAlign="center">{btnTxt}</Text>
             <Button
               hoverIndicator
               icon={<Gift />}
               onClick={() => setShowSidebar(!showSidebar)}
+            />
+            <Button
+              primary={true}
+              label="i'd like to go now..."
+              icon={<Eject />}
+              reverse={true}
             />
           </Box>
           {!showSidebar || size !== 'small' ? (
             <Collapsible direction="horizontal" open={showSidebar}>
               <Box
                 flex
-                width="medium"
+                width="large"
                 background="sidebar"
                 elevation="small"
                 align="center"
                 justify="center"
               >
                 <Video fit="cover">
-                  <source key="video" src="assets/bday.mp4" type="video/mp4" />
+                  <source
+                    key="video"
+                    src="assets/yadayada.mp4"
+                    type="video/mp4"
+                  />
                   <track
                     key="cc"
                     label="English"
                     kind="subtitles"
                     srcLang="en"
-                    src="assets/bday.mp4"
+                    src="assets/yadayada.mp4"
                     default
                   />
                 </Video>
@@ -81,13 +93,17 @@ const WarZone = () => {
                 />
               </Box>
               <Video fit="cover">
-                <source key="video" src="assets/bday.mp4" type="video/mp4" />
+                <source
+                  key="video"
+                  src="assets/yadayada.mp4"
+                  type="video/mp4"
+                />
                 <track
                   key="cc"
                   label="English"
                   kind="subtitles"
                   srcLang="en"
-                  src="assets/bday.mp4"
+                  src="assets/yadayada.mp4"
                   default
                 />
               </Video>

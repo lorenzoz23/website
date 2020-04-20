@@ -25,7 +25,7 @@ const HomePage = () => {
     >
       <Document
         file={resume}
-        noData="aw shucks!"
+        noData="no data?! aw shucks..."
         onLoadError={console.error}
         error="Resume on break. Be back in 5."
       >

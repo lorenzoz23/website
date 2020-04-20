@@ -85,17 +85,17 @@ function App() {
                     </Heading>
                     <Nav direction="row" gap="xsmall" justify="center">
                       <Anchor
-                        icon={<Github />}
+                        icon={<Github color="plain" />}
                         target="_blank"
                         href="https://github.com/lorenzoz23"
                       />
                       <Anchor
-                        icon={<Linkedin />}
+                        icon={<Linkedin color="plain" />}
                         target="_blank"
                         href="https://www.linkedin.com/in/lorenzo-zenitsky-823257171/"
                       />
                       <Anchor
-                        icon={<Youtube />}
+                        icon={<Youtube color="plain" />}
                         target="_blank"
                         href="https://www.youtube.com/user/gdzenitsky"
                       />
