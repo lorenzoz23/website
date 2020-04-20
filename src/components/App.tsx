@@ -9,7 +9,8 @@ import {
   Tab,
   Avatar,
   Nav,
-  Anchor
+  Anchor,
+  Clock
 } from 'grommet';
 import { Home, Github, Linkedin, Youtube } from 'grommet-icons';
 import {
@@ -46,21 +47,23 @@ const AppBar = (props: any) => (
     align="center"
     justify="between"
     background="home"
-    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
+    pad={{
+      left: 'medium',
+      right: 'medium',
+      vertical: 'small'
+    }}
     style={{ zIndex: '1' }}
     {...props}
   />
 );
 
 function App() {
-  const [redirect, setRedirect] = React.useState(false);
-
   return (
     <Grommet theme={theme} full>
       <ResponsiveContext.Consumer>
         {(size) => (
           <Router>
-            <Box fill background="home">
+            <Box fill background="home" pad={{ bottom: 'small' }}>
               <AppBar>
                 <Box direction="row">
                   <Box
@@ -81,9 +84,21 @@ function App() {
                       lorenzo zenitsky
                     </Heading>
                     <Nav direction="row" gap="xsmall" justify="center">
-                      <Anchor icon={<Github />} />
-                      <Anchor icon={<Linkedin />} />
-                      <Anchor icon={<Youtube />} />
+                      <Anchor
+                        icon={<Github />}
+                        target="_blank"
+                        href="https://github.com/lorenzoz23"
+                      />
+                      <Anchor
+                        icon={<Linkedin />}
+                        target="_blank"
+                        href="https://www.linkedin.com/in/lorenzo-zenitsky-823257171/"
+                      />
+                      <Anchor
+                        icon={<Youtube />}
+                        target="_blank"
+                        href="https://www.youtube.com/user/gdzenitsky"
+                      />
                     </Nav>
                   </Box>
                   {size === 'small' ? (
@@ -96,7 +111,6 @@ function App() {
                       }}
                     >
                       <Menu
-                        onClick={() => setRedirect(false)}
                         dropBackground="#71F981"
                         label={<Home />}
                         items={[
@@ -149,31 +163,33 @@ function App() {
                       <Tab title="home">
                         <Redirect to="/" />
                       </Tab>
-                      <Tab title="projects" onClick={() => setRedirect(false)}>
+                      <Tab title="projects">
                         <Redirect to="/projects" />
                       </Tab>
-                      <Tab title="music" onClick={() => setRedirect(false)}>
+                      <Tab title="music">
                         <Redirect to="/music" />
                       </Tab>
-                      <Tab
-                        title="the yada yada"
-                        onClick={() => setRedirect(false)}
-                      >
+                      <Tab title="the yada yada">
                         <Redirect to="/yikes" />
                       </Tab>
                     </Tabs>
                   )}
                 </Box>
-                <Box pad={{ right: 'small' }} animation="pulse">
+                <Box
+                  pad={{ right: 'small' }}
+                  animation="pulse"
+                  alignContent="center"
+                  direction="row-reverse"
+                >
                   <Avatar
-                    onClick={() => setRedirect(true)}
                     size="xlarge"
                     src="../website-images/64slices.png"
+                    onClick={() => {}}
                   />
+                  <Clock type="digital" margin="small" />
                 </Box>
               </AppBar>
               <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
-                {redirect ? <Redirect to="/" /> : null}
                 <Switch>
                   <Route path="/projects">
                     <CodeProjects />

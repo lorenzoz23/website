@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Box,
-  Clock,
   Carousel,
   RangeInput,
   Heading,
@@ -25,7 +24,6 @@ const WarZone = () => {
       {(size) => (
         <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
           <Box flex align="center" justify="center">
-            <Clock type="digital" />
             <Carousel controls="selectors" margin="medium" play={10000}>
               <Image fit="cover" src="website-images/niles.jpg" />
               <Image fit="cover" src="website-images/64slices.png" />
