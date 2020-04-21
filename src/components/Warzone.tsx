@@ -19,6 +19,10 @@ const WarZone = () => {
   const [showSidebar, setShowSidebar] = React.useState(false);
 
   const btnTxt = "i'm feeling like " + value + '% of my total self today!';
+  const url =
+    window.location.hostname === 'localhost'
+      ? 'http://localhost:3000/'
+      : 'https://lorenzoz.netlify.app/';
 
   return (
     <ResponsiveContext.Consumer>
@@ -49,8 +53,10 @@ const WarZone = () => {
               label="i'd like to go now..."
               icon={<Eject />}
               reverse={true}
+              href={url}
             />
           </Box>
+
           {!showSidebar || size !== 'small' ? (
             <Collapsible direction="horizontal" open={showSidebar}>
               <Box
