@@ -19,10 +19,7 @@ const WarZone = () => {
   const [showSidebar, setShowSidebar] = React.useState(false);
 
   const btnTxt = "i'm feeling like " + value + '% of my total self today!';
-  const url =
-    window.location.hostname === 'localhost'
-      ? 'http://localhost:3000/'
-      : 'https://lorenzoz.netlify.app/';
+  const url = '/';
 
   return (
     <ResponsiveContext.Consumer>
