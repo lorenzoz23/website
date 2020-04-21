@@ -3,7 +3,6 @@ import {
   Box,
   Carousel,
   RangeInput,
-  Heading,
   Image,
   ResponsiveContext,
   Button,
@@ -13,7 +12,7 @@ import {
   Layer,
   Markdown
 } from 'grommet';
-import { FormClose, Gift, Eject } from 'grommet-icons';
+import { FormClose, Gift } from 'grommet-icons';
 
 const WarZone = () => {
   const [value, setValue] = React.useState(23);

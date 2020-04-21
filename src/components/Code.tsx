@@ -37,7 +37,10 @@ const Code = () => {
           <h4 className="vertical-timeline-element-subtitle">
             react web application
           </h4>
-          <p>grommet ui, node.js</p>
+          <p>
+            my online portfolio; developed with typescript, grommet ui, and
+            node.js
+          </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
@@ -46,12 +49,16 @@ const Code = () => {
           icon={<Car color="brand" />}
         >
           <h3 className="vertical-timeline-element-title">
-            parkour - a parking sharing system
+            parkour - a residential parking sharing system
           </h3>
           <h4 className="vertical-timeline-element-subtitle">
             react native mobile application
           </h4>
-          <p>senior design project, mern stack, typescript</p>
+          <p>
+            senior design project that allows users to find parking spaces or
+            host parking spaces; developed using the mern stack, typescript, and
+            redux
+          </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
@@ -59,13 +66,15 @@ const Code = () => {
           iconStyle={{ background: '#71F981' }}
           icon={<Play color="brand" />}
         >
-          <h3 className="vertical-timeline-element-title">
-            react music editor
-          </h3>
+          <h3 className="vertical-timeline-element-title">music editor</h3>
           <h4 className="vertical-timeline-element-subtitle">
             react web application
           </h4>
-          <p>mern stack, typescript, grommet ui</p>
+          <p>
+            passion project with a friend, similar in nature to guitar pro but
+            with a social twist; developed using mern stack, typescript, grommet
+            ui
+          </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
@@ -77,7 +86,11 @@ const Code = () => {
           <h4 className="vertical-timeline-element-subtitle">
             java application
           </h4>
-          <p>bfs, web graphs, hashmaps</p>
+          <p>
+            a rudimentary implementation of a search engine that crawls the web,
+            downloads contents of web pages, and constructs web graph; developed
+            using bfs, directed graphs, and hashmaps
+          </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
@@ -88,8 +101,9 @@ const Code = () => {
           <h3 className="vertical-timeline-element-title">unix-style shell</h3>
           <h4 className="vertical-timeline-element-subtitle">c program</h4>
           <p>
-            unix commands, pipe/more filter, forking, i/o redirection,
-            background execution
+            a simple shell implementation which features support for unix
+            commands, pipe/more filter, forking, i/o redirection, and background
+            execution
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -104,7 +118,11 @@ const Code = () => {
           <h4 className="vertical-timeline-element-subtitle">
             mac desktop application
           </h4>
-          <p>swift, xcode, alamofire, github api</p>
+          <p>
+            used to better support buildtrend mobile developers in maintaining
+            their JSON mock data for ui testing; developed with swift, xcode,
+            alamofire, and github api
+          </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
@@ -116,7 +134,11 @@ const Code = () => {
           <h4 className="vertical-timeline-element-subtitle">
             react web application
           </h4>
-          <p>ant design ui, node.js, c#, .net core</p>
+          <p>
+            web app to help users of buildertrend's software easily identify and
+            register software issues; developed using ant design ui, node.js,
+            c#, and .net core
+          </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
@@ -124,11 +146,16 @@ const Code = () => {
           iconStyle={{ background: '#71F981' }}
           icon={<Android color="brand" />}
         >
-          <h3 className="vertical-timeline-element-title">alarm clock app</h3>
+          <h3 className="vertical-timeline-element-title">
+            alarmitron - alarm clock app
+          </h3>
           <h4 className="vertical-timeline-element-subtitle">
             android mobile application
           </h4>
-          <p>java, spring boot, mysql</p>
+          <p>
+            a simple android alarm clock app built with three friends over one
+            semester; developed using java, spring boot, and mysql
+          </p>
         </VerticalTimelineElement>
       </VerticalTimeline>
     </Box>
