@@ -10,7 +10,8 @@ import {
   Collapsible,
   Text,
   Video,
-  Layer
+  Layer,
+  Markdown
 } from 'grommet';
 import { FormClose, Gift, Eject } from 'grommet-icons';
 
@@ -19,16 +20,16 @@ const WarZone = () => {
   const [showSidebar, setShowSidebar] = React.useState(false);
 
   const btnTxt = "i'm feeling like " + value + '% of my total self today!';
-  const url = '/';
 
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
         <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
-          <Box flex align="center" justify="center">
-            <Heading level="3">
-              welcome to my demented playground of UI fun!
-            </Heading>
+          <Box flex align="center" justify="center" gap="small">
+            <Markdown>
+              **welcome to my demented playground of UI fun where there's
+              nowhere to [go](/) but down!**
+            </Markdown>
             <Carousel controls="selectors" margin="small" play={10000}>
               <Image fit="cover" src="website-images/niles.jpg" />
               <Image fit="cover" src="website-images/64slices.png" />
@@ -45,13 +46,6 @@ const WarZone = () => {
               icon={<Gift />}
               margin="small"
               onClick={() => setShowSidebar(!showSidebar)}
-            />
-            <Button
-              primary={true}
-              label="i'd like to go now..."
-              icon={<Eject />}
-              reverse={true}
-              href={url}
             />
           </Box>
 

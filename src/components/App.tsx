@@ -10,7 +10,8 @@ import {
   Avatar,
   Nav,
   Anchor,
-  Clock
+  Clock,
+  Text
 } from 'grommet';
 import { Home, Github, Linkedin, Youtube } from 'grommet-icons';
 import {
@@ -24,7 +25,8 @@ import {
 import HomePage from './HomePage';
 import WarZone from './Warzone';
 import { default as CodeProjects } from './Code';
-import { default as MusicProjects } from './Music';
+import Hobbies from './Hobbies';
+import Experience from './Experience';
 
 const theme = {
   global: {
@@ -83,6 +85,12 @@ function App() {
                     >
                       lorenzo zenitsky
                     </Heading>
+                    <Text textAlign="center">
+                      sofware engineer ||{' '}
+                      <Anchor href="mailto:lorenzoz@iastate.edu">
+                        lorenzoz@iastate.edu
+                      </Anchor>
+                    </Text>
                     <Nav direction="row" gap="xsmall" justify="center">
                       <Anchor
                         icon={<Github color="plain" />}
@@ -125,6 +133,17 @@ function App() {
                           {
                             label: (
                               <Link
+                                to="/experience"
+                                style={{ textDecoration: 'none' }}
+                              >
+                                experience
+                              </Link>
+                            ),
+                            onClick: () => {}
+                          },
+                          {
+                            label: (
+                              <Link
                                 to="/projects"
                                 style={{ textDecoration: 'none' }}
                               >
@@ -136,10 +155,10 @@ function App() {
                           {
                             label: (
                               <Link
-                                to="/music"
+                                to="/hobbies"
                                 style={{ textDecoration: 'none' }}
                               >
-                                music
+                                hobbies
                               </Link>
                             ),
                             onClick: () => {}
@@ -163,11 +182,14 @@ function App() {
                       <Tab title="home">
                         <Redirect to="/" />
                       </Tab>
+                      <Tab title="experience">
+                        <Redirect to="/experience" />
+                      </Tab>
                       <Tab title="projects">
                         <Redirect to="/projects" />
                       </Tab>
-                      <Tab title="music">
-                        <Redirect to="/music" />
+                      <Tab title="hobbies">
+                        <Redirect to="/hobbies" />
                       </Tab>
                       <Tab title="the yada yada">
                         <Redirect to="/yikes" />
@@ -182,9 +204,14 @@ function App() {
                   direction="row-reverse"
                 >
                   <Avatar
+                    border={{
+                      color: '#71F981',
+                      size: 'medium',
+                      style: 'solid'
+                    }}
+                    round="full"
                     size="xlarge"
                     src="../website-images/64slices.png"
-                    onClick={() => {}}
                   />
                   <Clock type="digital" margin="small" />
                 </Box>
@@ -193,17 +220,20 @@ function App() {
                 direction="row"
                 flex
                 overflow={{ horizontal: 'hidden' }}
-                id="contentBox"
+                pad="medium"
               >
                 <Switch>
                   <Route path="/projects">
                     <CodeProjects />
                   </Route>
-                  <Route path="/music">
-                    <MusicProjects />
+                  <Route path="/hobbies">
+                    <Hobbies />
                   </Route>
                   <Route path="/yikes">
                     <WarZone />
+                  </Route>
+                  <Route path="/experience">
+                    <Experience />
                   </Route>
                   <Route path="/">
                     <HomePage />

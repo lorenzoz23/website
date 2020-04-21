@@ -1,44 +1,54 @@
-import React, { useEffect } from 'react';
-import { Box, Anchor } from 'grommet';
-import { Document, Page, pdfjs } from 'react-pdf';
+import React from 'react';
+import { Box, Heading, Paragraph, Text, Avatar } from 'grommet';
 
-import resume from '../component_assets/resume.pdf';
-import { View } from 'grommet-icons';
+import Resume from './Resume';
 
 const HomePage = () => {
-  useEffect(() => {
-    pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-  });
-
-  const downloadResume = () => {
-    window.open(resume, '_blank');
-  };
-
   return (
-    <Box
-      pad={{ top: '300px' }}
-      flex
-      direction="column"
-      align="center"
-      justify="center"
-      background="home"
-      gap="small"
-    >
-      <Document
-        file={resume}
-        noData="no data?! aw shucks..."
-        onLoadError={console.error}
-        error="Resume on break. Be back in 5."
-      >
-        <Page height={900} pageNumber={1} />
-      </Document>
-      <Anchor
-        margin="small"
-        icon={<View />}
-        reverse
-        label="click to open in browser"
-        onClick={downloadResume}
-      />
+    <Box flex direction="row" align="start" justify="around" background="home">
+      <Box>
+        <Avatar
+          border={{
+            color: 'brand',
+            size: 'small',
+            style: 'solid'
+          }}
+          round="full"
+          elevation="medium"
+          src="/website-images/site-512.png"
+          size="200px"
+          alignSelf="start"
+        />
+        <Heading textAlign="center">about me</Heading>
+        <Paragraph size="large" textAlign="end">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Paragraph>
+        <Text size="medium" textAlign="end">
+          - mr. under-construction
+        </Text>
+        <Heading textAlign="center">about me</Heading>
+        <Avatar
+          border={{
+            color: 'brand',
+            size: 'small',
+            style: 'solid'
+          }}
+          round="full"
+          elevation="medium"
+          src="/website-images/site-512.png"
+          size="200px"
+          alignSelf="end"
+        />
+      </Box>
+      <Box>
+        <Resume />
+      </Box>
     </Box>
   );
 };
