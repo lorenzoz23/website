@@ -43,6 +43,7 @@ const WarZone = () => {
             <Button
               hoverIndicator
               icon={<Gift />}
+              margin="small"
               onClick={() => setShowSidebar(!showSidebar)}
             />
             <Button

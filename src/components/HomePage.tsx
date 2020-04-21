@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { Box, Button } from 'grommet';
+import { Box, Anchor } from 'grommet';
 import { Document, Page, pdfjs } from 'react-pdf';
 
 import resume from '../component_assets/resume.pdf';
+import { View } from 'grommet-icons';
 
 const HomePage = () => {
   useEffect(() => {
@@ -31,7 +32,13 @@ const HomePage = () => {
       >
         <Page height={900} pageNumber={1} />
       </Document>
-      <Button margin="small" label="download resume" onClick={downloadResume} />
+      <Anchor
+        margin="small"
+        icon={<View />}
+        reverse
+        label="click to open in browser"
+        onClick={downloadResume}
+      />
     </Box>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box,
   Grommet,
@@ -25,7 +25,6 @@ import HomePage from './HomePage';
 import WarZone from './Warzone';
 import { default as CodeProjects } from './Code';
 import { default as MusicProjects } from './Music';
-import ScrollToTopButton from './ScrollToTopButton';
 
 const theme = {
   global: {
@@ -59,31 +58,6 @@ const AppBar = (props: any) => (
 );
 
 function App() {
-  const [scrollVisibility, setScrollVisibility] = useState('none');
-
-  const scrollToTop = () => {
-    //document.body.scrollTop = 0; // For Safari
-    //document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-
-    console.log('scroll to top');
-  };
-
-  const scroll = () => {
-    const box = document.getElementById('contentBox');
-
-    console.log(document.scrollingElement?.scrollTop);
-    if (window.pageYOffset < 10) {
-      setScrollVisibility('inline');
-    } else {
-      setScrollVisibility('none');
-    }
-  };
-
   return (
     <Grommet theme={theme} full>
       <ResponsiveContext.Consumer>
@@ -220,7 +194,6 @@ function App() {
                 flex
                 overflow={{ horizontal: 'hidden' }}
                 id="contentBox"
-                onScroll={scroll}
               >
                 <Switch>
                   <Route path="/projects">
@@ -234,10 +207,6 @@ function App() {
                   </Route>
                   <Route path="/">
                     <HomePage />
-                    <ScrollToTopButton
-                      scrollToTop={scrollToTop}
-                      scrollVisibility={scrollVisibility}
-                    />
                   </Route>
                 </Switch>
               </Box>
