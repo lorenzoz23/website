@@ -8,7 +8,8 @@ import {
   Swift,
   Android,
   Car,
-  Yoga
+  Yoga,
+  Multimedia
 } from 'grommet-icons';
 
 import {
@@ -29,7 +30,7 @@ const Code = () => {
       <VerticalTimeline>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="apr, 2020 - present"
+          date="apr 2020 - present"
           iconStyle={{ background: '#71F981' }}
           icon={<Yoga color="brand" />}
         >
@@ -44,7 +45,7 @@ const Code = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="jan, 2020 - present"
+          date="jan 2020 - present"
           iconStyle={{ background: '#71F981' }}
           icon={<Car color="brand" />}
         >
@@ -62,23 +63,7 @@ const Code = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="aug, 2019 - present"
-          iconStyle={{ background: '#71F981' }}
-          icon={<Play color="brand" />}
-        >
-          <h3 className="vertical-timeline-element-title">music editor</h3>
-          <h4 className="vertical-timeline-element-subtitle">
-            react web application
-          </h4>
-          <p>
-            passion project with a friend, similar in nature to guitar pro but
-            with a social twist; developed using mern stack, typescript, grommet
-            ui
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="nov, 2019"
+          date="nov 2019"
           iconStyle={{ background: '#71F981' }}
           icon={<Language color="brand" />}
         >
@@ -94,7 +79,7 @@ const Code = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="oct, 2019"
+          date="oct 2019"
           iconStyle={{ background: '#71F981' }}
           icon={<System color="brand" />}
         >
@@ -108,7 +93,39 @@ const Code = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="jun - aug, 2019"
+          date="oct - dec 2019"
+          iconStyle={{ background: '#71F981' }}
+          icon={<Multimedia color="brand" />}
+        >
+          <h3 className="vertical-timeline-element-title">collections</h3>
+          <h4 className="vertical-timeline-element-subtitle">
+            react web application
+          </h4>
+          <p>
+            web app to help users keep track of their film collection to better
+            avoid repeat purchases; developed using ant design ui and the mern
+            stack
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          date="aug 2019 - present"
+          iconStyle={{ background: '#71F981' }}
+          icon={<Play color="brand" />}
+        >
+          <h3 className="vertical-timeline-element-title">music editor</h3>
+          <h4 className="vertical-timeline-element-subtitle">
+            react web application
+          </h4>
+          <p>
+            passion project with a friend, similar in nature to guitar pro but
+            with a social twist; developed using mern stack, typescript, grommet
+            ui
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          date="jun - aug 2019"
           iconStyle={{ background: '#71F981' }}
           icon={<Swift color="brand" />}
         >
@@ -126,7 +143,7 @@ const Code = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="may - jun, 2019"
+          date="may - jun 2019"
           iconStyle={{ background: '#71F981' }}
           icon={<Reactjs color="brand" />}
         >
@@ -142,7 +159,7 @@ const Code = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          date="aug - dec, 2018"
+          date="aug - dec 2018"
           iconStyle={{ background: '#71F981' }}
           icon={<Android color="brand" />}
         >
