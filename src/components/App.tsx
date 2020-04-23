@@ -27,6 +27,7 @@ import WarZone from './Warzone';
 import { default as CodeProjects } from './Code';
 import Hobbies from './Hobbies';
 import Experience from './Experience';
+import AppBar from './AppBar';
 
 const theme = {
   global: {
@@ -42,23 +43,6 @@ const theme = {
   }
 };
 
-const AppBar = (props: any) => (
-  <Box
-    tag="header"
-    direction="row"
-    align="center"
-    justify="between"
-    background="home"
-    pad={{
-      left: 'medium',
-      right: 'medium',
-      vertical: 'small'
-    }}
-    style={{ zIndex: '1' }}
-    {...props}
-  />
-);
-
 function App() {
   return (
     <Grommet theme={theme} full>
@@ -67,50 +51,132 @@ function App() {
           <Router>
             <Box fill background="home" pad={{ bottom: 'small' }}>
               <AppBar>
-                <Box direction="row">
-                  <Box
-                    round
-                    pad="small"
-                    border={{
-                      color: '#71F981',
-                      size: 'small',
-                      style: 'outset',
-                      side: 'all'
-                    }}
-                  >
-                    <Heading
-                      style={{ textAlign: 'center' }}
-                      level="2"
-                      margin="none"
-                    >
-                      lorenzo zenitsky
-                    </Heading>
-                    <Text textAlign="center">
-                      sofware engineer ||{' '}
-                      <Anchor href="mailto:lorenzoz@iastate.edu">
-                        lorenzoz@iastate.edu
-                      </Anchor>
-                    </Text>
-                    <Nav direction="row" gap="xsmall" justify="center">
-                      <Anchor
-                        icon={<Github color="plain" />}
-                        target="_blank"
-                        href="https://github.com/lorenzoz23"
-                      />
-                      <Anchor
-                        icon={<Linkedin color="plain" />}
-                        target="_blank"
-                        href="https://www.linkedin.com/in/lorenzo-zenitsky-823257171/"
-                      />
-                      <Anchor
-                        icon={<Youtube color="plain" />}
-                        target="_blank"
-                        href="https://www.youtube.com/user/gdzenitsky"
-                      />
-                    </Nav>
-                  </Box>
-                  {size === 'small' ? (
+                {size !== 'small' ? (
+                  <Box direction="row" align="center" flex justify="between">
+                    <Box direction="row">
+                      <Box
+                        round
+                        pad="small"
+                        border={{
+                          color: '#71F981',
+                          size: 'small',
+                          style: 'outset',
+                          side: 'all'
+                        }}
+                      >
+                        <Heading
+                          style={{ textAlign: 'center' }}
+                          level="2"
+                          margin="none"
+                        >
+                          lorenzo zenitsky
+                        </Heading>
+                        <Text textAlign="center">
+                          sofware engineer ||{' '}
+                          <Anchor href="mailto:lorenzoz@iastate.edu">
+                            lorenzoz@iastate.edu
+                          </Anchor>
+                        </Text>
+                        <Nav direction="row" gap="xsmall" justify="center">
+                          <Anchor
+                            icon={<Github color="plain" />}
+                            target="_blank"
+                            href="https://github.com/lorenzoz23"
+                          />
+                          <Anchor
+                            icon={<Linkedin color="plain" />}
+                            target="_blank"
+                            href="https://www.linkedin.com/in/lorenzo-zenitsky-823257171/"
+                          />
+                          <Anchor
+                            icon={<Youtube color="plain" />}
+                            target="_blank"
+                            href="https://www.youtube.com/user/gdzenitsky"
+                          />
+                        </Nav>
+                      </Box>
+                      <Tabs alignSelf="center" margin="small">
+                        <Tab title="home">
+                          <Redirect to="/" />
+                        </Tab>
+                        <Tab title="experience">
+                          <Redirect to="/experience" />
+                        </Tab>
+                        <Tab title="projects">
+                          <Redirect to="/projects" />
+                        </Tab>
+                        <Tab title="hobbies">
+                          <Redirect to="/hobbies" />
+                        </Tab>
+                        <Tab title="the yada yada">
+                          <Redirect to="/yikes" />
+                        </Tab>
+                      </Tabs>
+                    </Box>
                     <Box
+                      pad={{ right: 'small' }}
+                      animation="pulse"
+                      //alignContent="center"
+                      direction="row-reverse"
+                    >
+                      <Avatar
+                        border={{
+                          color: '#71F981',
+                          size: 'small',
+                          style: 'solid'
+                        }}
+                        round="full"
+                        size="xlarge"
+                        src="../website-images/64slices.png"
+                      />
+                      <Clock type="digital" margin="small" />
+                    </Box>
+                  </Box>
+                ) : (
+                  <Box gap="small" align="center">
+                    <Box
+                      round
+                      pad="small"
+                      border={{
+                        color: '#71F981',
+                        size: 'small',
+                        style: 'outset',
+                        side: 'all'
+                      }}
+                    >
+                      <Heading
+                        style={{ textAlign: 'center' }}
+                        level="2"
+                        margin="none"
+                      >
+                        lorenzo zenitsky
+                      </Heading>
+                      <Text textAlign="center">
+                        sofware engineer ||{' '}
+                        <Anchor href="mailto:lorenzoz@iastate.edu">
+                          lorenzoz@iastate.edu
+                        </Anchor>
+                      </Text>
+                      <Nav direction="row" gap="xsmall" justify="center">
+                        <Anchor
+                          icon={<Github color="plain" />}
+                          target="_blank"
+                          href="https://github.com/lorenzoz23"
+                        />
+                        <Anchor
+                          icon={<Linkedin color="plain" />}
+                          target="_blank"
+                          href="https://www.linkedin.com/in/lorenzo-zenitsky-823257171/"
+                        />
+                        <Anchor
+                          icon={<Youtube color="plain" />}
+                          target="_blank"
+                          href="https://www.youtube.com/user/gdzenitsky"
+                        />
+                      </Nav>
+                    </Box>
+                    <Box
+                      elevation="medium"
                       border={{
                         color: '#F1948A',
                         size: 'medium',
@@ -119,6 +185,9 @@ function App() {
                       }}
                     >
                       <Menu
+                        dropAlign={{
+                          top: 'bottom'
+                        }}
                         dropBackground="#71F981"
                         label={<Home />}
                         items={[
@@ -177,44 +246,8 @@ function App() {
                         ]}
                       />
                     </Box>
-                  ) : (
-                    <Tabs alignSelf="center" margin="small">
-                      <Tab title="home">
-                        <Redirect to="/" />
-                      </Tab>
-                      <Tab title="experience">
-                        <Redirect to="/experience" />
-                      </Tab>
-                      <Tab title="projects">
-                        <Redirect to="/projects" />
-                      </Tab>
-                      <Tab title="hobbies">
-                        <Redirect to="/hobbies" />
-                      </Tab>
-                      <Tab title="the yada yada">
-                        <Redirect to="/yikes" />
-                      </Tab>
-                    </Tabs>
-                  )}
-                </Box>
-                <Box
-                  pad={{ right: 'small' }}
-                  animation="pulse"
-                  alignContent="center"
-                  direction="row-reverse"
-                >
-                  <Avatar
-                    border={{
-                      color: '#71F981',
-                      size: 'medium',
-                      style: 'solid'
-                    }}
-                    round="full"
-                    size="xlarge"
-                    src="../website-images/64slices.png"
-                  />
-                  <Clock type="digital" margin="small" />
-                </Box>
+                  </Box>
+                )}
               </AppBar>
               <Box
                 direction="row"

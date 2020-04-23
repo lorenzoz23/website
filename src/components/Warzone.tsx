@@ -24,11 +24,18 @@ const WarZone = () => {
     <ResponsiveContext.Consumer>
       {(size) => (
         <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
-          <Box flex align="center" justify="center" gap="small">
-            <Markdown>
-              **welcome to my demented playground of UI fun where there's
-              nowhere to [go](/) but down!**
-            </Markdown>
+          <Box
+            flex
+            align="center"
+            justify={size === 'small' ? 'start' : 'center'}
+            gap="small"
+          >
+            <Text textAlign="center">
+              <Markdown>
+                **welcome to my demented playground of UI fun where there's
+                nowhere to [go](/) but down!**
+              </Markdown>
+            </Text>
             <Carousel controls="selectors" margin="small" play={10000}>
               <Image fit="cover" src="website-images/niles.jpg" />
               <Image fit="cover" src="website-images/64slices.png" />
@@ -48,7 +55,7 @@ const WarZone = () => {
             />
           </Box>
 
-          {!showSidebar || size !== 'small' ? (
+          {!showSidebar || (size !== 'small' && size !== 'medium') ? (
             <Collapsible direction="horizontal" open={showSidebar}>
               <Box
                 flex
@@ -58,7 +65,7 @@ const WarZone = () => {
                 align="center"
                 justify="center"
               >
-                <Video fit="cover">
+                <Video fit="cover" margin="small">
                   <source
                     key="video"
                     src="assets/yadayada.mp4"
@@ -76,7 +83,11 @@ const WarZone = () => {
               </Box>
             </Collapsible>
           ) : (
-            <Layer>
+            <Layer
+              animation
+              full="horizontal"
+              onClickOutside={() => setShowSidebar(false)}
+            >
               <Box
                 background="sidebar"
                 tag="header"
@@ -85,23 +96,15 @@ const WarZone = () => {
                 direction="row"
               >
                 <Button
-                  icon={<FormClose />}
+                  icon={<FormClose color="brand" />}
                   onClick={() => setShowSidebar(false)}
                 />
               </Box>
-              <Video fit="cover">
+              <Video fit="cover" margin="small">
                 <source
                   key="video"
                   src="assets/yadayada.mp4"
                   type="video/mp4"
-                />
-                <track
-                  key="cc"
-                  label="English"
-                  kind="subtitles"
-                  srcLang="en"
-                  src="assets/yadayada.mp4"
-                  default
                 />
               </Video>
             </Layer>
