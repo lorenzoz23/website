@@ -48,6 +48,7 @@ const WarZone = () => {
             />
             <Text textAlign="center">{btnTxt}</Text>
             <Button
+              primary
               hoverIndicator
               icon={<Gift />}
               margin="small"
