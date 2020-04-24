@@ -14,7 +14,7 @@ import {
   Text,
   Select
 } from 'grommet';
-import { Home, Github, Linkedin, Youtube, Magic } from 'grommet-icons';
+import { Home, Github, Linkedin, Youtube, Magic, Code } from 'grommet-icons';
 import {
   BrowserRouter as Router,
   Link,
@@ -311,21 +311,21 @@ function App() {
                 pad="medium"
               >
                 <Switch>
-                  <Route path="/projects">
-                    <CodeProjects mode={visualModeValue} />
-                  </Route>
-                  <Route path="/hobbies">
-                    <Hobbies />
-                  </Route>
-                  <Route path="/yikes">
-                    <WarZone />
-                  </Route>
-                  <Route path="/experience">
-                    <Experience mode={visualModeValue} />
-                  </Route>
-                  <Route path="/">
-                    <HomePage />
-                  </Route>
+                  <Route
+                    path="/projects"
+                    render={(props) => (
+                      <CodeProjects {...props} mode={visualModeValue} />
+                    )}
+                  />
+                  <Route path="/hobbies" component={Hobbies} />
+                  <Route path="/yikes" component={WarZone} />
+                  <Route
+                    path="/experience"
+                    render={(props) => (
+                      <Experience {...props} mode={visualModeValue} />
+                    )}
+                  />
+                  <Route path="/" component={HomePage} />
                 </Switch>
               </Box>
             </Box>
