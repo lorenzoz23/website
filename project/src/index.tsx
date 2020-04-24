@@ -12,6 +12,7 @@ import Experience from '../src/components/Experience';
 
 ReactDOM.render(
   <React.StrictMode>
+    <App />
     <Router>
       <Switch>
         <Route path="/projects" component={CodeProjects} />
