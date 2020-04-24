@@ -27,7 +27,7 @@ const WarZone = () => {
           <Box
             flex
             align="center"
-            justify={size === 'small' ? 'start' : 'center'}
+            justify={size !== 'large' ? 'start' : 'center'}
             gap="small"
           >
             <Text textAlign="center">
