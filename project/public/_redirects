@@ -1,7 +1,7 @@
 # Redirects from what the browser requests to what we serve
 
-/home       /
-/work	      /experience
-/code	      /projects
-/interests	/hobbies
-/yadayada		/yikes
+/* /index.html 200
+#/work	      https://lorenzoz.netlify.app/experience
+#/code	      https://lorenzoz.netlify.app/projects
+#/interests	https://lorenzoz.netlify.app/hobbies
+#/yadayada		https://lorenzoz.netlify.app/yikes
