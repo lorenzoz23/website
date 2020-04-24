@@ -1,7 +1,7 @@
 # Redirects from what the browser requests to what we serve
 
-/home		/
-/experience	/experience
-/projects	/projects
-/hobbies	/hobbies
-/yikes		/yikes
+/home       /
+/work	      /experience
+/code	      /projects
+/interests	/hobbies
+/yadayada		/yikes
