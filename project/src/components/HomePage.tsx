@@ -20,6 +20,7 @@ const HomePage = () => {
           align="start"
           justify="around"
           background="home"
+          overflow={{ horizontal: 'hidden' }}
         >
           {size === 'large' ? (
             <Box>
