@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Grommet,
@@ -11,9 +11,10 @@ import {
   Nav,
   Anchor,
   Clock,
-  Text
+  Text,
+  Select
 } from 'grommet';
-import { Home, Github, Linkedin, Youtube } from 'grommet-icons';
+import { Home, Github, Linkedin, Youtube, Magic } from 'grommet-icons';
 import {
   BrowserRouter as Router,
   Link,
@@ -29,7 +30,7 @@ import Hobbies from './Hobbies';
 import Experience from './Experience';
 import AppBar from './AppBar';
 
-const theme = {
+const themeLight = {
   global: {
     colors: {
       home: '#ECF0F1',
@@ -43,9 +44,39 @@ const theme = {
   }
 };
 
+const themeDark = {
+  global: {
+    colors: {
+      home: '#3F5173',
+      sidebar: '#8DDDEC'
+    },
+    font: {
+      family: 'Roboto',
+      size: '18px',
+      height: '20px'
+    }
+  },
+  select: {
+    background: '#71F981'
+  }
+};
+
 function App() {
+  const getInitialState = () => {
+    const mode = localStorage.getItem('visualModeValue') || 'light';
+
+    return mode;
+  };
+
+  const [visualModeValue, setVisualModeValue] = useState(getInitialState);
+
+  const setMode = (mode: string) => {
+    localStorage.setItem('visualModeValue', mode);
+    setVisualModeValue(mode);
+  };
+
   return (
-    <Grommet theme={theme} full>
+    <Grommet theme={visualModeValue === 'light' ? themeLight : themeDark} full>
       <ResponsiveContext.Consumer>
         {(size) => (
           <Router>
@@ -72,7 +103,7 @@ function App() {
                           lorenzo zenitsky
                         </Heading>
                         <Text textAlign="center">
-                          sofware engineer ||{' '}
+                          software engineer ||{' '}
                           <Anchor href="mailto:lorenzoz@iastate.edu">
                             lorenzoz@iastate.edu
                           </Anchor>
@@ -95,23 +126,35 @@ function App() {
                           />
                         </Nav>
                       </Box>
-                      <Tabs alignSelf="center" margin="small">
-                        <Tab title="home">
-                          <Redirect to="/" />
-                        </Tab>
-                        <Tab title="experience">
-                          <Redirect to="/experience" />
-                        </Tab>
-                        <Tab title="projects">
-                          <Redirect to="/projects" />
-                        </Tab>
-                        <Tab title="hobbies">
-                          <Redirect to="/hobbies" />
-                        </Tab>
-                        <Tab title="the yada yada">
-                          <Redirect to="/yikes" />
-                        </Tab>
-                      </Tabs>
+                      <Box direction={size === 'medium' ? 'column' : 'row'}>
+                        <Tabs alignSelf="center" margin="small">
+                          <Tab title="home">
+                            <Redirect to="/" />
+                          </Tab>
+                          <Tab title="experience">
+                            <Redirect to="/experience" />
+                          </Tab>
+                          <Tab title="projects">
+                            <Redirect to="/projects" />
+                          </Tab>
+                          <Tab title="hobbies">
+                            <Redirect to="/hobbies" />
+                          </Tab>
+                          <Tab title="the yada yada">
+                            <Redirect to="/yikes" />
+                          </Tab>
+                        </Tabs>
+                        <Box alignSelf="center">
+                          <Select
+                            disabled={visualModeValue === 'light' ? [0] : [1]}
+                            icon={<Magic />}
+                            onChange={({ option }) => setMode(option)}
+                            size="small"
+                            options={['light', 'dark']}
+                            placeholder="choose your visual style"
+                          />
+                        </Box>
+                      </Box>
                     </Box>
                     <Box
                       pad={{ right: 'small' }}
@@ -152,7 +195,7 @@ function App() {
                         lorenzo zenitsky
                       </Heading>
                       <Text textAlign="center">
-                        sofware engineer ||{' '}
+                        software engineer ||{' '}
                         <Anchor href="mailto:lorenzoz@iastate.edu">
                           lorenzoz@iastate.edu
                         </Anchor>
@@ -175,89 +218,101 @@ function App() {
                         />
                       </Nav>
                     </Box>
-                    <Box
-                      elevation="medium"
-                      border={{
-                        color: '#F1948A',
-                        size: 'medium',
-                        style: 'outset',
-                        side: 'all'
-                      }}
-                    >
-                      <Menu
-                        dropAlign={{
-                          top: 'bottom'
+                    <Box direction="row">
+                      <Box
+                        elevation="medium"
+                        border={{
+                          color: '#F1948A',
+                          size: 'medium',
+                          style: 'outset',
+                          side: 'all'
                         }}
-                        dropBackground="#71F981"
-                        label={<Home />}
-                        items={[
-                          {
-                            label: (
-                              <Link to="/" style={{ textDecoration: 'none' }}>
-                                home
-                              </Link>
-                            ),
-                            onClick: () => {}
-                          },
-                          {
-                            label: (
-                              <Link
-                                to="/experience"
-                                style={{ textDecoration: 'none' }}
-                              >
-                                experience
-                              </Link>
-                            ),
-                            onClick: () => {}
-                          },
-                          {
-                            label: (
-                              <Link
-                                to="/projects"
-                                style={{ textDecoration: 'none' }}
-                              >
-                                projects
-                              </Link>
-                            ),
-                            onClick: () => {}
-                          },
-                          {
-                            label: (
-                              <Link
-                                to="/hobbies"
-                                style={{ textDecoration: 'none' }}
-                              >
-                                hobbies
-                              </Link>
-                            ),
-                            onClick: () => {}
-                          },
-                          {
-                            label: (
-                              <Link
-                                to="/yikes"
-                                style={{ textDecoration: 'none' }}
-                              >
-                                the yada yada
-                              </Link>
-                            ),
-                            onClick: () => {}
-                          }
-                        ]}
-                      />
+                      >
+                        <Menu
+                          dropAlign={{
+                            top: 'bottom'
+                          }}
+                          dropBackground="#71F981"
+                          label={<Home />}
+                          items={[
+                            {
+                              label: (
+                                <Link to="/" style={{ textDecoration: 'none' }}>
+                                  home
+                                </Link>
+                              ),
+                              onClick: () => {}
+                            },
+                            {
+                              label: (
+                                <Link
+                                  to="/experience"
+                                  style={{ textDecoration: 'none' }}
+                                >
+                                  experience
+                                </Link>
+                              ),
+                              onClick: () => {}
+                            },
+                            {
+                              label: (
+                                <Link
+                                  to="/projects"
+                                  style={{ textDecoration: 'none' }}
+                                >
+                                  projects
+                                </Link>
+                              ),
+                              onClick: () => {}
+                            },
+                            {
+                              label: (
+                                <Link
+                                  to="/hobbies"
+                                  style={{ textDecoration: 'none' }}
+                                >
+                                  hobbies
+                                </Link>
+                              ),
+                              onClick: () => {}
+                            },
+                            {
+                              label: (
+                                <Link
+                                  to="/yikes"
+                                  style={{ textDecoration: 'none' }}
+                                >
+                                  the yada yada
+                                </Link>
+                              ),
+                              onClick: () => {}
+                            }
+                          ]}
+                        />
+                      </Box>
+                      <Box alignSelf="center" margin="small">
+                        <Select
+                          disabled={visualModeValue === 'light' ? [0] : [1]}
+                          icon={<Magic />}
+                          onChange={({ option }) => setMode(option)}
+                          size="small"
+                          options={['light', 'dark']}
+                          placeholder="choose your visual style"
+                        />
+                      </Box>
                     </Box>
                   </Box>
                 )}
               </AppBar>
               <Box
-                direction="row"
+                //direction="row"
                 flex
                 overflow={{ horizontal: 'hidden' }}
                 pad="medium"
               >
                 <Switch>
                   <Route path="/projects">
-                    <CodeProjects />
+                    <CodeProjects mode={visualModeValue} />
                   </Route>
                   <Route path="/hobbies">
                     <Hobbies />
@@ -266,7 +321,7 @@ function App() {
                     <WarZone />
                   </Route>
                   <Route path="/experience">
-                    <Experience />
+                    <Experience mode={visualModeValue} />
                   </Route>
                   <Route path="/">
                     <HomePage />

@@ -65,7 +65,7 @@ const HomePage = () => {
           ) : (
             <Box align="center">
               <Avatar
-                margin={{ top: 'large' }}
+                margin={{ top: 'medium' }}
                 border={{
                   color: 'brand',
                   size: 'small',

@@ -8,7 +8,7 @@ import {
 } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
-const Experience = () => {
+const Experience = (props: any) => {
   return (
     <Box
       flex
@@ -19,6 +19,16 @@ const Experience = () => {
     >
       <VerticalTimeline>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(33, 150, 243)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="jan 2020 - present"
           iconStyle={{ background: '#8DDDEC' }}
@@ -33,6 +43,16 @@ const Experience = () => {
           <p>maintainer of large codebase, performance tester</p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(233, 30, 99)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  rgb(233, 30, 99)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="may - aug 2019"
           iconStyle={{ background: '#8DDDEC' }}
@@ -50,6 +70,16 @@ const Experience = () => {
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(33, 150, 243)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="may 2015 - jun 2019"
           iconStyle={{ background: '#8DDDEC' }}
@@ -65,6 +95,16 @@ const Experience = () => {
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(233, 30, 99)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  rgb(233, 30, 99)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="mar - jun 2015"
           iconStyle={{ background: '#8DDDEC' }}

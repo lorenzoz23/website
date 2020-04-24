@@ -18,7 +18,7 @@ import {
 } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
-const Code = () => {
+const Code = (props: any) => {
   return (
     <Box
       flex
@@ -29,6 +29,16 @@ const Code = () => {
     >
       <VerticalTimeline>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(233, 30, 99)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  rgb(233, 30, 99)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="apr 2020 - present"
           iconStyle={{ background: '#71F981' }}
@@ -44,6 +54,16 @@ const Code = () => {
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(33, 150, 243)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="jan 2020 - present"
           iconStyle={{ background: '#71F981' }}
@@ -62,6 +82,16 @@ const Code = () => {
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(233, 30, 99)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  rgb(233, 30, 99)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="nov 2019"
           iconStyle={{ background: '#71F981' }}
@@ -78,6 +108,16 @@ const Code = () => {
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(33, 150, 243)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="oct 2019"
           iconStyle={{ background: '#71F981' }}
@@ -92,6 +132,16 @@ const Code = () => {
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(233, 30, 99)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  rgb(233, 30, 99)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="oct - dec 2019"
           iconStyle={{ background: '#71F981' }}
@@ -108,6 +158,16 @@ const Code = () => {
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(33, 150, 243)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="aug 2019 - present"
           iconStyle={{ background: '#71F981' }}
@@ -124,6 +184,16 @@ const Code = () => {
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(233, 30, 99)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  rgb(233, 30, 99)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="jun - aug 2019"
           iconStyle={{ background: '#71F981' }}
@@ -142,6 +212,16 @@ const Code = () => {
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(33, 150, 243)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="may - jun 2019"
           iconStyle={{ background: '#71F981' }}
@@ -158,6 +238,16 @@ const Code = () => {
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: 'rgb(233, 30, 99)' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid rgb(233, 30, 99)' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
           className="vertical-timeline-element--work"
           date="aug - dec 2018"
           iconStyle={{ background: '#71F981' }}
