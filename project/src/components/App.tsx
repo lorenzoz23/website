@@ -14,7 +14,7 @@ import {
   Text,
   Select
 } from 'grommet';
-import { Home, Github, Linkedin, Youtube, Magic, Code } from 'grommet-icons';
+import { Home, Github, Linkedin, Youtube, Magic } from 'grommet-icons';
 import {
   BrowserRouter as Router,
   Link,
