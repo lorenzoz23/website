@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Paragraph } from 'grommet';
+import { Box, Heading, Paragraph, Button } from 'grommet';
 import { Music, Ticket } from 'grommet-icons';
 
 const Hobbies = () => {
@@ -25,6 +25,7 @@ const Hobbies = () => {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </Paragraph>
+      <Button onClick={() => {}} label="trello" />
     </Box>
   );
 };
