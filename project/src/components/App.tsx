@@ -24,7 +24,6 @@ import {
 } from 'react-router-dom';
 
 import HomePage from './HomePage';
-import WarZone from './Warzone';
 import { default as CodeProjects } from './Code';
 import Hobbies from './Hobbies';
 import Experience from './Experience';
@@ -139,9 +138,6 @@ function App() {
                           </Tab>
                           <Tab title="hobbies">
                             <Redirect to="/hobbies" />
-                          </Tab>
-                          <Tab title="the yada yada">
-                            <Redirect to="/yikes" />
                           </Tab>
                         </Tabs>
                         <Box alignSelf="center">
@@ -275,17 +271,6 @@ function App() {
                                 </Link>
                               ),
                               onClick: () => {}
-                            },
-                            {
-                              label: (
-                                <Link
-                                  to="/yikes"
-                                  style={{ textDecoration: 'none' }}
-                                >
-                                  the yada yada
-                                </Link>
-                              ),
-                              onClick: () => {}
                             }
                           ]}
                         />
@@ -318,7 +303,6 @@ function App() {
                     )}
                   />
                   <Route path="/hobbies" component={Hobbies} />
-                  <Route path="/yikes" component={WarZone} />
                   <Route
                     path="/experience"
                     render={(props) => (
