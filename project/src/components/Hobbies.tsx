@@ -2,6 +2,8 @@ import React from 'react';
 import { Box, Heading, Paragraph } from 'grommet';
 import { Music, Ticket } from 'grommet-icons';
 
+import Trello from './Trello';
+
 const Hobbies = () => {
   return (
     <Box
@@ -25,6 +27,15 @@ const Hobbies = () => {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </Paragraph>
+      <Box direction="row" gap="small">
+        <Trello id="268G14hT" btnLabel="metal" divLabel="metal-2020" />
+        <Trello id="KKDGm1Bx" btnLabel="website" divLabel="website" />
+        <Trello
+          id="aHi0ZFuA"
+          btnLabel="indie"
+          divLabel="indie-alternative-2020"
+        />
+      </Box>
     </Box>
   );
 };
