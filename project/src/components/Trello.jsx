@@ -43,13 +43,16 @@ function Trello(props) {
     const boardTileJs = loadScript();
     console.log(boardTileJs);
     boardTileJs.onload = function () {
+      console.log('about to fetch');
       fetch(
         `https://api.trello.com/1/board/${props.id}?fields=name,prefs,url&structure=all&organization=true&organization_fields=displayName`
       )
         .then(function (resp) {
+          console.log('fetched');
           return resp.json();
         })
         .then(function (board) {
+          console.log('creating new trello board');
           const TrelloBoard = customElements.get('trello-board-tile');
           const boardTileEl = new TrelloBoard();
           boardTileEl.board = board;
