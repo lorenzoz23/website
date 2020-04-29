@@ -43,6 +43,7 @@ const Resume = () => {
           ) : null}
           <Anchor
             alignSelf="center"
+            margin="small"
             icon={<View />}
             reverse
             label={

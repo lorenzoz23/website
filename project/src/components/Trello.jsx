@@ -34,15 +34,7 @@ function Trello(props) {
   };
   const getTrello = function () {
     const container = document.getElementById(props.divLabel);
-    container.innerHTML = (
-      <a
-        target="_blank"
-        rel="noreferrer noopener"
-        href={`https://trello.com/b/${props.id}/${props.divLabel}`}
-      >
-        click here if still loading
-      </a>
-    );
+    container.innerHTML = 'loading...';
 
     const boardTileJs = loadScript();
 
