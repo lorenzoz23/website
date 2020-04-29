@@ -7,7 +7,9 @@ function Trello(props) {
   });
 
   const loadScript = function () {
+    console.log('loading');
     if (!customElements.get('trello-script')) {
+      console.log('not defined');
       customElements.define(
         'trello-script',
         class extends HTMLScriptElement {
@@ -25,6 +27,7 @@ function Trello(props) {
       document.head.appendChild(boardTileJs);
       return boardTileJs;
     } else {
+      console.log('defined');
       const boardTileJs = document.createElement('script', {
         is: 'trello-script'
       });
@@ -38,7 +41,7 @@ function Trello(props) {
       'if trello board is not appearing, click the button below';
 
     const boardTileJs = loadScript();
-
+    console.log(boardTileJs);
     boardTileJs.onload = function () {
       fetch(
         `https://api.trello.com/1/board/${props.id}?fields=name,prefs,url&structure=all&organization=true&organization_fields=displayName`
