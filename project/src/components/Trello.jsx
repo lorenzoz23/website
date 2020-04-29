@@ -34,7 +34,7 @@ function Trello(props) {
   };
   const getTrello = function () {
     const container = document.getElementById(props.divLabel);
-    container.innerText = (
+    container.innerHTML = (
       <Anchor
         label="click here if still loading"
         target="_blank"
