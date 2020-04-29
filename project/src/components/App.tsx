@@ -40,7 +40,7 @@ const themeLight = {
   global: {
     colors: {
       home: '#ECF0F1',
-      sidebar: '#8DDDEC'
+      sidebar: '#accent-3'
     },
     font: {
       family: 'Roboto',
@@ -53,17 +53,16 @@ const themeLight = {
 const themeDark = {
   global: {
     colors: {
-      home: '#3F5173',
-      sidebar: '#8DDDEC'
+      home: '#363E4B',
+      //home: '#3F5173',
+      sidebar: '#8DDDEC',
+      accent1: '#8DDDEC'
     },
     font: {
       family: 'Roboto',
       size: '18px',
       height: '20px'
     }
-  },
-  select: {
-    background: '#71F981'
   }
 };
 
@@ -95,7 +94,7 @@ function App() {
                         round
                         pad="small"
                         border={{
-                          color: '#71F981',
+                          color: 'accent-1',
                           size: 'small',
                           style: 'outset',
                           side: 'all'
@@ -106,7 +105,15 @@ function App() {
                           level="2"
                           margin="none"
                         >
-                          lorenzo zenitsky
+                          <Anchor
+                            title="home"
+                            href="/"
+                            color={
+                              visualModeValue === 'dark' ? 'light-1' : 'dark-1'
+                            }
+                          >
+                            lorenzo zenitsky
+                          </Anchor>
                         </Heading>
                         <Text textAlign="center">
                           software engineer |{' '}
@@ -117,13 +124,29 @@ function App() {
                         <Nav direction="row" gap="xsmall" justify="center">
                           <Anchor
                             title="GitHub"
-                            icon={<Github color="plain" />}
+                            icon={
+                              <Github
+                                color={
+                                  visualModeValue === 'light'
+                                    ? 'plain'
+                                    : 'dark-3'
+                                }
+                              />
+                            }
                             target="_blank"
                             href="https://github.com/lorenzoz23"
                           />
                           <Anchor
                             title="LinkedIn"
-                            icon={<Linkedin color="plain" />}
+                            icon={
+                              <Linkedin
+                                color={
+                                  visualModeValue === 'light'
+                                    ? 'plain'
+                                    : '#00BBFF'
+                                }
+                              />
+                            }
                             target="_blank"
                             href="https://www.linkedin.com/in/lorenzo-zenitsky-823257171/"
                           />
@@ -135,7 +158,15 @@ function App() {
                           />
                           <Anchor
                             title="letterboxd"
-                            icon={<Multimedia color="plain" />}
+                            icon={
+                              <Multimedia
+                                color={
+                                  visualModeValue === 'light'
+                                    ? 'plain'
+                                    : 'dark-3'
+                                }
+                              />
+                            }
                             target="_blank"
                             href="https://letterboxd.com/lorenzoz/"
                           />
@@ -170,20 +201,22 @@ function App() {
                     </Box>
                     <Box
                       pad={{ right: 'small' }}
-                      animation="pulse"
+                      animation={{ type: 'pulse', duration: 500 }}
                       //alignContent="center"
                       direction="row-reverse"
                     >
-                      <Avatar
-                        border={{
-                          color: '#71F981',
-                          size: 'small',
-                          style: 'solid'
-                        }}
-                        round="full"
-                        size="xlarge"
-                        src="../website-images/64slices.png"
-                      />
+                      <Anchor href="/" title="home">
+                        <Avatar
+                          border={{
+                            color: 'accent-1',
+                            size: 'small',
+                            style: 'solid'
+                          }}
+                          round="full"
+                          size="xlarge"
+                          src="../website-images/64slices.png"
+                        />
+                      </Anchor>
                       <Clock type="digital" margin="small" />
                     </Box>
                   </Box>
@@ -193,7 +226,7 @@ function App() {
                       round
                       pad="small"
                       border={{
-                        color: '#71F981',
+                        color: 'accent-1',
                         size: 'small',
                         style: 'outset',
                         side: 'all'
@@ -204,7 +237,14 @@ function App() {
                         level="2"
                         margin="none"
                       >
-                        lorenzo zenitsky
+                        <Anchor
+                          href="/"
+                          color={
+                            visualModeValue === 'dark' ? 'light-1' : 'dark-1'
+                          }
+                        >
+                          lorenzo zenitsky
+                        </Anchor>
                       </Heading>
                       <Text textAlign="center">
                         software engineer |{' '}
@@ -214,12 +254,26 @@ function App() {
                       </Text>
                       <Nav direction="row" gap="xsmall" justify="center">
                         <Anchor
-                          icon={<Github color="plain" />}
+                          icon={
+                            <Github
+                              color={
+                                visualModeValue === 'light' ? 'plain' : 'dark-3'
+                              }
+                            />
+                          }
                           target="_blank"
                           href="https://github.com/lorenzoz23"
                         />
                         <Anchor
-                          icon={<Linkedin color="plain" />}
+                          icon={
+                            <Linkedin
+                              color={
+                                visualModeValue === 'light'
+                                  ? 'plain'
+                                  : '#00BBFF'
+                              }
+                            />
+                          }
                           target="_blank"
                           href="https://www.linkedin.com/in/lorenzo-zenitsky-823257171/"
                         />
@@ -228,23 +282,27 @@ function App() {
                           target="_blank"
                           href="https://www.youtube.com/user/gdzenitsky"
                         />
+                        <Anchor
+                          title="letterboxd"
+                          icon={
+                            <Multimedia
+                              color={
+                                visualModeValue === 'light' ? 'plain' : 'dark-3'
+                              }
+                            />
+                          }
+                          target="_blank"
+                          href="https://letterboxd.com/lorenzoz/"
+                        />
                       </Nav>
                     </Box>
                     <Box direction="row">
-                      <Box
-                        elevation="medium"
-                        border={{
-                          color: '#F1948A',
-                          size: 'medium',
-                          style: 'outset',
-                          side: 'all'
-                        }}
-                      >
+                      <Box alignSelf="center">
                         <Menu
                           dropAlign={{
                             top: 'bottom'
                           }}
-                          dropBackground="#71F981"
+                          dropBackground="accent-1"
                           label={<Home />}
                           items={[
                             {
@@ -291,14 +349,14 @@ function App() {
                           ]}
                         />
                       </Box>
-                      <Box alignSelf="center" margin="small">
+                      <Box alignSelf="center" margin="small" width="xsmall">
                         <Select
                           disabled={visualModeValue === 'light' ? [0] : [1]}
-                          icon={<Magic />}
+                          icon={<Magic color="plain" />}
                           onChange={({ option }) => setMode(option)}
                           size="small"
                           options={['light', 'dark']}
-                          placeholder="choose your visual style"
+                          placeholder="mode"
                         />
                       </Box>
                     </Box>

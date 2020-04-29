@@ -21,18 +21,26 @@ const Experience = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(33, 150, 243)' }
+              ? { background: '#00739D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+              ? { borderRight: '7px solid  #00739D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="jan 2020 - present"
-          iconStyle={{ background: '#8DDDEC' }}
-          icon={<VmMaintenance color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#8DDDEC' }
+          }
+          icon={
+            <VmMaintenance
+              color={props.mode === 'dark' ? 'accent-1' : 'brand'}
+            />
+          }
         >
           <h3 className="vertical-timeline-element-title">
             data science student worker
@@ -45,18 +53,24 @@ const Experience = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(233, 30, 99)' }
+              ? { background: '#A2423D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid  rgb(233, 30, 99)' }
+              ? { borderRight: '7px solid  #A2423D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="may - aug 2019"
-          iconStyle={{ background: '#8DDDEC' }}
-          icon={<Reactjs color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#8DDDEC' }
+          }
+          icon={
+            <Reactjs color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
+          }
         >
           <h3 className="vertical-timeline-element-title">
             software development intern
@@ -72,18 +86,22 @@ const Experience = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(33, 150, 243)' }
+              ? { background: '#00739D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+              ? { borderRight: '7px solid  #00739D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="may 2015 - jun 2019"
-          iconStyle={{ background: '#8DDDEC' }}
-          icon={<Ticket color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#8DDDEC' }
+          }
+          icon={<Ticket color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
         >
           <h3 className="vertical-timeline-element-title">food/drink server</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -97,18 +115,22 @@ const Experience = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(233, 30, 99)' }
+              ? { background: '#A2423D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid  rgb(233, 30, 99)' }
+              ? { borderRight: '7px solid  #A2423D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="mar - jun 2015"
-          iconStyle={{ background: '#8DDDEC' }}
-          icon={<Music color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#8DDDEC' }
+          }
+          icon={<Music color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
         >
           <h3 className="vertical-timeline-element-title">guitar luthier</h3>
           <h4 className="vertical-timeline-element-subtitle">

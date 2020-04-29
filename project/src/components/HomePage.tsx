@@ -31,7 +31,6 @@ const HomePage = () => {
                   style: 'solid'
                 }}
                 round="full"
-                elevation="small"
                 src="/website-images/site-512.png"
                 size="200px"
                 alignSelf="start"
@@ -57,7 +56,6 @@ const HomePage = () => {
                   style: 'solid'
                 }}
                 round="full"
-                elevation="small"
                 src="/website-images/site-512.png"
                 size="200px"
                 alignSelf="end"
@@ -73,9 +71,8 @@ const HomePage = () => {
                   style: 'solid'
                 }}
                 round="full"
-                elevation="medium"
                 src="/website-images/site-512.png"
-                size="200px"
+                size={size === 'medium' ? '200px' : '125px'}
                 alignSelf="center"
               />
               <Heading textAlign="center">about me</Heading>

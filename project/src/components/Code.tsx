@@ -31,18 +31,22 @@ const Code = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(233, 30, 99)' }
+              ? { background: '#A2423D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid  rgb(233, 30, 99)' }
+              ? { borderRight: '7px solid  #A2423D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="apr 2020 - present"
-          iconStyle={{ background: '#71F981' }}
-          icon={<Yoga color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#6FFFB0' }
+          }
+          icon={<Yoga color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
         >
           <h3 className="vertical-timeline-element-title">personal website</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -56,18 +60,22 @@ const Code = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(33, 150, 243)' }
+              ? { background: '#00739D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+              ? { borderRight: '7px solid  #00739D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="jan 2020 - present"
-          iconStyle={{ background: '#71F981' }}
-          icon={<Car color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#6FFFB0' }
+          }
+          icon={<Car color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
         >
           <h3 className="vertical-timeline-element-title">
             parkour - a residential parking sharing system
@@ -84,18 +92,24 @@ const Code = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(233, 30, 99)' }
+              ? { background: '#A2423D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid  rgb(233, 30, 99)' }
+              ? { borderRight: '7px solid  #A2423D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="nov 2019"
-          iconStyle={{ background: '#71F981' }}
-          icon={<Language color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#6FFFB0' }
+          }
+          icon={
+            <Language color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
+          }
         >
           <h3 className="vertical-timeline-element-title">web search engine</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -110,18 +124,22 @@ const Code = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(33, 150, 243)' }
+              ? { background: '#00739D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+              ? { borderRight: '7px solid  #00739D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="oct 2019"
-          iconStyle={{ background: '#71F981' }}
-          icon={<System color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#6FFFB0' }
+          }
+          icon={<System color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
         >
           <h3 className="vertical-timeline-element-title">unix-style shell</h3>
           <h4 className="vertical-timeline-element-subtitle">c program</h4>
@@ -134,18 +152,24 @@ const Code = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(233, 30, 99)' }
+              ? { background: '#A2423D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid  rgb(233, 30, 99)' }
+              ? { borderRight: '7px solid  #A2423D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="oct - dec 2019"
-          iconStyle={{ background: '#71F981' }}
-          icon={<Multimedia color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#6FFFB0' }
+          }
+          icon={
+            <Multimedia color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
+          }
         >
           <h3 className="vertical-timeline-element-title">collections</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -160,18 +184,22 @@ const Code = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(33, 150, 243)' }
+              ? { background: '#00739D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+              ? { borderRight: '7px solid  #00739D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="aug 2019 - present"
-          iconStyle={{ background: '#71F981' }}
-          icon={<Play color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#6FFFB0' }
+          }
+          icon={<Play color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
         >
           <h3 className="vertical-timeline-element-title">music editor</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -186,18 +214,22 @@ const Code = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(233, 30, 99)' }
+              ? { background: '#A2423D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid  rgb(233, 30, 99)' }
+              ? { borderRight: '7px solid  #A2423D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="jun - aug 2019"
-          iconStyle={{ background: '#71F981' }}
-          icon={<Swift color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#6FFFB0' }
+          }
+          icon={<Swift color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
         >
           <h3 className="vertical-timeline-element-title">
             maintainer tool for ui testing
@@ -214,18 +246,24 @@ const Code = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(33, 150, 243)' }
+              ? { background: '#00739D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid  rgb(33, 150, 243)' }
+              ? { borderRight: '7px solid  #00739D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="may - jun 2019"
-          iconStyle={{ background: '#71F981' }}
-          icon={<Reactjs color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#6FFFB0' }
+          }
+          icon={
+            <Reactjs color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
+          }
         >
           <h3 className="vertical-timeline-element-title">issue tracker</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -240,18 +278,24 @@ const Code = (props: any) => {
         <VerticalTimelineElement
           contentStyle={
             props.mode === 'dark'
-              ? { background: 'rgb(233, 30, 99)' }
+              ? { background: '#A2423D' }
               : { background: 'rgb(255, 255, 255)' }
           }
           contentArrowStyle={
             props.mode === 'dark'
-              ? { borderRight: '7px solid rgb(233, 30, 99)' }
+              ? { borderRight: '7px solid #A2423D' }
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
           date="aug - dec 2018"
-          iconStyle={{ background: '#71F981' }}
-          icon={<Android color="brand" />}
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#6FFFB0' }
+          }
+          icon={
+            <Android color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
+          }
         >
           <h3 className="vertical-timeline-element-title">
             alarmitron - alarm clock app
