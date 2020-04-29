@@ -1,7 +1,11 @@
-import React from 'react';
-import { Button, Anchor } from 'grommet';
+import React, { useEffect } from 'react';
+import { Anchor, Box } from 'grommet';
 
 function Trello(props) {
+  useEffect(() => {
+    getTrello();
+  });
+
   const loadScript = function () {
     if (!customElements.get('trello-script')) {
       customElements.define(
@@ -52,16 +56,15 @@ function Trello(props) {
   };
 
   return (
-    <div id={props.divLabel}>
-      {window.customElements ? (
-        <Button label={props.btnLabel} onClick={getTrello} />
-      ) : (
+    <Box id={props.divLabel} width="medium" align="center">
+      {window.customElements ? null : (
+        //<Button label={props.btnLabel} onClick={getTrello} />
         <Anchor
           href={`https://trello.com/b/${props.id}/${props.divLabel}`}
           label={props.btnLabel}
         />
       )}
-    </div>
+    </Box>
   );
 }
 

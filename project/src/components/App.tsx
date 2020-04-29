@@ -14,7 +14,14 @@ import {
   Text,
   Select
 } from 'grommet';
-import { Home, Github, Linkedin, Youtube, Magic } from 'grommet-icons';
+import {
+  Home,
+  Github,
+  Linkedin,
+  Youtube,
+  Magic,
+  Multimedia
+} from 'grommet-icons';
 import {
   BrowserRouter as Router,
   Link,
@@ -102,26 +109,35 @@ function App() {
                           lorenzo zenitsky
                         </Heading>
                         <Text textAlign="center">
-                          software engineer ||{' '}
+                          software engineer |{' '}
                           <Anchor href="mailto:lorenzoz@iastate.edu">
                             lorenzoz@iastate.edu
                           </Anchor>
                         </Text>
                         <Nav direction="row" gap="xsmall" justify="center">
                           <Anchor
+                            title="GitHub"
                             icon={<Github color="plain" />}
                             target="_blank"
                             href="https://github.com/lorenzoz23"
                           />
                           <Anchor
+                            title="LinkedIn"
                             icon={<Linkedin color="plain" />}
                             target="_blank"
                             href="https://www.linkedin.com/in/lorenzo-zenitsky-823257171/"
                           />
                           <Anchor
+                            title="YouTube"
                             icon={<Youtube color="plain" />}
                             target="_blank"
                             href="https://www.youtube.com/user/gdzenitsky"
+                          />
+                          <Anchor
+                            title="letterboxd"
+                            icon={<Multimedia color="plain" />}
+                            target="_blank"
+                            href="https://letterboxd.com/lorenzoz/"
                           />
                         </Nav>
                       </Box>
@@ -191,7 +207,7 @@ function App() {
                         lorenzo zenitsky
                       </Heading>
                       <Text textAlign="center">
-                        software engineer ||{' '}
+                        software engineer |{' '}
                         <Anchor href="mailto:lorenzoz@iastate.edu">
                           lorenzoz@iastate.edu
                         </Anchor>

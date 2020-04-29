@@ -31,7 +31,7 @@ const HomePage = () => {
                   style: 'solid'
                 }}
                 round="full"
-                elevation="medium"
+                elevation="small"
                 src="/website-images/site-512.png"
                 size="200px"
                 alignSelf="start"
@@ -57,7 +57,7 @@ const HomePage = () => {
                   style: 'solid'
                 }}
                 round="full"
-                elevation="medium"
+                elevation="small"
                 src="/website-images/site-512.png"
                 size="200px"
                 alignSelf="end"
