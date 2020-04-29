@@ -30,7 +30,7 @@ const Hobbies = () => {
           <Heading level={2}>Trello Boards</Heading>
           <Box
             direction={size !== 'small' ? 'row' : 'column'}
-            gap={size !== 'small' ? 'large' : '200px'}
+            gap={size !== 'small' ? 'large' : '250px'}
             margin={{ bottom: size !== 'small' ? '250px' : '600px' }}
           >
             <Trello id="268G14hT" divLabel="metal-2020" />

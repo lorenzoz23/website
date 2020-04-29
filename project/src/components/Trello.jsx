@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Box } from 'grommet';
+import { Box, Button } from 'grommet';
 
 function Trello(props) {
   useEffect(() => {
@@ -55,7 +55,20 @@ function Trello(props) {
     };
   };
 
-  return <Box id={props.divLabel} width="medium" align="center" />;
+  return (
+    <Box gap="small">
+      <div id={props.divLabel} width="medium" align="center" />
+      <Button
+        primary
+        target="_blank"
+        size="small"
+        alignSelf="center"
+        title="click button if trello board is not loading"
+        label={props.divLabel}
+        href={`https://trello.com/b/${props.id}/${props.divLabel}`}
+      />
+    </Box>
+  );
 }
 
 export default Trello;
