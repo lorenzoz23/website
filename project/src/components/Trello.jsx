@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Box, Anchor } from 'grommet';
+import { Box } from 'grommet';
 
 function Trello(props) {
   useEffect(() => {
@@ -35,11 +35,13 @@ function Trello(props) {
   const getTrello = function () {
     const container = document.getElementById(props.divLabel);
     container.innerHTML = (
-      <Anchor
-        label="click here if still loading"
+      <a
         target="_blank"
+        rel="noreferrer noopener"
         href={`https://trello.com/b/${props.id}/${props.divLabel}`}
-      />
+      >
+        click here if still loading
+      </a>
     );
 
     const boardTileJs = loadScript();
