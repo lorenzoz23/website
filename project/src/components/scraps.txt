@@ -169,3 +169,12 @@ const WarZone = () => {
 
 export default WarZone;
 
+
+<Heading level={4} alignSelf="center" textAlign="center">
+        <Anchor
+          href={`https://trello.com/b/${props.id}/${props.divLabel}`}
+          target="_blank"
+        >
+          {props.divLabel}
+        </Anchor>
+      </Heading>

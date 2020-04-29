@@ -85,7 +85,11 @@ function App() {
       <ResponsiveContext.Consumer>
         {(size) => (
           <Router>
-            <Box fill background="home" pad={{ bottom: 'small' }}>
+            <Box
+              fill
+              background="home"
+              pad={{ bottom: size !== 'small' ? 'small' : 'medium' }}
+            >
               <AppBar>
                 {size !== 'small' ? (
                   <Box direction="row" align="center" flex justify="between">
@@ -202,7 +206,6 @@ function App() {
                     <Box
                       pad={{ right: 'small' }}
                       animation={{ type: 'pulse', duration: 500 }}
-                      //alignContent="center"
                       direction="row-reverse"
                     >
                       <Anchor href="/" title="home">
@@ -352,7 +355,7 @@ function App() {
                       <Box alignSelf="center" margin="small" width="xsmall">
                         <Select
                           disabled={visualModeValue === 'light' ? [0] : [1]}
-                          icon={<Magic color="plain" />}
+                          icon={<Magic />}
                           onChange={({ option }) => setMode(option)}
                           size="small"
                           options={['light', 'dark']}
@@ -363,12 +366,7 @@ function App() {
                   </Box>
                 )}
               </AppBar>
-              <Box
-                //direction="row"
-                flex
-                overflow={{ horizontal: 'hidden' }}
-                pad="medium"
-              >
+              <Box flex overflow={{ horizontal: 'hidden' }} pad="medium">
                 <Switch>
                   <Route
                     path="/projects"
