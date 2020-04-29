@@ -34,7 +34,8 @@ function Trello(props) {
   };
   const getTrello = function () {
     const container = document.getElementById(props.divLabel);
-    container.innerHTML = 'loading...';
+    container.innerHTML =
+      'if trello board is not appearing, click the button below';
 
     const boardTileJs = loadScript();
 
