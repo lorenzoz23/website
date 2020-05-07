@@ -14,14 +14,7 @@ import {
   Text,
   Select
 } from 'grommet';
-import {
-  Home,
-  Github,
-  Linkedin,
-  Youtube,
-  Magic,
-  Multimedia
-} from 'grommet-icons';
+import { Home, Github, Linkedin, Magic, Menu as MenuIcon } from 'grommet-icons';
 import {
   BrowserRouter as Router,
   Link,
@@ -109,15 +102,7 @@ function App() {
                           level="2"
                           margin="none"
                         >
-                          <Anchor
-                            title="home"
-                            href="/"
-                            color={
-                              visualModeValue === 'dark' ? 'light-1' : 'dark-1'
-                            }
-                          >
-                            lorenzo zenitsky
-                          </Anchor>
+                          lorenzo zenitsky
                         </Heading>
                         <Text textAlign="center">
                           software engineer |{' '}
@@ -141,6 +126,19 @@ function App() {
                             href="https://github.com/lorenzoz23"
                           />
                           <Anchor
+                            title="home"
+                            icon={
+                              <Home
+                                color={
+                                  visualModeValue === 'light'
+                                    ? 'brand'
+                                    : 'accent-1'
+                                }
+                              />
+                            }
+                            href="/"
+                          />
+                          <Anchor
                             title="LinkedIn"
                             icon={
                               <Linkedin
@@ -153,26 +151,6 @@ function App() {
                             }
                             target="_blank"
                             href="https://www.linkedin.com/in/lorenzo-zenitsky-823257171/"
-                          />
-                          <Anchor
-                            title="YouTube"
-                            icon={<Youtube color="plain" />}
-                            target="_blank"
-                            href="https://www.youtube.com/user/gdzenitsky"
-                          />
-                          <Anchor
-                            title="letterboxd"
-                            icon={
-                              <Multimedia
-                                color={
-                                  visualModeValue === 'light'
-                                    ? 'plain'
-                                    : 'dark-3'
-                                }
-                              />
-                            }
-                            target="_blank"
-                            href="https://letterboxd.com/lorenzoz/"
                           />
                         </Nav>
                       </Box>
@@ -240,14 +218,7 @@ function App() {
                         level="2"
                         margin="none"
                       >
-                        <Anchor
-                          href="/"
-                          color={
-                            visualModeValue === 'dark' ? 'light-1' : 'dark-1'
-                          }
-                        >
-                          lorenzo zenitsky
-                        </Anchor>
+                        lorenzo zenitsky
                       </Heading>
                       <Text textAlign="center">
                         software engineer |{' '}
@@ -269,6 +240,18 @@ function App() {
                         />
                         <Anchor
                           icon={
+                            <Home
+                              color={
+                                visualModeValue === 'light'
+                                  ? 'brand'
+                                  : 'accent-1'
+                              }
+                            />
+                          }
+                          href="/"
+                        />
+                        <Anchor
+                          icon={
                             <Linkedin
                               color={
                                 visualModeValue === 'light'
@@ -280,23 +263,6 @@ function App() {
                           target="_blank"
                           href="https://www.linkedin.com/in/lorenzo-zenitsky-823257171/"
                         />
-                        <Anchor
-                          icon={<Youtube color="plain" />}
-                          target="_blank"
-                          href="https://www.youtube.com/user/gdzenitsky"
-                        />
-                        <Anchor
-                          title="letterboxd"
-                          icon={
-                            <Multimedia
-                              color={
-                                visualModeValue === 'light' ? 'plain' : 'dark-3'
-                              }
-                            />
-                          }
-                          target="_blank"
-                          href="https://letterboxd.com/lorenzoz/"
-                        />
                       </Nav>
                     </Box>
                     <Box direction="row">
@@ -306,7 +272,7 @@ function App() {
                             top: 'bottom'
                           }}
                           dropBackground="accent-1"
-                          label={<Home />}
+                          label={<MenuIcon />}
                           items={[
                             {
                               label: (
