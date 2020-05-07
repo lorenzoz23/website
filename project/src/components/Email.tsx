@@ -69,6 +69,12 @@ const Email = (props: any) => {
                 justify="center"
                 overflow="hidden"
               >
+                <Heading>send an email!</Heading>
+                <Box>
+                  <MailOption
+                    color={props.mode === 'light' ? 'brand' : 'accent-1'}
+                  />
+                </Box>
                 <Form
                   value={formValue}
                   onChange={(nextValue: React.SetStateAction<{}>) =>
