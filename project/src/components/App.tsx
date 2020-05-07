@@ -374,7 +374,12 @@ function App() {
                       <CodeProjects {...props} mode={visualModeValue} />
                     )}
                   />
-                  <Route path="/hobbies" component={Hobbies} />
+                  <Route
+                    path="/hobbies"
+                    render={(props) => (
+                      <Hobbies {...props} mode={visualModeValue} />
+                    )}
+                  />
                   <Route
                     path="/experience"
                     render={(props) => (
