@@ -9,23 +9,38 @@ import {
   TextArea,
   ResponsiveContext,
   Layer,
-  Heading
+  Heading,
+  Text
 } from 'grommet';
-import { FormClose, Contact, MailOption } from 'grommet-icons';
+import { FormClose, Contact, Mail, Refresh } from 'grommet-icons';
 
+const defaultValues = {
+  name: '',
+  email: '',
+  subject: '',
+  message: ''
+};
 const Email = (props: any) => {
-  const [formValue, setFormValue] = useState({});
-  const [messageValue, setMessageValue] = useState('');
+  const [formValue, setFormValue] = useState(defaultValues);
   const [showSidebar, setShowSidebar] = useState(false);
+  const [smallHeaderText, setSmallHeaderText] = useState('send an email!');
+  const [notify, setNotify] = useState(false);
 
-  const resetForm = () => {
-    setFormValue({});
-    setMessageValue('');
-  };
-
-  const formChange = (value: {}) => {
+  const formChange = (value: any) => {
     setFormValue(value);
     console.log(value);
+  };
+
+  const submittedLayer = () => {
+    console.log('submitted');
+    setSmallHeaderText('email sent!');
+    setFormValue(defaultValues);
+  };
+
+  const submittedCollabsible = () => {
+    setShowSidebar(!showSidebar);
+    setFormValue(defaultValues);
+    setNotify(true);
   };
 
   return (
@@ -33,8 +48,9 @@ const Email = (props: any) => {
       {(size) => (
         <Box direction="row">
           <Button
-            title="send an email"
+            title="email"
             primary
+            focusIndicator={props.mode === 'light' ? true : false}
             color={props.mode === 'light' ? 'brand' : 'accent-1'}
             icon={
               <Contact color={props.mode === 'light' ? 'accent-1' : 'brand'} />
@@ -62,58 +78,98 @@ const Email = (props: any) => {
               />
               <Box
                 flex
+                pad={{ bottom: 'medium', left: 'medium', right: 'medium' }}
                 width="large"
-                background="light-2"
+                background="light-1"
                 elevation={props.mode === 'light' ? 'small' : 'none'}
                 align="center"
                 justify="center"
-                overflow="hidden"
+                overflow="auto"
               >
                 <Heading>send an email!</Heading>
-                <Box>
-                  <MailOption
-                    color={props.mode === 'light' ? 'brand' : 'accent-1'}
-                  />
-                </Box>
                 <Form
                   value={formValue}
                   onChange={(nextValue: React.SetStateAction<{}>) =>
                     formChange(nextValue)
                   }
-                  onReset={() => resetForm()}
-                  onSubmit={() => console.log('submitted')}
+                  onReset={() => setFormValue(defaultValues)}
+                  onSubmit={() => submittedCollabsible()}
                 >
-                  <FormField name="name" htmlFor="text-input-id" label="name">
-                    <TextInput id="text-input-id" name="name" size="xlarge" />
-                  </FormField>
+                  <Box direction="row" gap="small">
+                    <FormField name="name" htmlFor="text-input-id" label="name">
+                      <TextInput id="text-input-id" name="name" size="large" />
+                    </FormField>
+                    <FormField
+                      name="email"
+                      htmlFor="email-input-id"
+                      label="email"
+                      required
+                    >
+                      <TextInput
+                        id="email-input-id"
+                        name="email"
+                        size="large"
+                      />
+                    </FormField>
+                  </Box>
                   <FormField
-                    name="email"
-                    htmlFor="email-input-id"
-                    label="email"
+                    name="subject"
+                    htmlFor="subject-input-id"
+                    label="subject"
                   >
                     <TextInput
-                      id="email-input-id"
-                      name="emailText"
-                      required
-                      size="xlarge"
+                      id="subject-input-id"
+                      name="subject"
+                      size="large"
                     />
                   </FormField>
-                  <FormField name="email" htmlFor="email-input-id" required>
+                  <FormField name="message" htmlFor="message-input-id" required>
                     <TextArea
-                      required
+                      name="message"
+                      resize="horizontal"
                       focusIndicator
-                      size="xlarge"
+                      size="large"
                       id="message-input-id"
-                      placeholder="message"
-                      value={messageValue}
-                      onChange={(event) => setMessageValue(event.target.value)}
+                      placeholder="type your message here..."
                     />
                   </FormField>
                   <Box direction="row" gap="medium" justify="between">
-                    <Button type="submit" primary label="send" />
-                    <Button type="reset" label="reset" />
+                    <Button
+                      type="submit"
+                      primary
+                      label="send"
+                      icon={<Mail />}
+                      reverse
+                    />
+                    <Button
+                      type="reset"
+                      label="reset"
+                      reverse
+                      icon={<Refresh />}
+                    />
                   </Box>
                 </Form>
+                {notify && (
+                  <Layer
+                    position="center"
+                    onClickOutside={() => setNotify(false)}
+                  >
+                    <Box justify="center" align="center" pad="medium">
+                      <Heading level="2">success!</Heading>
+                      <Box gap="medium">
+                        <Text>your email has just been sent</Text>
+                        <Button
+                          title="close"
+                          alignSelf="center"
+                          size="small"
+                          icon={<FormClose />}
+                          primary
+                          onClick={() => setNotify(false)}
+                        />
+                      </Box>
+                    </Box>
+                  </Layer>
+                )}
               </Box>
             </Collapsible>
           ) : (
@@ -122,91 +178,119 @@ const Email = (props: any) => {
               onClickOutside={() => setShowSidebar(!showSidebar)}
             >
               <Box
-                margin="medium"
+                margin="small"
+                pad={{ bottom: 'xlarge', top: 'large' }}
                 flex
-                background="light-2"
+                background={props.mode === 'light' ? 'light-2' : 'home'}
                 align="center"
                 justify="center"
                 overflow="auto"
               >
-                <Heading>send an email!</Heading>
-                <Box>
-                  <MailOption
-                    color={props.mode === 'light' ? 'brand' : 'accent-1'}
-                  />
-                </Box>
-
+                <Heading>{smallHeaderText}</Heading>
                 <Form
                   value={formValue}
-                  onChange={(nextValue: React.SetStateAction<{}>) =>
-                    formChange(nextValue)
-                  }
-                  onReset={() => resetForm()}
-                  onSubmit={() => console.log('submitted')}
+                  onChange={(nextValue: any) => formChange(nextValue)}
+                  onReset={() => setFormValue(defaultValues)}
+                  onSubmit={() => submittedLayer()}
                 >
+                  <Box direction="row" gap="small">
+                    <FormField
+                      margin={{
+                        left: 'medium',
+                        right: 'medium',
+                        top: 'medium',
+                        bottom: 'medium'
+                      }}
+                      name="name"
+                      htmlFor="text-input-id"
+                      label="name"
+                    >
+                      <TextInput id="text-input-id" name="name" size="medium" />
+                    </FormField>
+                    <FormField
+                      margin={{
+                        left: 'medium',
+                        right: 'medium',
+                        top: 'medium',
+                        bottom: 'medium'
+                      }}
+                      name="email"
+                      htmlFor="email-input-id"
+                      label="email"
+                      required
+                    >
+                      <TextInput
+                        id="email-input-id"
+                        name="email"
+                        size="medium"
+                      />
+                    </FormField>
+                  </Box>
                   <FormField
                     margin={{
-                      left: '48px',
-                      right: '48px',
-                      top: 'small',
-                      bottom: 'small'
+                      left: 'medium',
+                      right: 'medium',
+                      top: 'medium',
+                      bottom: 'medium'
                     }}
-                    name="name"
-                    htmlFor="text-input-id"
-                    label="name"
+                    name="subject"
+                    htmlFor="subject-input-id"
+                    label="subject"
                   >
-                    <TextInput id="text-input-id" name="name" />
+                    <TextInput
+                      id="subject-input-id"
+                      name="subject"
+                      size="medium"
+                    />
                   </FormField>
                   <FormField
-                    margin={{
-                      left: '48px',
-                      right: '48px',
-                      top: 'small',
-                      bottom: 'small'
-                    }}
-                    name="email"
-                    htmlFor="email-input-id"
-                    label="email"
-                  >
-                    <TextInput id="email-input-id" name="emailText" required />
-                  </FormField>
-                  <FormField
-                    name="email"
-                    htmlFor="email-input-id"
+                    name="message"
+                    htmlFor="message-input-id"
                     required
                     margin={{
-                      left: '48px',
-                      right: '48px',
-                      top: 'small',
-                      bottom: 'small'
+                      left: 'medium',
+                      right: 'medium',
+                      top: 'medium',
+                      bottom: 'medium'
                     }}
                   >
                     <TextArea
-                      required
+                      name="message"
+                      style={{ fontSize: '18px' }}
+                      size="large"
                       focusIndicator
                       id="message-input-id"
-                      placeholder="message"
-                      value={messageValue}
-                      onChange={(event) => setMessageValue(event.target.value)}
+                      placeholder="type your message here..."
                     />
                   </FormField>
-                  <Box direction="row" justify="between" margin="medium">
+                  <Box
+                    direction="row"
+                    justify="between"
+                    margin="medium"
+                    gap="small"
+                  >
                     <Button
+                      primary
                       type="submit"
                       color="status-ok"
-                      label="send"
                       size="small"
+                      icon={<Mail />}
+                      reverse
                     />
                     <Button
+                      primary
                       type="reset"
-                      label="reset"
                       color="status-warning"
                       size="small"
+                      icon={<Refresh />}
+                      reverse
                     />
                     <Button
+                      primary
                       color="status-critical"
-                      label="cancel"
                       size="small"
+                      icon={<FormClose />}
+                      reverse
                       onClick={() => setShowSidebar(!showSidebar)}
                     />
                   </Box>

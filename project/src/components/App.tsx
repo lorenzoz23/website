@@ -32,8 +32,7 @@ import AppBar from './AppBar';
 const themeLight = {
   global: {
     colors: {
-      home: '#ECF0F1',
-      sidebar: '#accent-3'
+      home: '#ECF0F1'
     },
     font: {
       family: 'Roboto',
@@ -46,10 +45,7 @@ const themeLight = {
 const themeDark = {
   global: {
     colors: {
-      home: '#363E4B',
-      //home: '#3F5173',
-      sidebar: '#8DDDEC',
-      accent1: '#8DDDEC'
+      home: '#363E4B'
     },
     font: {
       family: 'Roboto',
@@ -186,7 +182,7 @@ function App() {
                       animation={{ type: 'pulse', duration: 500 }}
                       direction="row-reverse"
                     >
-                      <Anchor href="/" title="home">
+                      <Anchor href="/" title="another way home">
                         <Avatar
                           border={{
                             color: 'accent-1',

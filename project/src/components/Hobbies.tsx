@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, Heading, Paragraph, ResponsiveContext, Anchor } from 'grommet';
+import {
+  Box,
+  Heading,
+  Paragraph,
+  ResponsiveContext,
+  Anchor,
+  Nav
+} from 'grommet';
 import { Youtube, Multimedia } from 'grommet-icons';
 
 import Trello from './Trello';
@@ -12,19 +19,9 @@ const Hobbies = (props: any) => {
         <Box direction="row">
           <Box flex align="center" justify="start" background="home">
             <Heading textAlign="center">my interests</Heading>
-            <Box
-              direction="row"
-              gap="small"
-              pad={{
-                bottom:
-                  size === 'large'
-                    ? 'large'
-                    : size === 'medium'
-                    ? 'medium'
-                    : 'xlarge'
-              }}
-            >
+            <Nav direction="row" gap="small">
               <Anchor
+                title="YouTube"
                 icon={<Youtube color="plain" />}
                 target="_blank"
                 href="https://www.youtube.com/user/gdzenitsky"
@@ -39,7 +36,7 @@ const Hobbies = (props: any) => {
                 target="_blank"
                 href="https://letterboxd.com/lorenzoz/"
               />
-            </Box>
+            </Nav>
             <Paragraph size="large" textAlign="center">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
