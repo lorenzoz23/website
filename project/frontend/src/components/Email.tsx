@@ -14,33 +14,71 @@ import {
 } from 'grommet';
 import { FormClose, Contact, Mail, Refresh } from 'grommet-icons';
 
-const defaultValues = {
+const defaultFormValues = {
   name: '',
   email: '',
   subject: '',
   message: ''
 };
+
+const defaultNotificationValues = {
+  show: false,
+  header: '',
+  body: ''
+};
 const Email = (props: any) => {
-  const [formValue, setFormValue] = useState(defaultValues);
+  const [formValue, setFormValue] = useState(defaultFormValues);
   const [showSidebar, setShowSidebar] = useState(false);
   const [smallHeaderText, setSmallHeaderText] = useState('send an email!');
-  const [notify, setNotify] = useState(false);
+  const [notificationObject, setShowNotificationObject] = useState(
+    defaultNotificationValues
+  );
 
   const formChange = (value: any) => {
     setFormValue(value);
     console.log(value);
   };
 
-  const submittedLayer = () => {
+  const submitEmailForm = (size: string) => {
     console.log('submitted');
-    setSmallHeaderText('email sent!');
-    setFormValue(defaultValues);
-  };
+    setFormValue(defaultFormValues);
 
-  const submittedCollabsible = () => {
-    setShowSidebar(!showSidebar);
-    setFormValue(defaultValues);
-    setNotify(true);
+    fetch('/send', {
+      method: 'POST',
+      body: JSON.stringify(formValue),
+      headers: {
+        Accept: 'application/json',
+        'Content-type': 'application/json'
+      }
+    })
+      .then((resp) => resp.json())
+      .then((resp) => {
+        if (resp.status === 'success') {
+          if (size === 'large') {
+            setShowSidebar(!showSidebar);
+            const obj = {
+              show: true,
+              header: 'success!',
+              body: 'your email has just been sent'
+            };
+            setShowNotificationObject(obj);
+          } else {
+            setSmallHeaderText('email sent!');
+          }
+        } else if (resp.status === 'fail') {
+          if (size === 'large') {
+            setShowSidebar(!showSidebar);
+            const obj = {
+              show: true,
+              header: 'error!',
+              body: 'your email failed to send'
+            };
+            setShowNotificationObject(obj);
+          } else {
+            setSmallHeaderText('failed to send email!');
+          }
+        }
+      });
   };
 
   return (
@@ -92,8 +130,8 @@ const Email = (props: any) => {
                   onChange={(nextValue: React.SetStateAction<{}>) =>
                     formChange(nextValue)
                   }
-                  onReset={() => setFormValue(defaultValues)}
-                  onSubmit={() => submittedCollabsible()}
+                  onReset={() => setFormValue(defaultFormValues)}
+                  onSubmit={() => submitEmailForm(size)}
                 >
                   <Box direction="row" gap="small">
                     <FormField name="name" htmlFor="text-input-id" label="name">
@@ -149,22 +187,26 @@ const Email = (props: any) => {
                     />
                   </Box>
                 </Form>
-                {notify && (
+                {notificationObject.show && (
                   <Layer
                     position="center"
-                    onClickOutside={() => setNotify(false)}
+                    onClickOutside={() =>
+                      setShowNotificationObject(defaultNotificationValues)
+                    }
                   >
                     <Box justify="center" align="center" pad="medium">
-                      <Heading level="2">success!</Heading>
+                      <Heading level="2">{notificationObject.header}</Heading>
                       <Box gap="medium">
-                        <Text>your email has just been sent</Text>
+                        <Text>{notificationObject.body}</Text>
                         <Button
                           title="close"
                           alignSelf="center"
                           size="small"
                           icon={<FormClose />}
                           primary
-                          onClick={() => setNotify(false)}
+                          onClick={() =>
+                            setShowNotificationObject(defaultNotificationValues)
+                          }
                         />
                       </Box>
                     </Box>
@@ -190,8 +232,8 @@ const Email = (props: any) => {
                 <Form
                   value={formValue}
                   onChange={(nextValue: any) => formChange(nextValue)}
-                  onReset={() => setFormValue(defaultValues)}
-                  onSubmit={() => submittedLayer()}
+                  onReset={() => setFormValue(defaultFormValues)}
+                  onSubmit={() => submitEmailForm(size)}
                 >
                   <Box direction="row" gap="small">
                     <FormField
