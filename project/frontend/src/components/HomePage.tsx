@@ -1,16 +1,10 @@
-import React from 'react';
-import {
-  Box,
-  Heading,
-  Paragraph,
-  Text,
-  Avatar,
-  ResponsiveContext
-} from 'grommet';
+import React from "react";
+import { Box, Heading, Paragraph, Avatar, ResponsiveContext } from "grommet";
 
-import Resume from './Resume';
+import Resume from "./Resume";
+import Email from "./Email";
 
-const HomePage = () => {
+const HomePage = (props: any) => {
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
@@ -20,40 +14,60 @@ const HomePage = () => {
           align="start"
           justify="around"
           background="home"
-          overflow={{ horizontal: 'hidden' }}
+          overflow={{ horizontal: "hidden" }}
         >
-          {size === 'large' ? (
-            <Box>
+          {size === "large" ? (
+            <Box align="center">
               <Avatar
                 border={{
-                  color: 'brand',
-                  size: 'small',
-                  style: 'solid'
+                  color: "brand",
+                  size: "small",
+                  style: "solid"
                 }}
                 round="full"
                 src="/website-images/site-512.png"
                 size="200px"
                 alignSelf="start"
               />
-              <Heading textAlign="center">about me</Heading>
-              <Paragraph size="large" textAlign="end">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <Heading textAlign="center" title="rip">
+                hello...
+              </Heading>
+              <Paragraph
+                size="large"
+                textAlign="end"
+                margin={{ bottom: "small" }}
+              >
+                My name is Lorenzo. I am a software developer (degree says
+                engineer, but I'm not so sure about that one) with a love for
+                all things frontend. I tend to gravitate towards the more
+                outwardly artistic corners of software because I believe myself
+                to naturally be more creative-minded than technical. Before I
+                decided to try my hand in software engineering, I originally
+                planned on further pursuing my love of music until I thought
+                it'd probably be more beneficial to add just one more skill to
+                my, admittedly small, yet focused repertoire. Now, four years
+                into my degree with just one semester left to go, I find myself
+                growing more into my one as a developer, focusing on projects
+                that allow me to satisfy my creative outlet.
               </Paragraph>
-              <Text size="medium" textAlign="end">
-                - mr. under-construction
-              </Text>
-              <Heading textAlign="center">about me</Heading>
+              <Paragraph
+                size="large"
+                textAlign="start"
+                margin={{ top: "small" }}
+              >
+                Above, you will find all of my experiences in industry, all the
+                various projects I've had my hands in, and all the things that
+                make me... well, me. Have a gander and be sure to tell me what
+                you think (email button in lower right)!
+              </Paragraph>
+              <Heading textAlign="center" title="mr. prine">
+                ...in there
+              </Heading>
               <Avatar
                 border={{
-                  color: 'brand',
-                  size: 'small',
-                  style: 'solid'
+                  color: "brand",
+                  size: "small",
+                  style: "solid"
                 }}
                 round="full"
                 src="/website-images/site-512.png"
@@ -64,39 +78,59 @@ const HomePage = () => {
           ) : (
             <Box align="center">
               <Avatar
-                margin={{ top: 'medium' }}
+                margin={{ top: "medium" }}
                 border={{
-                  color: 'brand',
-                  size: 'small',
-                  style: 'solid'
+                  color: "brand",
+                  size: "small",
+                  style: "solid"
                 }}
                 round="full"
                 src="/website-images/site-512.png"
-                size={size === 'medium' ? '200px' : '125px'}
+                size={size === "medium" ? "200px" : "125px"}
                 alignSelf="center"
               />
-              <Heading textAlign="center">about me</Heading>
+              <Heading textAlign="center">welcome!</Heading>
+              <Box direction="row">
+                <Paragraph
+                  size="large"
+                  textAlign="center"
+                  fill
+                  margin={{ bottom: "small", right: "medium", left: "medium" }}
+                >
+                  My name is Lorenzo. I am a software developer (degree says
+                  engineer, but I'm not so sure about that one) with a love for
+                  all things frontend. I tend to gravitate towards the more
+                  outwardly artistic corners of software because I believe
+                  myself to naturally be more creative-minded than technical.
+                  Before I decided to try my hand in software engineering, I
+                  originally planned on further pursuing my love of music until
+                  I thought it'd probably be more beneficial to add just one
+                  more skill to my, admittedly small, yet focused repertoire.
+                  Now, four years into my degree with just one semester left to
+                  go, I find myself growing more into my one as a developer,
+                  focusing on projects that allow me to satisfy my creative
+                  outlet.
+                </Paragraph>
+              </Box>
               <Paragraph
                 size="large"
                 textAlign="center"
-                margin={{ bottom: 'large' }}
+                margin={{ bottom: "medium", top: "small" }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Above, you will find all of my experiences in industry, all the
+                various projects I've had my hands in, and all the things that
+                make me... well, me. Have a gander and be sure to tell me what
+                you think (email button in lower right)!
               </Paragraph>
               <Resume />
             </Box>
           )}
-          {size === 'large' ? (
+          {size === "large" ? (
             <Box>
               <Resume />
             </Box>
           ) : null}
+          <Email mode={props.mode} />
         </Box>
       )}
     </ResponsiveContext.Consumer>

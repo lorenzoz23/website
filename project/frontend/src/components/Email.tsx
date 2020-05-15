@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Collapsible,
   Button,
@@ -11,25 +11,25 @@ import {
   Layer,
   Heading,
   Text
-} from 'grommet';
-import { FormClose, Contact, Mail, Refresh } from 'grommet-icons';
+} from "grommet";
+import { FormClose, Contact, Mail, Refresh } from "grommet-icons";
 
 const defaultFormValues = {
-  name: '',
-  email: '',
-  subject: '',
-  message: ''
+  name: "",
+  email: "",
+  subject: "",
+  message: ""
 };
 
 const defaultNotificationValues = {
   show: false,
-  header: '',
-  body: ''
+  header: "",
+  body: ""
 };
 const Email = (props: any) => {
   const [formValue, setFormValue] = useState(defaultFormValues);
   const [showSidebar, setShowSidebar] = useState(false);
-  const [smallHeaderText, setSmallHeaderText] = useState('send an email!');
+  const [smallHeaderText, setSmallHeaderText] = useState("send an email!");
   const [notificationObject, setShowNotificationObject] = useState(
     defaultNotificationValues
   );
@@ -40,42 +40,42 @@ const Email = (props: any) => {
   };
 
   const submitEmailForm = (size: string) => {
-    console.log('submitted');
+    console.log("submitted");
     setFormValue(defaultFormValues);
 
-    fetch('/send', {
-      method: 'POST',
+    fetch("/send", {
+      method: "POST",
       body: JSON.stringify(formValue),
       headers: {
-        Accept: 'application/json',
-        'Content-type': 'application/json'
+        Accept: "application/json",
+        "Content-type": "application/json"
       }
     })
       .then((resp) => resp.json())
       .then((resp) => {
-        if (resp.status === 'success') {
-          if (size === 'large') {
+        if (resp.status === "success") {
+          if (size === "large") {
             setShowSidebar(!showSidebar);
             const obj = {
               show: true,
-              header: 'success!',
-              body: 'your email has just been sent'
+              header: "success!",
+              body: "your email has just been sent"
             };
             setShowNotificationObject(obj);
           } else {
-            setSmallHeaderText('email sent!');
+            setSmallHeaderText("email sent!");
           }
-        } else if (resp.status === 'fail') {
-          if (size === 'large') {
+        } else if (resp.status === "fail") {
+          if (size === "large") {
             setShowSidebar(!showSidebar);
             const obj = {
               show: true,
-              header: 'error!',
-              body: 'your email failed to send'
+              header: "error!",
+              body: "your email failed to send"
             };
             setShowNotificationObject(obj);
           } else {
-            setSmallHeaderText('failed to send email!');
+            setSmallHeaderText("failed to send email!");
           }
         }
       });
@@ -88,38 +88,38 @@ const Email = (props: any) => {
           <Button
             title="email"
             primary
-            focusIndicator={props.mode === 'light' ? true : false}
-            color={props.mode === 'light' ? 'brand' : 'accent-1'}
+            focusIndicator={props.mode === "light" ? true : false}
+            color={props.mode === "light" ? "brand" : "accent-1"}
             icon={
-              <Contact color={props.mode === 'light' ? 'accent-1' : 'brand'} />
+              <Contact color={props.mode === "light" ? "accent-1" : "brand"} />
             }
             onClick={() => setShowSidebar(!showSidebar)}
             style={{
-              position: 'fixed',
-              bottom: '20px',
-              right: '30px',
+              position: "fixed",
+              bottom: "20px",
+              right: "30px",
               zIndex: 99,
-              padding: '15px',
-              display: showSidebar ? 'none' : 'inline'
+              padding: "15px",
+              display: showSidebar ? "none" : "inline"
             }}
           />
-          {!showSidebar || size === 'large' ? (
+          {!showSidebar || size === "large" ? (
             <Collapsible direction="horizontal" open={showSidebar}>
               <Button
                 focusIndicator={false}
                 icon={
                   <FormClose
-                    color={props.mode === 'light' ? 'brand' : 'accent-1'}
+                    color={props.mode === "light" ? "brand" : "accent-1"}
                   />
                 }
                 onClick={() => setShowSidebar(!showSidebar)}
               />
               <Box
                 flex
-                pad={{ bottom: 'medium', left: 'medium', right: 'medium' }}
+                pad={{ bottom: "medium", left: "medium", right: "medium" }}
                 width="large"
                 background="light-1"
-                elevation={props.mode === 'light' ? 'small' : 'none'}
+                elevation={props.mode === "light" ? "small" : "none"}
                 align="center"
                 justify="center"
                 overflow="auto"
@@ -221,9 +221,9 @@ const Email = (props: any) => {
             >
               <Box
                 margin="small"
-                pad={{ bottom: 'xlarge', top: 'large' }}
+                pad={{ bottom: "xlarge", top: "large" }}
                 flex
-                background={props.mode === 'light' ? 'light-2' : 'home'}
+                background={props.mode === "light" ? "light-2" : "home"}
                 align="center"
                 justify="center"
                 overflow="auto"
@@ -238,10 +238,10 @@ const Email = (props: any) => {
                   <Box direction="row" gap="small">
                     <FormField
                       margin={{
-                        left: 'medium',
-                        right: 'medium',
-                        top: 'medium',
-                        bottom: 'medium'
+                        left: "medium",
+                        right: "medium",
+                        top: "medium",
+                        bottom: "medium"
                       }}
                       name="name"
                       htmlFor="text-input-id"
@@ -251,10 +251,10 @@ const Email = (props: any) => {
                     </FormField>
                     <FormField
                       margin={{
-                        left: 'medium',
-                        right: 'medium',
-                        top: 'medium',
-                        bottom: 'medium'
+                        left: "medium",
+                        right: "medium",
+                        top: "medium",
+                        bottom: "medium"
                       }}
                       name="email"
                       htmlFor="email-input-id"
@@ -270,10 +270,10 @@ const Email = (props: any) => {
                   </Box>
                   <FormField
                     margin={{
-                      left: 'medium',
-                      right: 'medium',
-                      top: 'medium',
-                      bottom: 'medium'
+                      left: "medium",
+                      right: "medium",
+                      top: "medium",
+                      bottom: "medium"
                     }}
                     name="subject"
                     htmlFor="subject-input-id"
@@ -290,15 +290,15 @@ const Email = (props: any) => {
                     htmlFor="message-input-id"
                     required
                     margin={{
-                      left: 'medium',
-                      right: 'medium',
-                      top: 'medium',
-                      bottom: 'medium'
+                      left: "medium",
+                      right: "medium",
+                      top: "medium",
+                      bottom: "medium"
                     }}
                   >
                     <TextArea
                       name="message"
-                      style={{ fontSize: '18px' }}
+                      style={{ fontSize: "18px" }}
                       size="large"
                       focusIndicator
                       id="message-input-id"

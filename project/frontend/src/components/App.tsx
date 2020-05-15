@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Box,
   Grommet,
@@ -13,31 +13,31 @@ import {
   Clock,
   Text,
   Select
-} from 'grommet';
-import { Home, Github, Linkedin, Magic, Menu as MenuIcon } from 'grommet-icons';
+} from "grommet";
+import { Home, Github, Linkedin, Magic, Menu as MenuIcon } from "grommet-icons";
 import {
   BrowserRouter as Router,
   Link,
   Switch,
   Route,
   Redirect
-} from 'react-router-dom';
+} from "react-router-dom";
 
-import HomePage from './HomePage';
-import { default as CodeProjects } from './Code';
-import Hobbies from './Hobbies';
-import Experience from './Experience';
-import AppBar from './AppBar';
+import HomePage from "./HomePage";
+import { default as CodeProjects } from "./Code";
+import Hobbies from "./Hobbies";
+import Experience from "./Experience";
+import AppBar from "./AppBar";
 
 const themeLight = {
   global: {
     colors: {
-      home: '#ECF0F1'
+      home: "#ECF0F1"
     },
     font: {
-      family: 'Roboto',
-      size: '18px',
-      height: '20px'
+      family: "Roboto",
+      size: "18px",
+      height: "20px"
     }
   }
 };
@@ -45,19 +45,19 @@ const themeLight = {
 const themeDark = {
   global: {
     colors: {
-      home: '#363E4B'
+      home: "#363E4B"
     },
     font: {
-      family: 'Roboto',
-      size: '18px',
-      height: '20px'
+      family: "Roboto",
+      size: "18px",
+      height: "20px"
     }
   }
 };
 
 function App() {
   const getInitialState = () => {
-    const mode = localStorage.getItem('visualModeValue') || 'light';
+    const mode = localStorage.getItem("visualModeValue") || "light";
 
     return mode;
   };
@@ -65,43 +65,43 @@ function App() {
   const [visualModeValue, setVisualModeValue] = useState(getInitialState);
 
   const setMode = (mode: string) => {
-    localStorage.setItem('visualModeValue', mode);
+    localStorage.setItem("visualModeValue", mode);
     setVisualModeValue(mode);
   };
 
   return (
-    <Grommet theme={visualModeValue === 'light' ? themeLight : themeDark} full>
+    <Grommet theme={visualModeValue === "light" ? themeLight : themeDark} full>
       <ResponsiveContext.Consumer>
         {(size) => (
           <Router>
             <Box
               fill
               background="home"
-              pad={{ bottom: size !== 'small' ? 'small' : 'medium' }}
+              pad={{ bottom: size !== "small" ? "small" : "medium" }}
             >
               <AppBar>
-                {size !== 'small' ? (
+                {size !== "small" ? (
                   <Box direction="row" align="center" flex justify="between">
                     <Box direction="row">
                       <Box
                         round
                         pad="small"
                         border={{
-                          color: 'accent-1',
-                          size: 'small',
-                          style: 'outset',
-                          side: 'all'
+                          color: "accent-1",
+                          size: "small",
+                          style: "outset",
+                          side: "all"
                         }}
                       >
                         <Heading
-                          style={{ textAlign: 'center' }}
+                          style={{ textAlign: "center" }}
                           level="2"
                           margin="none"
                         >
                           lorenzo zenitsky
                         </Heading>
                         <Text textAlign="center">
-                          software engineer |{' '}
+                          software engineer |{" "}
                           <Anchor href="mailto:lorenzoz@iastate.edu">
                             lorenzoz@iastate.edu
                           </Anchor>
@@ -112,9 +112,9 @@ function App() {
                             icon={
                               <Github
                                 color={
-                                  visualModeValue === 'light'
-                                    ? 'plain'
-                                    : 'dark-3'
+                                  visualModeValue === "light"
+                                    ? "plain"
+                                    : "dark-3"
                                 }
                               />
                             }
@@ -126,9 +126,9 @@ function App() {
                             icon={
                               <Home
                                 color={
-                                  visualModeValue === 'light'
-                                    ? 'brand'
-                                    : 'accent-1'
+                                  visualModeValue === "light"
+                                    ? "brand"
+                                    : "accent-1"
                                 }
                               />
                             }
@@ -139,9 +139,9 @@ function App() {
                             icon={
                               <Linkedin
                                 color={
-                                  visualModeValue === 'light'
-                                    ? 'plain'
-                                    : '#00BBFF'
+                                  visualModeValue === "light"
+                                    ? "plain"
+                                    : "#00BBFF"
                                 }
                               />
                             }
@@ -150,7 +150,7 @@ function App() {
                           />
                         </Nav>
                       </Box>
-                      <Box direction={size === 'medium' ? 'column' : 'row'}>
+                      <Box direction={size === "medium" ? "column" : "row"}>
                         <Tabs alignSelf="center" margin="small">
                           <Tab title="home">
                             <Redirect to="/" />
@@ -165,29 +165,29 @@ function App() {
                             <Redirect to="/hobbies" />
                           </Tab>
                         </Tabs>
-                        <Box alignSelf="center">
+                        <Box alignSelf="center" width="300px">
                           <Select
-                            disabled={visualModeValue === 'light' ? [0] : [1]}
+                            disabled={visualModeValue === "light" ? [0] : [1]}
                             icon={<Magic />}
                             onChange={({ option }) => setMode(option)}
                             size="small"
-                            options={['light', 'dark']}
+                            options={["light", "dark"]}
                             placeholder="choose your visual style"
                           />
                         </Box>
                       </Box>
                     </Box>
                     <Box
-                      pad={{ right: 'small' }}
-                      animation={{ type: 'pulse', duration: 500 }}
+                      pad={{ right: "small" }}
+                      animation={{ type: "pulse", duration: 500 }}
                       direction="row-reverse"
                     >
                       <Anchor href="/" title="another way home">
                         <Avatar
                           border={{
-                            color: 'accent-1',
-                            size: 'small',
-                            style: 'solid'
+                            color: "accent-1",
+                            size: "small",
+                            style: "solid"
                           }}
                           round="full"
                           size="xlarge"
@@ -203,21 +203,21 @@ function App() {
                       round
                       pad="small"
                       border={{
-                        color: 'accent-1',
-                        size: 'small',
-                        style: 'outset',
-                        side: 'all'
+                        color: "accent-1",
+                        size: "small",
+                        style: "outset",
+                        side: "all"
                       }}
                     >
                       <Heading
-                        style={{ textAlign: 'center' }}
+                        style={{ textAlign: "center" }}
                         level="2"
                         margin="none"
                       >
                         lorenzo zenitsky
                       </Heading>
                       <Text textAlign="center">
-                        software engineer |{' '}
+                        software engineer |{" "}
                         <Anchor href="mailto:lorenzoz@iastate.edu">
                           lorenzoz@iastate.edu
                         </Anchor>
@@ -227,7 +227,7 @@ function App() {
                           icon={
                             <Github
                               color={
-                                visualModeValue === 'light' ? 'plain' : 'dark-3'
+                                visualModeValue === "light" ? "plain" : "dark-3"
                               }
                             />
                           }
@@ -238,9 +238,9 @@ function App() {
                           icon={
                             <Home
                               color={
-                                visualModeValue === 'light'
-                                  ? 'brand'
-                                  : 'accent-1'
+                                visualModeValue === "light"
+                                  ? "brand"
+                                  : "accent-1"
                               }
                             />
                           }
@@ -250,9 +250,9 @@ function App() {
                           icon={
                             <Linkedin
                               color={
-                                visualModeValue === 'light'
-                                  ? 'plain'
-                                  : '#00BBFF'
+                                visualModeValue === "light"
+                                  ? "plain"
+                                  : "#00BBFF"
                               }
                             />
                           }
@@ -265,14 +265,14 @@ function App() {
                       <Box alignSelf="center">
                         <Menu
                           dropAlign={{
-                            top: 'bottom'
+                            top: "bottom"
                           }}
                           dropBackground="accent-1"
                           label={<MenuIcon />}
                           items={[
                             {
                               label: (
-                                <Link to="/" style={{ textDecoration: 'none' }}>
+                                <Link to="/" style={{ textDecoration: "none" }}>
                                   home
                                 </Link>
                               ),
@@ -282,7 +282,7 @@ function App() {
                               label: (
                                 <Link
                                   to="/experience"
-                                  style={{ textDecoration: 'none' }}
+                                  style={{ textDecoration: "none" }}
                                 >
                                   experience
                                 </Link>
@@ -293,7 +293,7 @@ function App() {
                               label: (
                                 <Link
                                   to="/projects"
-                                  style={{ textDecoration: 'none' }}
+                                  style={{ textDecoration: "none" }}
                                 >
                                   projects
                                 </Link>
@@ -304,7 +304,7 @@ function App() {
                               label: (
                                 <Link
                                   to="/hobbies"
-                                  style={{ textDecoration: 'none' }}
+                                  style={{ textDecoration: "none" }}
                                 >
                                   hobbies
                                 </Link>
@@ -316,19 +316,19 @@ function App() {
                       </Box>
                       <Box alignSelf="center" margin="small" width="xsmall">
                         <Select
-                          disabled={visualModeValue === 'light' ? [0] : [1]}
+                          disabled={visualModeValue === "light" ? [0] : [1]}
                           icon={<Magic size="20px" />}
                           onChange={({ option }) => setMode(option)}
                           size="small"
-                          options={['light', 'dark']}
-                          placeholder="mode"
+                          options={["light", "dark"]}
+                          placeholder="theme"
                         />
                       </Box>
                     </Box>
                   </Box>
                 )}
               </AppBar>
-              <Box flex overflow={{ horizontal: 'hidden' }} pad="medium">
+              <Box flex overflow={{ horizontal: "hidden" }} pad="medium">
                 <Switch>
                   <Route
                     path="/projects"
@@ -348,7 +348,12 @@ function App() {
                       <Experience {...props} mode={visualModeValue} />
                     )}
                   />
-                  <Route path="/" component={HomePage} />
+                  <Route
+                    path="/"
+                    render={(props) => (
+                      <HomePage {...props} mode={visualModeValue} />
+                    )}
+                  />
                 </Switch>
               </Box>
             </Box>
