@@ -19,7 +19,7 @@ const Hobbies = (props: any) => {
         <Box direction="row">
           <Box flex align="center" justify="start" background="home" fill>
             <Heading textAlign="center">my interests</Heading>
-            <Nav direction="row" gap="small">
+            <Nav direction="row" gap="small" alignContent="center">
               <Anchor
                 title="YouTube"
                 icon={<Youtube color="plain" />}
@@ -46,7 +46,7 @@ const Hobbies = (props: any) => {
             <Paragraph
               size="large"
               textAlign="center"
-              margin={{ bottom: "small", right: "medium", left: "medium" }}
+              margin={{ bottom: "small", right: "large", left: "large" }}
               fill
             >
               Whenever I've escaped from the cold, unforgiving clutches of
@@ -73,13 +73,16 @@ const Hobbies = (props: any) => {
               I've linked below. Check 'em out if you are so inclined and feel
               free to shoot me an email (click the button in the lower right)
               with any suggestions of albums, or movies for that matter, that
-              you think I'd like but may have missed!
+              you think I'd like but may have missed! For total transparency, I
+              linked my Trello scrum-style board for my website so you can see
+              any future plans I have for my website from a software
+              perspective.
             </Paragraph>
             <Heading level={2}>Trello Boards</Heading>
             <Box
               direction={size !== "small" ? "row" : "column"}
               gap={size !== "small" ? "large" : "250px"}
-              margin={{ bottom: size !== "small" ? "250px" : "600px" }}
+              margin={{ bottom: size !== "small" ? "300px" : "600px" }}
             >
               <Trello id="268G14hT" divLabel="metal-2020" />
               <Trello id="aHi0ZFuA" divLabel="indie-alternative-2020" />

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box } from 'grommet';
+import React from "react";
+import { Box, Button } from "grommet";
 import {
   Reactjs,
   Play,
@@ -10,13 +10,13 @@ import {
   Car,
   Yoga,
   Multimedia
-} from 'grommet-icons';
+} from "grommet-icons";
 
 import {
   VerticalTimeline,
   VerticalTimelineElement
-} from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
 const Code = (props: any) => {
   return (
@@ -29,53 +29,114 @@ const Code = (props: any) => {
     >
       <VerticalTimeline>
         <VerticalTimelineElement
+          position="right"
           contentStyle={
-            props.mode === 'dark'
-              ? { background: '#A2423D' }
-              : { background: 'rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { background: "#A2423D" }
+              : { background: "rgb(255, 255, 255)" }
           }
           contentArrowStyle={
-            props.mode === 'dark'
-              ? { borderRight: '7px solid  #A2423D' }
-              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { borderRight: "7px solid  #A2423D" }
+              : { borderRight: "7px solid  rgb(255, 255, 255)" }
+          }
+          className="vertical-timeline-element--work"
+          date="may 2020 - present"
+          iconStyle={
+            props.mode === "dark"
+              ? { background: "#7D4CDB" }
+              : { background: "#6FFFB0" }
+          }
+          icon={<Yoga color={props.mode === "dark" ? "accent-1" : "brand"} />}
+        >
+          <h3 className="vertical-timeline-element-title">collections v2</h3>
+          <h4 className="vertical-timeline-element-subtitle">
+            react web/native application
+          </h4>
+          <p>
+            a reimagining of my passion project in both a web and mobile form
+            that was previously attempted as a senior-year college project
+          </p>
+          <p style={{ color: props.mode === "light" ? "#6f6f6f" : "#FFFFAC" }}>
+            react web | react native | typescript | javascript | google firebase
+            | tMDB api | grommet | responsive
+          </p>
+          <Box direction="row" gap="small" pad={{ top: "small" }}>
+            <Button
+              label="visit website"
+              primary
+              href="https://collections-film.netlify.app/"
+              target="_blank"
+            />
+            <Button
+              label="view source code"
+              href="https://github.com/lorenzoz23/collections-react-web"
+              target="_blank"
+            />
+          </Box>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          position="left"
+          contentStyle={
+            props.mode === "dark"
+              ? { background: "#00739D" }
+              : { background: "rgb(255, 255, 255)" }
+          }
+          contentArrowStyle={
+            props.mode === "dark"
+              ? { borderRight: "7px solid  #00739D" }
+              : { borderRight: "7px solid  rgb(255, 255, 255)" }
           }
           className="vertical-timeline-element--work"
           date="apr 2020 - present"
           iconStyle={
-            props.mode === 'dark'
-              ? { background: '#7D4CDB' }
-              : { background: '#6FFFB0' }
+            props.mode === "dark"
+              ? { background: "#7D4CDB" }
+              : { background: "#6FFFB0" }
           }
-          icon={<Yoga color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          icon={<Yoga color={props.mode === "dark" ? "accent-1" : "brand"} />}
         >
           <h3 className="vertical-timeline-element-title">personal website</h3>
           <h4 className="vertical-timeline-element-subtitle">
             react web application
           </h4>
           <p>
-            my online portfolio; developed with typescript, grommet ui, and
-            node.js
+            my online portfolio including my work experiences, past and current
+            projects, and personal hobbies
           </p>
+          <p style={{ color: props.mode === "light" ? "#6f6f6f" : "#FFFFAC" }}>
+            react | typescript | javascript | grommet | responsive | google
+            firebase
+          </p>
+          <Box direction="row" gap="small" pad={{ top: "small" }}>
+            <Button label="visit website" primary href="/" target="_blank" />
+            <Button
+              label="view source code"
+              href="https://github.com/lorenzoz23/website"
+              target="_blank"
+            />
+          </Box>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          position="right"
           contentStyle={
-            props.mode === 'dark'
-              ? { background: '#00739D' }
-              : { background: 'rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { background: "#A2423D" }
+              : { background: "rgb(255, 255, 255)" }
           }
           contentArrowStyle={
-            props.mode === 'dark'
-              ? { borderRight: '7px solid  #00739D' }
-              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { borderRight: "7px solid  #A2423D" }
+              : { borderRight: "7px solid  rgb(255, 255, 255)" }
           }
           className="vertical-timeline-element--work"
           date="jan 2020 - present"
           iconStyle={
-            props.mode === 'dark'
-              ? { background: '#7D4CDB' }
-              : { background: '#6FFFB0' }
+            props.mode === "dark"
+              ? { background: "#7D4CDB" }
+              : { background: "#6FFFB0" }
           }
-          icon={<Car color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          icon={<Car color={props.mode === "dark" ? "accent-1" : "brand"} />}
         >
           <h3 className="vertical-timeline-element-title">
             parkour - a residential parking sharing system
@@ -84,31 +145,34 @@ const Code = (props: any) => {
             react native mobile application
           </h4>
           <p>
-            senior design project that allows users to find parking spaces or
-            host parking spaces; developed using the mern stack, typescript, and
-            redux
+            senior design project that allows users to find and pay for
+            residential parking spaces or host their own for profit
+          </p>
+          <p style={{ color: props.mode === "light" ? "#6f6f6f" : "#FFFFAC" }}>
+            mern stack | react native | typescript | redux
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          position="left"
           contentStyle={
-            props.mode === 'dark'
-              ? { background: '#A2423D' }
-              : { background: 'rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { background: "#00739D" }
+              : { background: "rgb(255, 255, 255)" }
           }
           contentArrowStyle={
-            props.mode === 'dark'
-              ? { borderRight: '7px solid  #A2423D' }
-              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { borderRight: "7px solid  #00739D" }
+              : { borderRight: "7px solid  rgb(255, 255, 255)" }
           }
           className="vertical-timeline-element--work"
           date="nov 2019"
           iconStyle={
-            props.mode === 'dark'
-              ? { background: '#7D4CDB' }
-              : { background: '#6FFFB0' }
+            props.mode === "dark"
+              ? { background: "#7D4CDB" }
+              : { background: "#6FFFB0" }
           }
           icon={
-            <Language color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
+            <Language color={props.mode === "dark" ? "accent-1" : "brand"} />
           }
         >
           <h3 className="vertical-timeline-element-title">web search engine</h3>
@@ -117,58 +181,81 @@ const Code = (props: any) => {
           </h4>
           <p>
             a rudimentary implementation of a search engine that crawls the web,
-            downloads contents of web pages, and constructs web graph; developed
-            using bfs, directed graphs, and hashmaps
+            downloads contents of web pages, constructs web graph to determine
+            the importance of each web page, and builds an inverted index based
+            on web page contents
           </p>
+          <p style={{ color: props.mode === "light" ? "#6f6f6f" : "#FFFFAC" }}>
+            java | jsoup | bfs | directed graphs | inverted index | hashmaps
+          </p>
+          <Button
+            primary
+            margin={{ top: "small" }}
+            label="view source code"
+            href="https://github.com/lorenzoz23/web-crawler-311"
+            target="_blank"
+          />
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          position="right"
           contentStyle={
-            props.mode === 'dark'
-              ? { background: '#00739D' }
-              : { background: 'rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { background: "#A2423D" }
+              : { background: "rgb(255, 255, 255)" }
           }
           contentArrowStyle={
-            props.mode === 'dark'
-              ? { borderRight: '7px solid  #00739D' }
-              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { borderRight: "7px solid  #A2423D" }
+              : { borderRight: "7px solid  rgb(255, 255, 255)" }
           }
           className="vertical-timeline-element--work"
           date="oct 2019"
           iconStyle={
-            props.mode === 'dark'
-              ? { background: '#7D4CDB' }
-              : { background: '#6FFFB0' }
+            props.mode === "dark"
+              ? { background: "#7D4CDB" }
+              : { background: "#6FFFB0" }
           }
-          icon={<System color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          icon={<System color={props.mode === "dark" ? "accent-1" : "brand"} />}
         >
           <h3 className="vertical-timeline-element-title">unix-style shell</h3>
           <h4 className="vertical-timeline-element-subtitle">c program</h4>
           <p>
-            a simple shell implementation which features support for unix
-            commands, pipe/more filter, forking, i/o redirection, and background
-            execution
+            a simple shell implementation which features support for multiple
+            unix commands, pipe/more filter, forking, i/o redirection, and
+            background execution
           </p>
+          <p style={{ color: props.mode === "light" ? "#6f6f6f" : "#FFFFAC" }}>
+            c | unix | linux console
+          </p>
+          <Button
+            primary
+            margin={{ top: "small" }}
+            label="view source code"
+            href="https://github.com/lorenzoz23/SIMPLE-UNIX"
+            target="_blank"
+          />
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          position="left"
           contentStyle={
-            props.mode === 'dark'
-              ? { background: '#A2423D' }
-              : { background: 'rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { background: "#00739D" }
+              : { background: "rgb(255, 255, 255)" }
           }
           contentArrowStyle={
-            props.mode === 'dark'
-              ? { borderRight: '7px solid  #A2423D' }
-              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { borderRight: "7px solid  #00739D" }
+              : { borderRight: "7px solid  rgb(255, 255, 255)" }
           }
           className="vertical-timeline-element--work"
           date="oct - dec 2019"
           iconStyle={
-            props.mode === 'dark'
-              ? { background: '#7D4CDB' }
-              : { background: '#6FFFB0' }
+            props.mode === "dark"
+              ? { background: "#7D4CDB" }
+              : { background: "#6FFFB0" }
           }
           icon={
-            <Multimedia color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
+            <Multimedia color={props.mode === "dark" ? "accent-1" : "brand"} />
           }
         >
           <h3 className="vertical-timeline-element-title">collections</h3>
@@ -176,60 +263,78 @@ const Code = (props: any) => {
             react web application
           </h4>
           <p>
-            web app to help users keep track of their film collection to better
-            avoid repeat purchases; developed using ant design ui and the mern
-            stack
+            a web app that allows its users to keep track of the films they own
+            in any physical format - they may have the power to search and
+            filter through their collection with tags associated with each film
+            to make it easier to determine if they own a title or not to better
+            prevent any future duplicate purchasing of physical titles
+          </p>
+          <p style={{ color: props.mode === "light" ? "#6f6f6f" : "#FFFFAC" }}>
+            mern stack | typescript | javascript | ant design
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          position="right"
           contentStyle={
-            props.mode === 'dark'
-              ? { background: '#00739D' }
-              : { background: 'rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { background: "#A2423D" }
+              : { background: "rgb(255, 255, 255)" }
           }
           contentArrowStyle={
-            props.mode === 'dark'
-              ? { borderRight: '7px solid  #00739D' }
-              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { borderRight: "7px solid  #A2423D" }
+              : { borderRight: "7px solid  rgb(255, 255, 255)" }
           }
           className="vertical-timeline-element--work"
           date="aug 2019 - present"
           iconStyle={
-            props.mode === 'dark'
-              ? { background: '#7D4CDB' }
-              : { background: '#6FFFB0' }
+            props.mode === "dark"
+              ? { background: "#7D4CDB" }
+              : { background: "#6FFFB0" }
           }
-          icon={<Play color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          icon={<Play color={props.mode === "dark" ? "accent-1" : "brand"} />}
         >
           <h3 className="vertical-timeline-element-title">music editor</h3>
           <h4 className="vertical-timeline-element-subtitle">
             react web application
           </h4>
           <p>
-            passion project with a friend, similar in nature to guitar pro but
-            with a social twist; developed using mern stack, typescript, grommet
-            ui
+            passion project with a friend - a collaborative web-based music
+            editing app (think google docs meets guitar pro) where users can tab
+            out their music solo or collaborate with friends in groups to create
+            something unique
           </p>
+          <p style={{ color: props.mode === "light" ? "#6f6f6f" : "#FFFFAC" }}>
+            mern stack | typescript | javascript | grommet
+          </p>
+          <Button
+            primary
+            margin={{ top: "small" }}
+            label="view source code"
+            href="https://github.com/gist-gist/gist"
+            target="_blank"
+          />
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          position="left"
           contentStyle={
-            props.mode === 'dark'
-              ? { background: '#A2423D' }
-              : { background: 'rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { background: "#00739D" }
+              : { background: "rgb(255, 255, 255)" }
           }
           contentArrowStyle={
-            props.mode === 'dark'
-              ? { borderRight: '7px solid  #A2423D' }
-              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { borderRight: "7px solid  #00739D" }
+              : { borderRight: "7px solid  rgb(255, 255, 255)" }
           }
           className="vertical-timeline-element--work"
           date="jun - aug 2019"
           iconStyle={
-            props.mode === 'dark'
-              ? { background: '#7D4CDB' }
-              : { background: '#6FFFB0' }
+            props.mode === "dark"
+              ? { background: "#7D4CDB" }
+              : { background: "#6FFFB0" }
           }
-          icon={<Swift color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          icon={<Swift color={props.mode === "dark" ? "accent-1" : "brand"} />}
         >
           <h3 className="vertical-timeline-element-title">
             maintainer tool for ui testing
@@ -238,31 +343,36 @@ const Code = (props: any) => {
             mac desktop application
           </h4>
           <p>
-            used to better support buildtrend mobile developers in maintaining
-            their JSON mock data for ui testing; developed with swift, xcode,
-            alamofire, and github api
+            commissioned for buildertrend's mobile developers to provide them
+            with a better means of storing and maintaining their json mock data
+            used for ui testing through collaborative files stored on a shared
+            github repository
+          </p>
+          <p style={{ color: props.mode === "light" ? "#6f6f6f" : "#FFFFAC" }}>
+            xcode | swift | alamofire | github api
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          position="right"
           contentStyle={
-            props.mode === 'dark'
-              ? { background: '#00739D' }
-              : { background: 'rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { background: "#A2423D" }
+              : { background: "rgb(255, 255, 255)" }
           }
           contentArrowStyle={
-            props.mode === 'dark'
-              ? { borderRight: '7px solid  #00739D' }
-              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { borderRight: "7px solid  #A2423D" }
+              : { borderRight: "7px solid  rgb(255, 255, 255)" }
           }
           className="vertical-timeline-element--work"
           date="may - jun 2019"
           iconStyle={
-            props.mode === 'dark'
-              ? { background: '#7D4CDB' }
-              : { background: '#6FFFB0' }
+            props.mode === "dark"
+              ? { background: "#7D4CDB" }
+              : { background: "#6FFFB0" }
           }
           icon={
-            <Reactjs color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
+            <Reactjs color={props.mode === "dark" ? "accent-1" : "brand"} />
           }
         >
           <h3 className="vertical-timeline-element-title">issue tracker</h3>
@@ -270,31 +380,34 @@ const Code = (props: any) => {
             react web application
           </h4>
           <p>
-            web app to help users of buildertrend's software easily identify and
-            register software issues; developed using ant design ui, node.js,
-            c#, and .net core
+            web app to help buildertrend customers easily identify and register
+            software issues by posting issues that go straight to the developers
+          </p>
+          <p style={{ color: props.mode === "light" ? "#6f6f6f" : "#FFFFAC" }}>
+            react | typescript | ant design | .net core | c# | node.js
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
+          position="left"
           contentStyle={
-            props.mode === 'dark'
-              ? { background: '#A2423D' }
-              : { background: 'rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { background: "#00739D" }
+              : { background: "rgb(255, 255, 255)" }
           }
           contentArrowStyle={
-            props.mode === 'dark'
-              ? { borderRight: '7px solid #A2423D' }
-              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+            props.mode === "dark"
+              ? { borderRight: "7px solid #00739D" }
+              : { borderRight: "7px solid  rgb(255, 255, 255)" }
           }
           className="vertical-timeline-element--work"
           date="aug - dec 2018"
           iconStyle={
-            props.mode === 'dark'
-              ? { background: '#7D4CDB' }
-              : { background: '#6FFFB0' }
+            props.mode === "dark"
+              ? { background: "#7D4CDB" }
+              : { background: "#6FFFB0" }
           }
           icon={
-            <Android color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
+            <Android color={props.mode === "dark" ? "accent-1" : "brand"} />
           }
         >
           <h3 className="vertical-timeline-element-title">
@@ -305,7 +418,10 @@ const Code = (props: any) => {
           </h4>
           <p>
             a simple android alarm clock app built with three friends over one
-            semester; developed using java, spring boot, and mysql
+            semester
+          </p>
+          <p style={{ color: props.mode === "light" ? "#6f6f6f" : "#FFFFAC" }}>
+            android studio | java | mysql | spring boot
           </p>
         </VerticalTimelineElement>
       </VerticalTimeline>

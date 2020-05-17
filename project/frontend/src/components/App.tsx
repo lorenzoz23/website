@@ -314,8 +314,9 @@ function App() {
                           ]}
                         />
                       </Box>
-                      <Box alignSelf="center" margin="small" width="xsmall">
+                      <Box alignSelf="center" margin="small" width="120px">
                         <Select
+                          alignSelf="center"
                           disabled={visualModeValue === "light" ? [0] : [1]}
                           icon={<Magic size="20px" />}
                           onChange={({ option }) => setMode(option)}

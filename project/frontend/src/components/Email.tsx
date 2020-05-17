@@ -96,8 +96,8 @@ const Email = (props: any) => {
             onClick={() => setShowSidebar(!showSidebar)}
             style={{
               position: "fixed",
-              bottom: "20px",
-              right: "30px",
+              bottom: size !== "small" ? "35px" : "20px",
+              right: size !== "small" ? "35px" : "15px",
               zIndex: 99,
               padding: "15px",
               display: showSidebar ? "none" : "inline"

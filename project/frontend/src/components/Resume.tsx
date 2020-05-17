@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-import { Box, Anchor, ResponsiveContext } from 'grommet';
-import { Document, Page, pdfjs } from 'react-pdf';
+import React, { useEffect, useRef } from "react";
+import { Box, Anchor, ResponsiveContext } from "grommet";
+import { Document, Page, pdfjs } from "react-pdf";
 
-import resumePdf from '../component_assets/resume.pdf';
-import { View } from 'grommet-icons';
+import resumePdf from "../component_assets/resume.pdf";
+import { View } from "grommet-icons";
 
-const Resume = () => {
+const Resume = (props: any) => {
   const isMounted = useRef(true);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Resume = () => {
   }, []);
 
   const downloadResume = () => {
-    window.open(resumePdf, '_blank');
+    window.open(resumePdf, "_blank");
   };
 
   return (
@@ -31,7 +31,7 @@ const Resume = () => {
           background="home"
           //gap="small"
         >
-          {size !== 'small' ? (
+          {size !== "small" ? (
             <Document
               file={resumePdf}
               noData="no data?! aw shucks..."
@@ -41,18 +41,23 @@ const Resume = () => {
               <Page height={950} pageNumber={1} />
             </Document>
           ) : null}
-          <Anchor
-            alignSelf="center"
-            margin="small"
-            icon={<View />}
-            reverse
-            label={
-              size !== 'small'
-                ? 'click to open in browser'
-                : 'click to open resume'
-            }
-            onClick={downloadResume}
-          />
+          {size !== "small" ? (
+            <Anchor
+              alignSelf="center"
+              margin="small"
+              icon={<View />}
+              reverse
+              label="click to open in browser"
+              onClick={downloadResume}
+            />
+          ) : (
+            <Anchor
+              alignSelf="center"
+              margin="small"
+              label="click to open resume"
+              onClick={downloadResume}
+            />
+          )}
         </Box>
       )}
     </ResponsiveContext.Consumer>

@@ -58,5 +58,28 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCFwTWxy66C-Hyc3aAyM5qRtUrkCRHqpGE",
+        authDomain: "my-website-47a3f.firebaseapp.com",
+        databaseURL: "https://my-website-47a3f.firebaseio.com",
+        projectId: "my-website-47a3f",
+        storageBucket: "my-website-47a3f.appspot.com",
+        messagingSenderId: "470181838732",
+        appId: "1:470181838732:web:9516b0128c438a22bc20a9",
+        measurementId: "G-2HT42KGJK5"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>

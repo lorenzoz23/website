@@ -50,17 +50,13 @@ const HomePage = (props: any) => {
                 growing more into my one as a developer, focusing on projects
                 that allow me to satisfy my creative outlet.
               </Paragraph>
-              <Paragraph
-                size="large"
-                textAlign="start"
-                margin={{ top: "small" }}
-              >
+              <Paragraph size="large" textAlign="end" margin={{ top: "small" }}>
                 Above, you will find all of my experiences in industry, all the
                 various projects I've had my hands in, and all the things that
                 make me... well, me. Have a gander and be sure to tell me what
                 you think (email button in lower right)!
               </Paragraph>
-              <Heading textAlign="center" title="mr. prine">
+              <Heading textAlign="center" title="john prine">
                 ...in there
               </Heading>
               <Avatar
@@ -95,7 +91,7 @@ const HomePage = (props: any) => {
                   size="large"
                   textAlign="center"
                   fill
-                  margin={{ bottom: "small", right: "medium", left: "medium" }}
+                  margin={{ bottom: "small", right: "large", left: "large" }}
                 >
                   My name is Lorenzo. I am a software developer (degree says
                   engineer, but I'm not so sure about that one) with a love for
@@ -122,12 +118,12 @@ const HomePage = (props: any) => {
                 make me... well, me. Have a gander and be sure to tell me what
                 you think (email button in lower right)!
               </Paragraph>
-              <Resume />
+              <Resume mode={props.mode} />
             </Box>
           )}
           {size === "large" ? (
             <Box>
-              <Resume />
+              <Resume mode={props.mode} />
             </Box>
           ) : null}
           <Email mode={props.mode} />
