@@ -13,6 +13,19 @@ import {
   Text
 } from "grommet";
 import { FormClose, Contact, Mail, Refresh } from "grommet-icons";
+import * as firebase from "firebase";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCFwTWxy66C-Hyc3aAyM5qRtUrkCRHqpGE",
+  authDomain: "my-website-47a3f.firebaseapp.com",
+  databaseURL: "https://my-website-47a3f.firebaseio.com",
+  projectId: "my-website-47a3f",
+  storageBucket: "my-website-47a3f.appspot.com",
+  messagingSenderId: "470181838732",
+  appId: "1:470181838732:web:9516b0128c438a22bc20a9",
+  measurementId: "G-2HT42KGJK5"
+};
+firebase.initializeApp(firebaseConfig);
 
 const defaultFormValues = {
   name: "",
@@ -26,6 +39,7 @@ const defaultNotificationValues = {
   header: "",
   body: ""
 };
+
 const Email = (props: any) => {
   const [formValue, setFormValue] = useState(defaultFormValues);
   const [showSidebar, setShowSidebar] = useState(false);
@@ -33,52 +47,36 @@ const Email = (props: any) => {
   const [notificationObject, setShowNotificationObject] = useState(
     defaultNotificationValues
   );
+  const emailMessageRef = firebase.database().ref("emailMessage");
 
   const formChange = (value: any) => {
     setFormValue(value);
     console.log(value);
   };
 
-  const submitEmailForm = (size: string) => {
-    console.log("submitted");
-    setFormValue(defaultFormValues);
+  const saveEmailMessage = () => {
+    const newEmailMessageRef = emailMessageRef.push();
+    newEmailMessageRef.set({
+      name: formValue.name,
+      email: formValue.email,
+      subject: formValue.subject,
+      message: formValue.message
+    });
+  };
 
-    fetch("/send", {
-      method: "POST",
-      body: JSON.stringify(formValue),
-      headers: {
-        Accept: "application/json",
-        "Content-type": "application/json"
-      }
-    })
-      .then((resp) => resp.json())
-      .then((resp) => {
-        if (resp.status === "success") {
-          if (size === "large") {
-            setShowSidebar(!showSidebar);
-            const obj = {
-              show: true,
-              header: "success!",
-              body: "your email has just been sent"
-            };
-            setShowNotificationObject(obj);
-          } else {
-            setSmallHeaderText("email sent!");
-          }
-        } else if (resp.status === "fail") {
-          if (size === "large") {
-            setShowSidebar(!showSidebar);
-            const obj = {
-              show: true,
-              header: "error!",
-              body: "your email failed to send"
-            };
-            setShowNotificationObject(obj);
-          } else {
-            setSmallHeaderText("failed to send email!");
-          }
-        }
-      });
+  const submitEmailForm = (size: string) => {
+    saveEmailMessage();
+    setFormValue(defaultFormValues);
+    if (size === "small") {
+      setSmallHeaderText("success: email sent!");
+    } else {
+      const notification = {
+        show: true,
+        header: "success!",
+        body: "your email has been successfully sent!"
+      };
+      setShowNotificationObject(notification);
+    }
   };
 
   return (
@@ -204,9 +202,12 @@ const Email = (props: any) => {
                           size="small"
                           icon={<FormClose />}
                           primary
-                          onClick={() =>
-                            setShowNotificationObject(defaultNotificationValues)
-                          }
+                          onClick={() => {
+                            setShowNotificationObject(
+                              defaultNotificationValues
+                            );
+                            setShowSidebar(false);
+                          }}
                         />
                       </Box>
                     </Box>
@@ -228,10 +229,14 @@ const Email = (props: any) => {
                 justify="center"
                 overflow="auto"
               >
-                <Heading>{smallHeaderText}</Heading>
+                <Heading margin="small" textAlign="center">
+                  {smallHeaderText}
+                </Heading>
                 <Form
                   value={formValue}
-                  onChange={(nextValue: any) => formChange(nextValue)}
+                  onChange={(nextValue: React.SetStateAction<{}>) =>
+                    formChange(nextValue)
+                  }
                   onReset={() => setFormValue(defaultFormValues)}
                   onSubmit={() => submitEmailForm(size)}
                 >
@@ -337,6 +342,34 @@ const Email = (props: any) => {
                     />
                   </Box>
                 </Form>
+                {notificationObject.show && (
+                  <Layer
+                    position="center"
+                    onClickOutside={() =>
+                      setShowNotificationObject(defaultNotificationValues)
+                    }
+                  >
+                    <Box justify="center" align="center" pad="medium">
+                      <Heading level="2">{notificationObject.header}</Heading>
+                      <Box gap="medium">
+                        <Text>{notificationObject.body}</Text>
+                        <Button
+                          title="close"
+                          alignSelf="center"
+                          size="small"
+                          icon={<FormClose />}
+                          primary
+                          onClick={() => {
+                            setShowNotificationObject(
+                              defaultNotificationValues
+                            );
+                            setShowSidebar(false);
+                          }}
+                        />
+                      </Box>
+                    </Box>
+                  </Layer>
+                )}
               </Box>
             </Layer>
           )}
