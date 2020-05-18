@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Collapsible,
   Button,
@@ -11,43 +11,44 @@ import {
   Layer,
   Heading,
   Text
-} from "grommet";
-import { FormClose, Contact, Mail, Refresh } from "grommet-icons";
-import * as firebase from "firebase";
+} from 'grommet';
+import { FormClose, Contact, Mail, Refresh } from 'grommet-icons';
+import * as firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCFwTWxy66C-Hyc3aAyM5qRtUrkCRHqpGE",
-  authDomain: "my-website-47a3f.firebaseapp.com",
-  databaseURL: "https://my-website-47a3f.firebaseio.com",
-  projectId: "my-website-47a3f",
-  storageBucket: "my-website-47a3f.appspot.com",
-  messagingSenderId: "470181838732",
-  appId: "1:470181838732:web:9516b0128c438a22bc20a9",
-  measurementId: "G-2HT42KGJK5"
+  apiKey: process.env.GOOGLE_FIREBASE_CONFIG_API_KEY,
+  authDomain: 'my-website-47a3f.firebaseapp.com',
+  databaseURL: 'https://my-website-47a3f.firebaseio.com',
+  projectId: 'my-website-47a3f',
+  storageBucket: 'my-website-47a3f.appspot.com',
+  messagingSenderId: '470181838732',
+  appId: '1:470181838732:web:9516b0128c438a22bc20a9',
+  measurementId: 'G-2HT42KGJK5'
 };
+
 firebase.initializeApp(firebaseConfig);
 
 const defaultFormValues = {
-  name: "",
-  email: "",
-  subject: "",
-  message: ""
+  name: '',
+  email: '',
+  subject: '',
+  message: ''
 };
 
 const defaultNotificationValues = {
   show: false,
-  header: "",
-  body: ""
+  header: '',
+  body: ''
 };
 
 const Email = (props: any) => {
   const [formValue, setFormValue] = useState(defaultFormValues);
   const [showSidebar, setShowSidebar] = useState(false);
-  const [smallHeaderText, setSmallHeaderText] = useState("send an email!");
+  const [smallHeaderText, setSmallHeaderText] = useState('send an email!');
   const [notificationObject, setShowNotificationObject] = useState(
     defaultNotificationValues
   );
-  const emailMessageRef = firebase.database().ref("emailMessage");
+  const emailMessageRef = firebase.database().ref('emailMessage');
 
   const formChange = (value: any) => {
     setFormValue(value);
@@ -67,13 +68,13 @@ const Email = (props: any) => {
   const submitEmailForm = (size: string) => {
     saveEmailMessage();
     setFormValue(defaultFormValues);
-    if (size === "small") {
-      setSmallHeaderText("success: email sent!");
+    if (size === 'small') {
+      setSmallHeaderText('success: email sent!');
     } else {
       const notification = {
         show: true,
-        header: "success!",
-        body: "your email has been successfully sent!"
+        header: 'success!',
+        body: 'your email has been successfully sent!'
       };
       setShowNotificationObject(notification);
     }
@@ -86,38 +87,38 @@ const Email = (props: any) => {
           <Button
             title="email"
             primary
-            focusIndicator={props.mode === "light" ? true : false}
-            color={props.mode === "light" ? "brand" : "accent-1"}
+            focusIndicator={props.mode === 'light' ? true : false}
+            color={props.mode === 'light' ? 'brand' : 'accent-1'}
             icon={
-              <Contact color={props.mode === "light" ? "accent-1" : "brand"} />
+              <Contact color={props.mode === 'light' ? 'accent-1' : 'brand'} />
             }
             onClick={() => setShowSidebar(!showSidebar)}
             style={{
-              position: "fixed",
-              bottom: size !== "small" ? "35px" : "20px",
-              right: size !== "small" ? "35px" : "15px",
+              position: 'fixed',
+              bottom: size !== 'small' ? '35px' : '20px',
+              right: size !== 'small' ? '35px' : '15px',
               zIndex: 99,
-              padding: "15px",
-              display: showSidebar ? "none" : "inline"
+              padding: '15px',
+              display: showSidebar ? 'none' : 'inline'
             }}
           />
-          {!showSidebar || size === "large" ? (
+          {!showSidebar || size === 'large' ? (
             <Collapsible direction="horizontal" open={showSidebar}>
               <Button
                 focusIndicator={false}
                 icon={
                   <FormClose
-                    color={props.mode === "light" ? "brand" : "accent-1"}
+                    color={props.mode === 'light' ? 'brand' : 'accent-1'}
                   />
                 }
                 onClick={() => setShowSidebar(!showSidebar)}
               />
               <Box
                 flex
-                pad={{ bottom: "medium", left: "medium", right: "medium" }}
+                pad={{ bottom: 'medium', left: 'medium', right: 'medium' }}
                 width="large"
                 background="light-1"
-                elevation={props.mode === "light" ? "small" : "none"}
+                elevation={props.mode === 'light' ? 'small' : 'none'}
                 align="center"
                 justify="center"
                 overflow="auto"
@@ -222,9 +223,9 @@ const Email = (props: any) => {
             >
               <Box
                 margin="small"
-                pad={{ bottom: "xlarge", top: "large" }}
+                pad={{ bottom: 'xlarge', top: 'large' }}
                 flex
-                background={props.mode === "light" ? "light-2" : "home"}
+                background={props.mode === 'light' ? 'light-2' : 'home'}
                 align="center"
                 justify="center"
                 overflow="auto"
@@ -243,10 +244,10 @@ const Email = (props: any) => {
                   <Box direction="row" gap="small">
                     <FormField
                       margin={{
-                        left: "medium",
-                        right: "medium",
-                        top: "medium",
-                        bottom: "medium"
+                        left: 'medium',
+                        right: 'medium',
+                        top: 'medium',
+                        bottom: 'medium'
                       }}
                       name="name"
                       htmlFor="text-input-id"
@@ -256,10 +257,10 @@ const Email = (props: any) => {
                     </FormField>
                     <FormField
                       margin={{
-                        left: "medium",
-                        right: "medium",
-                        top: "medium",
-                        bottom: "medium"
+                        left: 'medium',
+                        right: 'medium',
+                        top: 'medium',
+                        bottom: 'medium'
                       }}
                       name="email"
                       htmlFor="email-input-id"
@@ -275,10 +276,10 @@ const Email = (props: any) => {
                   </Box>
                   <FormField
                     margin={{
-                      left: "medium",
-                      right: "medium",
-                      top: "medium",
-                      bottom: "medium"
+                      left: 'medium',
+                      right: 'medium',
+                      top: 'medium',
+                      bottom: 'medium'
                     }}
                     name="subject"
                     htmlFor="subject-input-id"
@@ -295,15 +296,15 @@ const Email = (props: any) => {
                     htmlFor="message-input-id"
                     required
                     margin={{
-                      left: "medium",
-                      right: "medium",
-                      top: "medium",
-                      bottom: "medium"
+                      left: 'medium',
+                      right: 'medium',
+                      top: 'medium',
+                      bottom: 'medium'
                     }}
                   >
                     <TextArea
                       name="message"
-                      style={{ fontSize: "18px" }}
+                      style={{ fontSize: '18px' }}
                       size="large"
                       focusIndicator
                       id="message-input-id"
