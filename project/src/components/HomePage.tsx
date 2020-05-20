@@ -1,8 +1,8 @@
-import React from "react";
-import { Box, Heading, Paragraph, Avatar, ResponsiveContext } from "grommet";
+import React from 'react';
+import { Box, Heading, Paragraph, Avatar, ResponsiveContext } from 'grommet';
 
-import Resume from "./Resume";
-import Email from "./Email";
+import Resume from './Resume';
+import Email from './Email';
 
 const HomePage = (props: any) => {
   return (
@@ -14,28 +14,28 @@ const HomePage = (props: any) => {
           align="start"
           justify="around"
           background="home"
-          overflow={{ horizontal: "hidden" }}
+          overflow={{ horizontal: 'hidden' }}
         >
-          {size === "large" ? (
-            <Box align="center">
+          {size === 'large' ? (
+            <Box>
               <Avatar
                 border={{
-                  color: "brand",
-                  size: "small",
-                  style: "solid"
+                  color: 'brand',
+                  size: 'small',
+                  style: 'solid'
                 }}
                 round="full"
                 src="/website-images/site-512.png"
                 size="200px"
                 alignSelf="start"
               />
-              <Heading textAlign="center" title="rip">
-                hello...
-              </Heading>
+              <Box pad={{ right: '60px' }}>
+                <Heading textAlign="end">welcome!</Heading>
+              </Box>
               <Paragraph
                 size="large"
-                textAlign="end"
-                margin={{ bottom: "small" }}
+                textAlign="start"
+                margin={{ bottom: 'small' }}
               >
                 My name is Lorenzo. I am a software developer (degree says
                 engineer, but I'm not so sure about that one) with a love for
@@ -50,39 +50,25 @@ const HomePage = (props: any) => {
                 growing more into my one as a developer, focusing on projects
                 that allow me to satisfy my creative outlet.
               </Paragraph>
-              <Paragraph size="large" textAlign="end" margin={{ top: "small" }}>
+              <Paragraph size="large" textAlign="end" margin={{ top: 'small' }}>
                 Above, you will find all of my experiences in industry, all the
                 various projects I've had my hands in, and all the things that
                 make me... well, me. Have a gander and be sure to tell me what
                 you think (email button in lower right)!
               </Paragraph>
-              <Heading textAlign="center" title="john prine">
-                ...in there
-              </Heading>
-              <Avatar
-                border={{
-                  color: "brand",
-                  size: "small",
-                  style: "solid"
-                }}
-                round="full"
-                src="/website-images/site-512.png"
-                size="200px"
-                alignSelf="end"
-              />
             </Box>
           ) : (
             <Box align="center">
               <Avatar
-                margin={{ top: "medium" }}
+                margin={{ top: 'medium' }}
                 border={{
-                  color: "brand",
-                  size: "small",
-                  style: "solid"
+                  color: 'brand',
+                  size: 'small',
+                  style: 'solid'
                 }}
                 round="full"
                 src="/website-images/site-512.png"
-                size={size === "medium" ? "200px" : "125px"}
+                size={size === 'medium' ? '200px' : '125px'}
                 alignSelf="center"
               />
               <Heading textAlign="center">welcome!</Heading>
@@ -91,7 +77,7 @@ const HomePage = (props: any) => {
                   size="large"
                   textAlign="center"
                   fill
-                  margin={{ bottom: "small", right: "large", left: "large" }}
+                  margin={{ bottom: 'small', right: 'large', left: 'large' }}
                 >
                   My name is Lorenzo. I am a software developer (degree says
                   engineer, but I'm not so sure about that one) with a love for
@@ -111,22 +97,22 @@ const HomePage = (props: any) => {
               <Paragraph
                 size="large"
                 textAlign="center"
-                margin={{ bottom: "medium", top: "small" }}
+                margin={{ bottom: 'medium', top: 'small' }}
               >
                 Above, you will find all of my experiences in industry, all the
                 various projects I've had my hands in, and all the things that
                 make me... well, me. Have a gander and be sure to tell me what
                 you think (email button in lower right)!
               </Paragraph>
-              <Resume mode={props.mode} />
+              <Resume />
             </Box>
           )}
-          {size === "large" ? (
+          {size === 'large' ? (
             <Box>
-              <Resume mode={props.mode} />
+              <Resume />
             </Box>
           ) : null}
-          <Email mode={props.mode} />
+          <Email mode={props.mode} home={true} />
         </Box>
       )}
     </ResponsiveContext.Consumer>

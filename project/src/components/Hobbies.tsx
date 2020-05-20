@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Box,
   Heading,
@@ -6,11 +6,11 @@ import {
   ResponsiveContext,
   Anchor,
   Nav
-} from "grommet";
-import { Youtube, Multimedia, Favorite } from "grommet-icons";
+} from 'grommet';
+import { Youtube, Multimedia, Favorite } from 'grommet-icons';
 
-import Trello from "./Trello";
-import Email from "./Email";
+import Trello from './Trello';
+import Email from './Email';
 
 const Hobbies = (props: any) => {
   return (
@@ -36,7 +36,7 @@ const Hobbies = (props: any) => {
                 title="letterboxd"
                 icon={
                   <Multimedia
-                    color={props.mode === "light" ? "plain" : "dark-3"}
+                    color={props.mode === 'light' ? 'plain' : 'dark-3'}
                   />
                 }
                 target="_blank"
@@ -46,7 +46,7 @@ const Hobbies = (props: any) => {
             <Paragraph
               size="large"
               textAlign="center"
-              margin={{ bottom: "small", right: "large", left: "large" }}
+              margin={{ bottom: 'small', right: 'large', left: 'large' }}
               fill
             >
               Whenever I've escaped from the cold, unforgiving clutches of
@@ -65,7 +65,7 @@ const Hobbies = (props: any) => {
             <Paragraph
               size="large"
               textAlign="center"
-              margin={{ top: "small", right: "medium", left: "medium" }}
+              margin={{ top: 'small', right: 'medium', left: 'medium' }}
             >
               I'm also a proudly compulsive listmaker, so I've recently started
               keeping track of my favorite indie/alternative and metal releases
@@ -80,16 +80,16 @@ const Hobbies = (props: any) => {
             </Paragraph>
             <Heading level={2}>Trello Boards</Heading>
             <Box
-              direction={size !== "small" ? "row" : "column"}
-              gap={size !== "small" ? "large" : "250px"}
-              margin={{ bottom: size !== "small" ? "300px" : "600px" }}
+              direction={size !== 'small' ? 'row' : 'column'}
+              gap={size !== 'small' ? 'large' : '250px'}
+              margin={{ bottom: size !== 'small' ? '300px' : '600px' }}
             >
               <Trello id="268G14hT" divLabel="metal-2020" />
               <Trello id="aHi0ZFuA" divLabel="indie-alternative-2020" />
               <Trello id="KKDGm1Bx" divLabel="website" />
             </Box>
           </Box>
-          <Email mode={props.mode} />
+          <Email mode={props.mode} home={false} />
         </Box>
       )}
     </ResponsiveContext.Consumer>

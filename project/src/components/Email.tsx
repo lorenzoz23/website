@@ -85,7 +85,7 @@ const Email = (props: any) => {
       {(size) => (
         <Box direction="row">
           <Button
-            title="email"
+            title="email me!"
             primary
             focusIndicator={props.mode === 'light' ? true : false}
             color={props.mode === 'light' ? 'brand' : 'accent-1'}
@@ -96,13 +96,13 @@ const Email = (props: any) => {
             style={{
               position: 'fixed',
               bottom: size !== 'small' ? '35px' : '20px',
-              right: size !== 'small' ? '35px' : '15px',
+              right: size !== 'small' ? '45px' : '15px',
               zIndex: 99,
               padding: '15px',
               display: showSidebar ? 'none' : 'inline'
             }}
           />
-          {!showSidebar || size === 'large' ? (
+          {!showSidebar || (size === 'large' && !props.home) ? (
             <Collapsible direction="horizontal" open={showSidebar}>
               <Button
                 focusIndicator={false}
