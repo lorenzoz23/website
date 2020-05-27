@@ -41,14 +41,20 @@ const HomePage = (props: any) => {
                 engineer, but I'm not so sure about that one) with a love for
                 all things frontend. I tend to gravitate towards the more
                 outwardly artistic corners of software because I believe myself
-                to naturally be more creative-minded than technical. Before I
-                decided to try my hand in software engineering, I originally
-                planned on further pursuing my love of music until I thought
-                it'd probably be more beneficial to add just one more skill to
-                my, admittedly small, yet focused repertoire. Now, four years
-                into my degree with just one semester left to go, I find myself
-                growing more into my one as a developer, focusing on projects
-                that allow me to satisfy my creative outlet.
+                to naturally be more creative-minded than technical.
+              </Paragraph>
+              <Paragraph
+                size="large"
+                textAlign="center"
+                margin={{ bottom: 'small', top: 'small' }}
+              >
+                Before I decided to try my hand in software engineering, I
+                originally planned on further pursuing my love of music until I
+                thought it'd probably be more beneficial to add just one more
+                skill to my, admittedly small, yet focused repertoire. Now, four
+                years into my degree with just one semester left to go, I find
+                myself growing more into my one as a developer, focusing on
+                projects that allow me to satisfy my creative outlet.
               </Paragraph>
               <Paragraph size="large" textAlign="end" margin={{ top: 'small' }}>
                 Above, you will find all of my experiences in industry, all the
@@ -72,28 +78,35 @@ const HomePage = (props: any) => {
                 alignSelf="center"
               />
               <Heading textAlign="center">welcome!</Heading>
-              <Box direction="row">
-                <Paragraph
-                  size="large"
-                  textAlign="center"
-                  fill
-                  margin={{ bottom: 'small', right: 'large', left: 'large' }}
-                >
-                  My name is Lorenzo. I am a software developer (degree says
-                  engineer, but I'm not so sure about that one) with a love for
-                  all things frontend. I tend to gravitate towards the more
-                  outwardly artistic corners of software because I believe
-                  myself to naturally be more creative-minded than technical.
-                  Before I decided to try my hand in software engineering, I
-                  originally planned on further pursuing my love of music until
-                  I thought it'd probably be more beneficial to add just one
-                  more skill to my, admittedly small, yet focused repertoire.
-                  Now, four years into my degree with just one semester left to
-                  go, I find myself growing more into my one as a developer,
-                  focusing on projects that allow me to satisfy my creative
-                  outlet.
-                </Paragraph>
-              </Box>
+              <Paragraph
+                size="large"
+                textAlign="center"
+                margin={{ bottom: 'small', right: 'medium', left: 'medium' }}
+              >
+                My name is Lorenzo. I am a software developer (degree says
+                engineer, but I'm not so sure about that one) with a love for
+                all things frontend. I tend to gravitate towards the more
+                outwardly artistic corners of software because I believe myself
+                to naturally be more creative-minded than technical.
+              </Paragraph>
+              <Paragraph
+                size="large"
+                textAlign="center"
+                margin={{
+                  bottom: 'small',
+                  right: 'medium',
+                  left: 'medium',
+                  top: 'small'
+                }}
+              >
+                Before I decided to try my hand in software engineering, I
+                originally planned on further pursuing my love of music until I
+                thought it'd probably be more beneficial to add just one more
+                skill to my, admittedly small, yet focused repertoire. Now, four
+                years into my degree with just one semester left to go, I find
+                myself growing more into my one as a developer, focusing on
+                projects that allow me to satisfy my creative outlet.
+              </Paragraph>
               <Paragraph
                 size="large"
                 textAlign="center"

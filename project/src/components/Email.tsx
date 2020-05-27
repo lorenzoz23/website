@@ -222,7 +222,7 @@ const Email = (props: any) => {
               onClickOutside={() => setShowSidebar(!showSidebar)}
             >
               <Box
-                margin="small"
+                margin="xsmall"
                 pad={{ bottom: 'xlarge', top: 'large' }}
                 flex
                 background={props.mode === 'light' ? 'light-2' : 'home'}

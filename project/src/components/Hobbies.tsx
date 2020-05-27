@@ -46,7 +46,7 @@ const Hobbies = (props: any) => {
             <Paragraph
               size="large"
               textAlign="center"
-              margin={{ bottom: 'small', right: 'large', left: 'large' }}
+              margin={{ bottom: 'small', right: 'medium', left: 'medium' }}
               fill
             >
               Whenever I've escaped from the cold, unforgiving clutches of
@@ -82,7 +82,7 @@ const Hobbies = (props: any) => {
             <Box
               direction={size !== 'small' ? 'row' : 'column'}
               gap={size !== 'small' ? 'large' : '250px'}
-              margin={{ bottom: size !== 'small' ? '300px' : '600px' }}
+              margin={{ bottom: size !== 'small' ? '300px' : '750px' }}
             >
               <Trello id="268G14hT" divLabel="metal-2020" />
               <Trello id="aHi0ZFuA" divLabel="indie-alternative-2020" />
