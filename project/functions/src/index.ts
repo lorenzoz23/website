@@ -1,22 +1,18 @@
-import * as functions from "firebase-functions";
-import * as admin from "firebase-admin";
-import * as nodemailer from "nodemailer";
+import * as functions from 'firebase-functions';
+import * as admin from 'firebase-admin';
+import * as nodemailer from 'nodemailer';
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
 admin.initializeApp();
 
 const sendMail = (data: any) => {
   const gmailEmail = functions.config().gmail.login;
   const gmailPassword = functions.config().gmail.pass;
-  const name = data.name.length === 0 ? "some stranger" : data.name;
+  const name = data.name.length === 0 ? 'some stranger' : data.name;
 
   const mailTransport = nodemailer.createTransport({
-    service: "gmail",
+    service: 'gmail',
     auth: {
       user: gmailEmail,
       pass: gmailPassword
@@ -33,15 +29,15 @@ const sendMail = (data: any) => {
   mailTransport
     .sendMail(mailOptions)
     .then(() => {
-      console.log("successfully sent email");
+      console.log('successfully sent email');
     })
     .catch(() => {
-      console.log("error sending email");
+      console.log('error sending email');
     });
 };
 
 exports.sendContactFormEmail = functions.database
-  .ref("/emailMessage/{id}")
+  .ref('/emailMessage/{id}')
   .onCreate((snap, context) => {
     const data = snap.val();
     return sendMail(data);
