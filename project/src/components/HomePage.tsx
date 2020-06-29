@@ -25,7 +25,7 @@ const HomePage = (props: any) => {
                   style: 'solid'
                 }}
                 round="full"
-                src="/website-images/site-512.png"
+                src="/website-images/lorenzo.jpg"
                 size="200px"
                 alignSelf="start"
               />
@@ -73,7 +73,7 @@ const HomePage = (props: any) => {
                   style: 'solid'
                 }}
                 round="full"
-                src="/website-images/site-512.png"
+                src="/website-images/lorenzo.jpg"
                 size={size === 'medium' ? '200px' : '125px'}
                 alignSelf="center"
               />
