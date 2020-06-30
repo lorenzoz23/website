@@ -89,7 +89,7 @@ const Hobbies = (props: any) => {
               <Trello id="KKDGm1Bx" divLabel="website" />
             </Box>
           </Box>
-          <Email mode={props.mode} home={false} />
+          <Email mode={props.mode} />
         </Box>
       )}
     </ResponsiveContext.Consumer>

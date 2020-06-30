@@ -353,12 +353,7 @@ function App() {
                       <Experience {...props} mode={visualModeValue} />
                     )}
                   />
-                  <Route
-                    path="/"
-                    render={(props) => (
-                      <HomePage {...props} mode={visualModeValue} />
-                    )}
-                  />
+                  <Route path="/" render={HomePage} />
                 </Switch>
               </Box>
             </Box>

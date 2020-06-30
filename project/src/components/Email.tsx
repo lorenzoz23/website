@@ -13,7 +13,7 @@ import {
   Text
 } from 'grommet';
 import { FormClose, Contact, Mail, Refresh } from 'grommet-icons';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/database';
 
 const firebaseConfig = {
@@ -83,6 +83,7 @@ const Email = (props: any) => {
           <Button
             title="email me!"
             primary
+            hoverIndicator={props.mode === 'light' ? 'neutral-3' : 'accent-4'}
             focusIndicator={props.mode === 'light' ? true : false}
             color={props.mode === 'light' ? 'brand' : 'accent-1'}
             icon={
@@ -95,10 +96,11 @@ const Email = (props: any) => {
               right: size !== 'small' ? '45px' : '15px',
               zIndex: 99,
               padding: '15px',
-              display: showSidebar ? 'none' : 'inline'
+              display: showSidebar ? 'none' : 'inline',
+              borderRadius: 30
             }}
           />
-          {!showSidebar || (size === 'large' && !props.home) ? (
+          {!showSidebar || size === 'large' ? (
             <Collapsible direction="horizontal" open={showSidebar}>
               <Button
                 focusIndicator={false}

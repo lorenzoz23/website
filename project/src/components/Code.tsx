@@ -70,14 +70,16 @@ const Code = (props: any) => {
             react native | typescript | javascript | google firebase | native
             base | react navigation
           </p>
-          <Button
-            primary
-            margin={{ top: 'small' }}
-            label="view source code"
-            href="https://github.com/lorenzoz23/idyllic-paws"
-            target="_blank"
-            icon={<Github />}
-          />
+          <Box align="start">
+            <Button
+              primary
+              margin={{ top: 'small' }}
+              label="view source code"
+              href="https://github.com/lorenzoz23/idyllic-paws"
+              target="_blank"
+              icon={<Github />}
+            />
+          </Box>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           position="left"
@@ -100,13 +102,16 @@ const Code = (props: any) => {
           }
           icon={<Ticket color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
         >
-          <h3 className="vertical-timeline-element-title">collections v2</h3>
+          <h3 className="vertical-timeline-element-title">cinelot</h3>
           <h4 className="vertical-timeline-element-subtitle">
             react web/native application
           </h4>
           <p>
             a reimagining of my passion project in both a web and mobile form
-            that was previously attempted as a senior-year college project
+            that was previously attempted as a senior-year college project -
+            cinelot allows users to keep track of, update, and query their
+            physical film collection on the go for both convenience and to avoid
+            the pain of double-purchasing
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
             react web | react native | typescript | javascript | google firebase
@@ -258,14 +263,16 @@ const Code = (props: any) => {
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
             java | jsoup | bfs | directed graphs | inverted index | hashmaps
           </p>
-          <Button
-            primary
-            margin={{ top: 'small' }}
-            label="view source code"
-            href="https://github.com/lorenzoz23/web-crawler-311"
-            target="_blank"
-            icon={<Github />}
-          />
+          <Box align="start">
+            <Button
+              primary
+              margin={{ top: 'small' }}
+              label="view source code"
+              href="https://github.com/lorenzoz23/web-crawler-311"
+              target="_blank"
+              icon={<Github />}
+            />
+          </Box>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           position="left"
@@ -298,14 +305,16 @@ const Code = (props: any) => {
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
             c | unix | linux console
           </p>
-          <Button
-            primary
-            margin={{ top: 'small' }}
-            label="view source code"
-            href="https://github.com/lorenzoz23/SIMPLE-UNIX"
-            target="_blank"
-            icon={<Github />}
-          />
+          <Box align="start">
+            <Button
+              primary
+              margin={{ top: 'small' }}
+              label="view source code"
+              href="https://github.com/lorenzoz23/SIMPLE-UNIX"
+              target="_blank"
+              icon={<Github />}
+            />
+          </Box>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           position="right"
@@ -379,14 +388,16 @@ const Code = (props: any) => {
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
             mern stack | typescript | javascript | grommet
           </p>
-          <Button
-            primary
-            margin={{ top: 'small' }}
-            label="view source code"
-            href="https://github.com/gist-gist/gist"
-            target="_blank"
-            icon={<Github />}
-          />
+          <Box align="start">
+            <Button
+              primary
+              margin={{ top: 'small' }}
+              label="view source code"
+              href="https://github.com/gist-gist/gist"
+              target="_blank"
+              icon={<Github />}
+            />
+          </Box>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           position="right"

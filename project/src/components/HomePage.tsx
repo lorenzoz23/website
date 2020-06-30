@@ -2,9 +2,8 @@ import React from 'react';
 import { Box, Heading, Paragraph, Avatar, ResponsiveContext } from 'grommet';
 
 import Resume from './Resume';
-import Email from './Email';
 
-const HomePage = (props: any) => {
+const HomePage = () => {
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
@@ -12,7 +11,7 @@ const HomePage = (props: any) => {
           flex
           direction="row"
           align="start"
-          justify="around"
+          justify="evenly"
           background="home"
           overflow={{ horizontal: 'hidden' }}
         >
@@ -41,7 +40,7 @@ const HomePage = (props: any) => {
                 engineer, but I'm not so sure about that one) with a love for
                 all things frontend. I tend to gravitate towards the more
                 outwardly artistic corners of software because I believe myself
-                to naturally be more creative-minded than technical.
+                to naturally be more creative-minded.
               </Paragraph>
               <Paragraph
                 size="large"
@@ -59,8 +58,9 @@ const HomePage = (props: any) => {
               <Paragraph size="large" textAlign="end" margin={{ top: 'small' }}>
                 Above, you will find all of my experiences in industry, all the
                 various projects I've had my hands in, and all the things that
-                make me... well, me. Have a gander and be sure to tell me what
-                you think (email button in lower right)!
+                make me... well, me. If you'd like to contact me, you can email
+                me using either the link above or the email button found in the
+                hobbies page!
               </Paragraph>
             </Box>
           ) : (
@@ -87,7 +87,7 @@ const HomePage = (props: any) => {
                 engineer, but I'm not so sure about that one) with a love for
                 all things frontend. I tend to gravitate towards the more
                 outwardly artistic corners of software because I believe myself
-                to naturally be more creative-minded than technical.
+                to naturally be more creative-minded.
               </Paragraph>
               <Paragraph
                 size="large"
@@ -110,12 +110,18 @@ const HomePage = (props: any) => {
               <Paragraph
                 size="large"
                 textAlign="center"
-                margin={{ bottom: 'medium', top: 'small' }}
+                margin={{
+                  bottom: 'medium',
+                  top: 'small',
+                  right: 'medium',
+                  left: 'medium'
+                }}
               >
                 Above, you will find all of my experiences in industry, all the
                 various projects I've had my hands in, and all the things that
-                make me... well, me. Have a gander and be sure to tell me what
-                you think (email button in lower right)!
+                make me... well, me. If you'd like to contact me, you can email
+                me using either the link above or the email button found in the
+                hobbies page!
               </Paragraph>
               <Resume />
             </Box>
@@ -125,7 +131,6 @@ const HomePage = (props: any) => {
               <Resume />
             </Box>
           ) : null}
-          <Email mode={props.mode} home={true} />
         </Box>
       )}
     </ResponsiveContext.Consumer>
