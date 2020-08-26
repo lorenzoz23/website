@@ -32,13 +32,11 @@ function Trello(props) {
       return boardTileJs;
     }
   };
+
   const getTrello = function () {
     const container = document.getElementById(props.divLabel);
-    container.innerHTML =
-      '(click the button below if trello board has yet to load)';
-
+    container.innerHTML = 'click button below if board has not loaded';
     const boardTileJs = loadScript();
-
     boardTileJs.onload = function () {
       fetch(
         `https://api.trello.com/1/board/${props.id}?fields=name,prefs,url&structure=all&organization=true&organization_fields=displayName`
@@ -57,14 +55,14 @@ function Trello(props) {
   };
 
   return (
-    <Box gap="small">
+    <Box align="center" gap="small" justify="between">
       <div id={props.divLabel} width="medium" align="center" />
       <Button
         primary
         target="_blank"
         size="small"
         alignSelf="center"
-        title="click button if trello board is not loading"
+        title="click for trello board"
         label={props.divLabel}
         href={`https://trello.com/b/${props.id}/${props.divLabel}`}
       />

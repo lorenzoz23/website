@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Collapsible,
   Button,
   Box,
   Form,
@@ -9,12 +8,13 @@ import {
   TextArea,
   ResponsiveContext,
   Layer,
-  Heading,
-  Text
+  Heading
 } from 'grommet';
-import { FormClose, Contact, Mail, Refresh } from 'grommet-icons';
+import { FormClose, Contact, Refresh, Send } from 'grommet-icons';
 import firebase from 'firebase/app';
 import 'firebase/database';
+import { NotificationType } from '../types/NotificationType';
+import Notification from './Notification';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_GOOGLE_FIREBASE_CONFIG_API_KEY,
@@ -31,16 +31,15 @@ const defaultFormValues = {
   message: ''
 };
 
-const defaultNotificationValues = {
+const defaultNotificationValues: NotificationType = {
   show: false,
-  header: '',
-  body: ''
+  text: '',
+  success: false
 };
 
 const Email = (props: any) => {
   const [formValue, setFormValue] = useState(defaultFormValues);
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [smallHeaderText, setSmallHeaderText] = useState('send an email!');
+  const [showLayer, setShowLayer] = useState(false);
   const [notificationObject, setShowNotificationObject] = useState(
     defaultNotificationValues
   );
@@ -53,193 +52,112 @@ const Email = (props: any) => {
 
   const saveEmailMessage = () => {
     const newEmailMessageRef = emailMessageRef.push();
-    newEmailMessageRef.set({
-      name: formValue.name,
-      email: formValue.email,
-      subject: formValue.subject,
-      message: formValue.message
-    });
+    newEmailMessageRef
+      .set({
+        name: formValue.name,
+        email: formValue.email,
+        subject: formValue.subject,
+        message: formValue.message
+      })
+      .then(() => {
+        let n: NotificationType = {
+          show: true,
+          success: true,
+          text: 'email successfully sent!'
+        };
+        setShowNotificationObject(n);
+        setTimeout(() => {
+          n = {
+            success: true,
+            show: false,
+            text: ''
+          };
+          setShowNotificationObject(n);
+        }, 4000);
+      })
+      .catch(() => {
+        let n: NotificationType = {
+          show: true,
+          success: false,
+          text: 'email failed to send!'
+        };
+        setShowNotificationObject(n);
+        setTimeout(() => {
+          n = {
+            success: false,
+            show: false,
+            text: ''
+          };
+          setShowNotificationObject(n);
+        }, 4000);
+      });
   };
 
-  const submitEmailForm = (size: string) => {
+  const submitEmailForm = () => {
     saveEmailMessage();
     setFormValue(defaultFormValues);
-    if (size === 'small') {
-      setSmallHeaderText('success: email sent!');
-    } else {
-      const notification = {
-        show: true,
-        header: 'success!',
-        body: 'your email has been successfully sent!'
-      };
-      setShowNotificationObject(notification);
-    }
   };
 
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
-        <Box direction="row">
+        <Box>
           <Button
             title="email me!"
+            alignSelf="center"
             primary
-            hoverIndicator={props.mode === 'light' ? 'neutral-3' : 'accent-4'}
             focusIndicator={props.mode === 'light' ? true : false}
             color={props.mode === 'light' ? 'brand' : 'accent-1'}
             icon={
               <Contact color={props.mode === 'light' ? 'accent-1' : 'brand'} />
             }
-            onClick={() => setShowSidebar(!showSidebar)}
-            style={{
-              position: 'fixed',
-              bottom: size !== 'small' ? '35px' : '20px',
-              right: size !== 'small' ? '45px' : '15px',
-              zIndex: 99,
-              padding: '15px',
-              display: showSidebar ? 'none' : 'inline',
-              borderRadius: 30
-            }}
-          />
-          {!showSidebar || size === 'large' ? (
-            <Collapsible direction="horizontal" open={showSidebar}>
-              <Button
-                focusIndicator={false}
-                icon={
-                  <FormClose
-                    color={props.mode === 'light' ? 'brand' : 'accent-1'}
-                  />
-                }
-                onClick={() => setShowSidebar(!showSidebar)}
-              />
-              <Box
-                flex
-                pad={{ bottom: 'medium', left: 'medium', right: 'medium' }}
-                width="large"
-                background="light-1"
-                elevation={props.mode === 'light' ? 'small' : 'none'}
-                align="center"
-                justify="center"
-                overflow="auto"
-              >
-                <Heading>send an email!</Heading>
-                <Form
-                  value={formValue}
-                  onChange={(nextValue: React.SetStateAction<{}>) =>
-                    formChange(nextValue)
+            onClick={() => setShowLayer(!showLayer)}
+            label={size !== 'small' ? 'contact' : undefined}
+            style={
+              size === 'small'
+                ? {
+                    position: 'fixed',
+                    bottom: size !== 'small' ? '35px' : '20px',
+                    right: size !== 'small' ? '45px' : '15px',
+                    zIndex: 99,
+                    padding: '15px',
+                    display: showLayer ? 'none' : 'inline',
+                    borderRadius: 30
                   }
-                  onReset={() => setFormValue(defaultFormValues)}
-                  onSubmit={() => submitEmailForm(size)}
-                >
-                  <Box direction="row" gap="small">
-                    <FormField name="name" htmlFor="text-input-id" label="name">
-                      <TextInput id="text-input-id" name="name" size="large" />
-                    </FormField>
-                    <FormField
-                      name="email"
-                      htmlFor="email-input-id"
-                      label="email"
-                      required
-                    >
-                      <TextInput
-                        id="email-input-id"
-                        name="email"
-                        size="large"
-                      />
-                    </FormField>
-                  </Box>
-                  <FormField
-                    name="subject"
-                    htmlFor="subject-input-id"
-                    label="subject"
-                  >
-                    <TextInput
-                      id="subject-input-id"
-                      name="subject"
-                      size="large"
-                    />
-                  </FormField>
-                  <FormField name="message" htmlFor="message-input-id" required>
-                    <TextArea
-                      name="message"
-                      resize="horizontal"
-                      focusIndicator
-                      size="large"
-                      id="message-input-id"
-                      placeholder="type your message here..."
-                    />
-                  </FormField>
-                  <Box direction="row" gap="medium" justify="between">
-                    <Button
-                      type="submit"
-                      primary
-                      label="send"
-                      icon={<Mail />}
-                      reverse
-                    />
-                    <Button
-                      type="reset"
-                      label="reset"
-                      reverse
-                      icon={<Refresh />}
-                    />
-                  </Box>
-                </Form>
-                {notificationObject.show && (
-                  <Layer
-                    position="center"
-                    onClickOutside={() =>
-                      setShowNotificationObject(defaultNotificationValues)
-                    }
-                  >
-                    <Box justify="center" align="center" pad="medium">
-                      <Heading level="2">{notificationObject.header}</Heading>
-                      <Box gap="medium">
-                        <Text>{notificationObject.body}</Text>
-                        <Button
-                          title="close"
-                          alignSelf="center"
-                          size="small"
-                          icon={<FormClose />}
-                          primary
-                          onClick={() => {
-                            setShowNotificationObject(
-                              defaultNotificationValues
-                            );
-                            setShowSidebar(false);
-                          }}
-                        />
-                      </Box>
-                    </Box>
-                  </Layer>
-                )}
-              </Box>
-            </Collapsible>
-          ) : (
+                : undefined
+            }
+          />
+          {showLayer && (
             <Layer
+              style={{ borderRadius: size !== 'small' ? 30 : 0 }}
               position="center"
-              onClickOutside={() => setShowSidebar(!showSidebar)}
+              onClickOutside={() => setShowLayer(!showLayer)}
             >
               <Box
-                margin="xsmall"
+                border={{
+                  side: 'all',
+                  size: 'large',
+                  color: props.mode === 'light' ? 'brand' : 'accent-1',
+                  style: 'outset'
+                }}
                 pad={{ bottom: 'xlarge', top: 'large' }}
                 flex
+                round={size !== 'small'}
                 background={props.mode === 'light' ? 'light-2' : 'home'}
                 align="center"
                 justify="center"
                 overflow="auto"
               >
                 <Heading margin="small" textAlign="center">
-                  {smallHeaderText}
+                  send an email!
                 </Heading>
                 <Form
                   value={formValue}
-                  onChange={(nextValue: React.SetStateAction<{}>) =>
-                    formChange(nextValue)
-                  }
+                  onChange={(nextValue: any) => formChange(nextValue)}
                   onReset={() => setFormValue(defaultFormValues)}
-                  onSubmit={() => submitEmailForm(size)}
+                  onSubmit={submitEmailForm}
                 >
-                  <Box direction="row" gap="small">
+                  <Box direction="row" gap="small" justify="center">
                     <FormField
                       margin={{
                         left: 'medium',
@@ -316,58 +234,40 @@ const Email = (props: any) => {
                     gap="small"
                   >
                     <Button
+                      color={props.mode === 'light' ? 'status-ok' : 'accent-1'}
                       primary
                       type="submit"
-                      color="status-ok"
-                      size="small"
-                      icon={<Mail />}
-                      reverse
+                      label={size !== 'small' ? 'send' : undefined}
+                      icon={<Send />}
                     />
                     <Button
                       primary
                       type="reset"
                       color="status-warning"
-                      size="small"
+                      label={size !== 'small' ? 'reset' : undefined}
                       icon={<Refresh />}
-                      reverse
                     />
                     <Button
                       primary
                       color="status-critical"
-                      size="small"
+                      label={size !== 'small' ? 'cancel' : undefined}
                       icon={<FormClose />}
-                      reverse
-                      onClick={() => setShowSidebar(!showSidebar)}
+                      onClick={() => setShowLayer(!showLayer)}
                     />
                   </Box>
                 </Form>
                 {notificationObject.show && (
-                  <Layer
-                    position="center"
-                    onClickOutside={() =>
-                      setShowNotificationObject(defaultNotificationValues)
-                    }
-                  >
-                    <Box justify="center" align="center" pad="medium">
-                      <Heading level="2">{notificationObject.header}</Heading>
-                      <Box gap="medium">
-                        <Text>{notificationObject.body}</Text>
-                        <Button
-                          title="close"
-                          alignSelf="center"
-                          size="small"
-                          icon={<FormClose />}
-                          primary
-                          onClick={() => {
-                            setShowNotificationObject(
-                              defaultNotificationValues
-                            );
-                            setShowSidebar(false);
-                          }}
-                        />
-                      </Box>
-                    </Box>
-                  </Layer>
+                  <Notification
+                    notification={notificationObject}
+                    onNotificationClose={() => {
+                      const n: NotificationType = {
+                        show: false,
+                        success: false,
+                        text: ''
+                      };
+                      setShowNotificationObject(n);
+                    }}
+                  />
                 )}
               </Box>
             </Layer>

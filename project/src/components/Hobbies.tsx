@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
   Heading,
@@ -10,9 +10,11 @@ import {
 import { Youtube, Multimedia, Favorite } from 'grommet-icons';
 
 import Trello from './Trello';
-import Email from './Email';
 
 const Hobbies = (props: any) => {
+  useEffect(() => {
+    document.title = 'hobbies | lorenzo zenitsky';
+  }, []);
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
@@ -56,11 +58,8 @@ const Hobbies = (props: any) => {
               for some always-needed stress relief. I love watching and
               analyzing movies with friends and family and taking advantage of
               my odd reviewer-like mentality by trying to go and see every new
-              movie out under the sun at my favorite theaters. Some of my
-              favorite most recent films have been Midsommar, Once Upon a Time
-              in Hollywood, Parasite, and Portrait of a Lady on Fire. Be sure to
-              check out my letterboxd link above for more of my unwanted
-              opinions! 
+              movie out under the sun at my favorite theaters. Be sure to check
+              out my letterboxd link above for more of my unwanted opinions! 
             </Paragraph>
             <Paragraph
               size="large"
@@ -71,25 +70,22 @@ const Hobbies = (props: any) => {
               keeping track of my favorite indie/alternative and metal releases
               of the year through some publically viewable Trello boards that
               I've linked below. Check 'em out if you are so inclined and feel
-              free to shoot me an email (click the button in the lower right)
-              with any suggestions of albums, or movies for that matter, that
-              you think I'd like but may have missed! For total transparency, I
-              linked my Trello scrum-style board for my website so you can see
-              any future plans I have for my website from a software
-              perspective.
+              free to shoot me an email with any suggestions of albums, or
+              movies for that matter, that you think I'd like but may have
+              missed! For total transparency, I also linked my scrum-style
+              Trello board for this website so you can see any and all upcoming
+              and future updates!
             </Paragraph>
             <Heading level={2}>Trello Boards</Heading>
             <Box
               direction={size !== 'small' ? 'row' : 'column'}
               gap={size !== 'small' ? 'large' : '250px'}
-              margin={{ bottom: size !== 'small' ? '300px' : '750px' }}
             >
               <Trello id="268G14hT" divLabel="metal-2020" />
               <Trello id="aHi0ZFuA" divLabel="indie-alternative-2020" />
               <Trello id="KKDGm1Bx" divLabel="website" />
             </Box>
           </Box>
-          <Email mode={props.mode} />
         </Box>
       )}
     </ResponsiveContext.Consumer>

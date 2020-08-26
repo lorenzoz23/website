@@ -9,13 +9,8 @@ const AppBar = (props: any) => {
           tag="header"
           direction="row"
           align="center"
-          justify={size === 'large' || size === 'medium' ? 'between' : 'center'}
+          justify={size !== 'small' ? 'between' : 'center'}
           background="home"
-          pad={{
-            left: 'medium',
-            right: 'medium',
-            vertical: 'small'
-          }}
           style={{ zIndex: '1' }}
           {...props}
         />

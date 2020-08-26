@@ -7,12 +7,10 @@ import {
   ResponsiveContext,
   Tabs,
   Tab,
-  Avatar,
   Nav,
   Anchor,
-  Clock,
-  Text,
-  Select
+  Select,
+  CheckBox
 } from 'grommet';
 import { Home, Github, Linkedin, Magic, Menu as MenuIcon } from 'grommet-icons';
 import {
@@ -28,6 +26,7 @@ import { default as CodeProjects } from './Code';
 import Hobbies from './Hobbies';
 import Experience from './Experience';
 import AppBar from './AppBar';
+import Email from './Email';
 
 const themeLight = {
   global: {
@@ -55,7 +54,7 @@ const themeDark = {
   }
 };
 
-function App() {
+const App = () => {
   const getInitialState = () => {
     const mode = localStorage.getItem('visualModeValue') || 'light';
 
@@ -74,18 +73,14 @@ function App() {
       <ResponsiveContext.Consumer>
         {(size) => (
           <Router>
-            <Box
-              fill
-              background="home"
-              pad={{ bottom: size !== 'small' ? 'small' : 'medium' }}
-            >
+            <Box fill background="home" pad="small">
               <AppBar>
                 {size !== 'small' ? (
                   <Box direction="row" align="center" flex justify="between">
                     <Box direction="row">
                       <Box
                         round
-                        pad="small"
+                        pad={{ horizontal: 'medium', vertical: 'small' }}
                         border={{
                           color: 'accent-1',
                           size: 'small',
@@ -93,19 +88,9 @@ function App() {
                           side: 'all'
                         }}
                       >
-                        <Heading
-                          style={{ textAlign: 'center' }}
-                          level="2"
-                          margin="none"
-                        >
+                        <Heading textAlign="center" level="2" margin="none">
                           lorenzo zenitsky
                         </Heading>
-                        <Text textAlign="center">
-                          software engineer |{' '}
-                          <Anchor href="mailto:lorenzoz@iastate.edu?subject=some clever subject line">
-                            lorenzoz@iastate.edu
-                          </Anchor>
-                        </Text>
                         <Nav direction="row" gap="xsmall" justify="center">
                           <Anchor
                             title="GitHub"
@@ -121,19 +106,9 @@ function App() {
                             target="_blank"
                             href="https://github.com/lorenzoz23"
                           />
-                          <Anchor
-                            title="home"
-                            icon={
-                              <Home
-                                color={
-                                  visualModeValue === 'light'
-                                    ? 'brand'
-                                    : 'accent-1'
-                                }
-                              />
-                            }
-                            href="/"
-                          />
+                          <Box align="center" justify="center">
+                            <Email mode={visualModeValue} />
+                          </Box>
                           <Anchor
                             title="LinkedIn"
                             icon={
@@ -150,7 +125,7 @@ function App() {
                           />
                         </Nav>
                       </Box>
-                      <Box direction={size === 'medium' ? 'column' : 'row'}>
+                      <Box direction="row" align="center">
                         <Tabs alignSelf="center" margin="small">
                           <Tab title="home">
                             <Redirect to="/" />
@@ -165,43 +140,32 @@ function App() {
                             <Redirect to="/hobbies" />
                           </Tab>
                         </Tabs>
-                        <Box alignSelf="center" width="300px">
-                          <Select
-                            disabled={visualModeValue === 'light' ? [0] : [1]}
-                            icon={<Magic />}
-                            onChange={({ option }) => setMode(option)}
-                            size="small"
-                            options={['light', 'dark']}
-                            placeholder="choose your visual style"
-                          />
-                        </Box>
                       </Box>
-                    </Box>
-                    <Box
-                      pad={{ right: 'small' }}
-                      animation={{ type: 'pulse', duration: 500 }}
-                      direction="row-reverse"
-                    >
-                      <Anchor href="/" title="another way home">
-                        <Avatar
-                          border={{
-                            color: 'accent-1',
-                            size: 'small',
-                            style: 'solid'
+                      <Box
+                        align="center"
+                        alignSelf="center"
+                        justify="center"
+                        pad={{ left: 'medium' }}
+                        border={{ side: 'left', size: 'small' }}
+                      >
+                        <CheckBox
+                          toggle
+                          label="dark theme"
+                          checked={visualModeValue === 'dark'}
+                          onChange={(event) => {
+                            if (event.target.checked) {
+                              setMode('dark');
+                            } else setMode('light');
                           }}
-                          round="full"
-                          size="xlarge"
-                          src="../website-images/64slices.png"
                         />
-                      </Anchor>
-                      <Clock type="digital" margin="small" />
+                      </Box>
                     </Box>
                   </Box>
                 ) : (
                   <Box gap="small" align="center">
                     <Box
                       round
-                      pad="small"
+                      pad={{ horizontal: 'medium', vertical: 'small' }}
                       border={{
                         color: 'accent-1',
                         size: 'small',
@@ -211,17 +175,11 @@ function App() {
                     >
                       <Heading
                         style={{ textAlign: 'center' }}
-                        level="2"
+                        level="1"
                         margin="none"
                       >
                         lorenzo zenitsky
                       </Heading>
-                      <Text textAlign="center">
-                        software engineer |{' '}
-                        <Anchor href="mailto:lorenzoz@iastate.edu?subject=some clever subject line">
-                          lorenzoz@iastate.edu
-                        </Anchor>
-                      </Text>
                       <Nav direction="row" gap="xsmall" justify="center">
                         <Anchor
                           icon={
@@ -362,6 +320,6 @@ function App() {
       </ResponsiveContext.Consumer>
     </Grommet>
   );
-}
+};
 
 export default App;

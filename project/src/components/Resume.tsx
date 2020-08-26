@@ -9,6 +9,7 @@ const Resume = () => {
   const isMounted = useRef(true);
 
   useEffect(() => {
+    document.title = 'lorenzo zenitsky | isu senior in software engineering';
     pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
     return () => {
       isMounted.current = false;

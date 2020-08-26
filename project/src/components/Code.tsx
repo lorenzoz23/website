@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Button } from 'grommet';
 import {
   Reactjs,
@@ -13,7 +13,9 @@ import {
   Ticket,
   Github,
   AidOption,
-  Globe
+  Globe,
+  Star,
+  Spotify
 } from 'grommet-icons';
 
 import {
@@ -23,6 +25,9 @@ import {
 import 'react-vertical-timeline-component/style.min.css';
 
 const Code = (props: any) => {
+  useEffect(() => {
+    document.title = 'projects | lorenzo zenitsky';
+  }, []);
   return (
     <Box
       flex
@@ -32,6 +37,106 @@ const Code = (props: any) => {
       background="home"
     >
       <VerticalTimeline>
+        <VerticalTimelineElement
+          position="right"
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: '#A2423D' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  #A2423D' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
+          className="vertical-timeline-element--work"
+          date="aug 2020 - present"
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#6FFFB0' }
+          }
+          icon={<Star color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+        >
+          <h3 className="vertical-timeline-element-title">film raters</h3>
+          <h4 className="vertical-timeline-element-subtitle">
+            vue web application
+          </h4>
+          <p>
+            a simple, yet hopefully addictive game where users earn points and a
+            spot on the leaderboards by guessing the IMDb rating of random films
+            purely based off their name, plot, and poster
+          </p>
+          <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
+            vue | typescript | vuetify | google firebase | TMDb api
+          </p>
+          <Box
+            direction={props.size !== 'small' ? 'row' : 'column'}
+            gap="small"
+            pad={{ top: 'small' }}
+          >
+            <Button
+              label="view website"
+              primary
+              href="https://filmraters.netlify.app/#/"
+              target="_blank"
+              icon={<Globe />}
+            />
+            <Button
+              label="view source code"
+              href="https://github.com/lorenzoz23/imdb-rating-game"
+              target="_blank"
+              icon={<Github />}
+              reverse
+            />
+          </Box>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          position="left"
+          contentStyle={
+            props.mode === 'dark'
+              ? { background: '#00739D' }
+              : { background: 'rgb(255, 255, 255)' }
+          }
+          contentArrowStyle={
+            props.mode === 'dark'
+              ? { borderRight: '7px solid  #00739D' }
+              : { borderRight: '7px solid  rgb(255, 255, 255)' }
+          }
+          className="vertical-timeline-element--work"
+          date="jul 2020 - present"
+          iconStyle={
+            props.mode === 'dark'
+              ? { background: '#7D4CDB' }
+              : { background: '#6FFFB0' }
+          }
+          icon={
+            <Spotify color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
+          }
+        >
+          <h3 className="vertical-timeline-element-title">mood queue</h3>
+          <h4 className="vertical-timeline-element-subtitle">
+            react web application
+          </h4>
+          <p>
+            a peer development project that allows spotify users to create
+            playlists and alter their queues purely based off of their mood
+          </p>
+          <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
+            react | typescript | grommet | spotify web api | dev ops | circle-ci
+            | heroku | cypress
+          </p>
+          <Box align="start">
+            <Button
+              primary
+              margin={{ top: 'small' }}
+              label="view website"
+              href="https://moodqueue.herokuapp.com/"
+              target="_blank"
+              icon={<Globe />}
+            />
+          </Box>
+        </VerticalTimelineElement>
         <VerticalTimelineElement
           position="right"
           contentStyle={
@@ -115,7 +220,7 @@ const Code = (props: any) => {
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
             react web | react native | typescript | javascript | google firebase
-            | tMDB api | grommet | responsive
+            | TMDb api | grommet | responsive
           </p>
           <Box
             direction={props.size !== 'small' ? 'row' : 'column'}
