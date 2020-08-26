@@ -313,6 +313,11 @@ const App = () => {
                   />
                   <Route path="/" render={HomePage} />
                 </Switch>
+                {size === 'small' && (
+                  <Box align="center">
+                    <Email mode={visualModeValue} />
+                  </Box>
+                )}
               </Box>
             </Box>
           </Router>

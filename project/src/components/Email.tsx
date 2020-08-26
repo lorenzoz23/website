@@ -117,8 +117,8 @@ const Email = (props: any) => {
               size === 'small'
                 ? {
                     position: 'fixed',
-                    bottom: size !== 'small' ? '35px' : '20px',
-                    right: size !== 'small' ? '45px' : '15px',
+                    bottom: '20px',
+                    right: '15px',
                     zIndex: 99,
                     padding: '15px',
                     display: showLayer ? 'none' : 'inline',
