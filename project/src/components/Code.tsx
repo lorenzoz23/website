@@ -34,7 +34,7 @@ const Code = (props: any) => {
       direction="column"
       align="center"
       justify="start"
-      background="home"
+      background="transparent"
     >
       <VerticalTimeline>
         <VerticalTimelineElement
@@ -57,6 +57,7 @@ const Code = (props: any) => {
               : { background: '#6FFFB0' }
           }
           icon={<Star color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">film raters</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -113,6 +114,7 @@ const Code = (props: any) => {
           icon={
             <Spotify color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
           }
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">mood queue</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -159,6 +161,7 @@ const Code = (props: any) => {
           icon={
             <AidOption color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
           }
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">idyllic paws</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -206,6 +209,7 @@ const Code = (props: any) => {
               : { background: '#6FFFB0' }
           }
           icon={<Ticket color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">cinelot</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -263,6 +267,7 @@ const Code = (props: any) => {
               : { background: '#6FFFB0' }
           }
           icon={<Yoga color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">personal website</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -317,6 +322,7 @@ const Code = (props: any) => {
               : { background: '#6FFFB0' }
           }
           icon={<Car color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">
             parkour - a residential parking sharing system
@@ -354,6 +360,7 @@ const Code = (props: any) => {
           icon={
             <Language color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
           }
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">web search engine</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -399,6 +406,7 @@ const Code = (props: any) => {
               : { background: '#6FFFB0' }
           }
           icon={<System color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">unix-style shell</h3>
           <h4 className="vertical-timeline-element-subtitle">c program</h4>
@@ -443,6 +451,7 @@ const Code = (props: any) => {
           icon={
             <Multimedia color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
           }
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">collections</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -479,6 +488,7 @@ const Code = (props: any) => {
               : { background: '#6FFFB0' }
           }
           icon={<Play color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">music editor</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -524,6 +534,7 @@ const Code = (props: any) => {
               : { background: '#6FFFB0' }
           }
           icon={<Swift color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">
             maintainer tool for ui testing
@@ -563,6 +574,7 @@ const Code = (props: any) => {
           icon={
             <Reactjs color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
           }
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">issue tracker</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -598,6 +610,7 @@ const Code = (props: any) => {
           icon={
             <Android color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
           }
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">
             alarmitron - alarm clock app

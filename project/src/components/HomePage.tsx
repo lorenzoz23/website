@@ -12,11 +12,11 @@ const HomePage = () => {
           direction="row"
           align="start"
           justify="evenly"
-          background="home"
+          background="transparent"
           overflow={{ horizontal: 'hidden' }}
         >
           {size === 'large' ? (
-            <Box>
+            <Box style={{ zIndex: 1 }}>
               <Avatar
                 border={{
                   color: 'brand',
@@ -64,7 +64,7 @@ const HomePage = () => {
               </Paragraph>
             </Box>
           ) : (
-            <Box align="center">
+            <Box align="center" style={{ zIndex: 1 }}>
               <Avatar
                 margin={{ top: 'medium' }}
                 border={{

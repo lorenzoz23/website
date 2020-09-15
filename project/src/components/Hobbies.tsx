@@ -18,9 +18,11 @@ const Hobbies = (props: any) => {
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
-        <Box direction="row">
-          <Box flex align="center" justify="start" background="home" fill>
-            <Heading textAlign="center">my interests</Heading>
+        <Box direction="row" background="transparent">
+          <Box flex align="center" justify="start" fill>
+            <Heading textAlign="center" margin="none">
+              my interests
+            </Heading>
             <Nav direction="row" gap="small" alignContent="center">
               <Anchor
                 title="YouTube"
@@ -76,10 +78,13 @@ const Hobbies = (props: any) => {
               Trello board for this website so you can see any and all upcoming
               and future updates!
             </Paragraph>
-            <Heading level={2}>Trello Boards</Heading>
+            <Heading level={2} margin={{ bottom: 'small' }}>
+              Trello Boards
+            </Heading>
             <Box
               direction={size !== 'small' ? 'row' : 'column'}
               gap={size !== 'small' ? 'large' : '250px'}
+              style={{ zIndex: 1 }}
             >
               <Trello id="268G14hT" divLabel="metal-2020" />
               <Trello id="aHi0ZFuA" divLabel="indie-alternative-2020" />

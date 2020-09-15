@@ -10,7 +10,7 @@ const AppBar = (props: any) => {
           direction="row"
           align="center"
           justify={size !== 'small' ? 'between' : 'center'}
-          background="home"
+          background="transparent"
           style={{ zIndex: '1' }}
           {...props}
         />

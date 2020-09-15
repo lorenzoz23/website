@@ -18,7 +18,7 @@ const Experience = (props: any) => {
       direction="column"
       align="center"
       justify="start"
-      background="home"
+      background="transparent"
     >
       <VerticalTimeline>
         <VerticalTimelineElement
@@ -44,6 +44,7 @@ const Experience = (props: any) => {
               color={props.mode === 'dark' ? 'accent-1' : 'brand'}
             />
           }
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">
             data science student worker
@@ -77,6 +78,7 @@ const Experience = (props: any) => {
           icon={
             <Reactjs color={props.mode === 'dark' ? 'accent-1' : 'brand'} />
           }
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">
             software development intern
@@ -112,6 +114,7 @@ const Experience = (props: any) => {
               : { background: '#8DDDEC' }
           }
           icon={<Ticket color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">food/drink server</h3>
           <h4 className="vertical-timeline-element-subtitle">
@@ -141,6 +144,7 @@ const Experience = (props: any) => {
               : { background: '#8DDDEC' }
           }
           icon={<Music color={props.mode === 'dark' ? 'accent-1' : 'brand'} />}
+          style={{ zIndex: 1 }}
         >
           <h3 className="vertical-timeline-element-title">guitar luthier</h3>
           <h4 className="vertical-timeline-element-subtitle">

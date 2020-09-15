@@ -28,7 +28,8 @@ const Resume = () => {
           direction="column"
           align="center"
           justify="center"
-          background="home"
+          background="transparent"
+          style={{ zIndex: 1 }}
         >
           {size !== 'small' ? (
             <Document

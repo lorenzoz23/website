@@ -27,6 +27,7 @@ import Hobbies from './Hobbies';
 import Experience from './Experience';
 import AppBar from './AppBar';
 import Email from './Email';
+import Particles from 'react-particles-js';
 
 const themeLight = {
   global: {
@@ -287,7 +288,13 @@ const App = () => {
                   </Box>
                 )}
               </AppBar>
-              <Box flex overflow={{ horizontal: 'hidden' }} pad="medium">
+              <Box
+                flex
+                overflow={{ horizontal: 'hidden' }}
+                pad="medium"
+                background="transparent"
+                style={{ zIndex: 1 }}
+              >
                 <Switch>
                   <Route
                     path="/projects"
@@ -319,6 +326,39 @@ const App = () => {
                   </Box>
                 )}
               </Box>
+              <Particles
+                style={{
+                  position: 'fixed',
+                  top: 0,
+                  right: 0,
+                  left: 0,
+                  bottom: 0
+                }}
+                params={{
+                  particles: {
+                    number: {
+                      value: size !== 'small' ? 75 : 25
+                    },
+                    size: {
+                      value: 3
+                    },
+                    color: {
+                      value: visualModeValue === 'light' ? '#363E4B' : undefined
+                    },
+                    links: {
+                      color: visualModeValue === 'light' ? '#363E4B' : undefined
+                    }
+                  },
+                  interactivity: {
+                    events: {
+                      onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                      }
+                    }
+                  }
+                }}
+              />
             </Box>
           </Router>
         )}
