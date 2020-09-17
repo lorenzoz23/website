@@ -134,7 +134,7 @@ const Code = (props: any) => {
               primary
               margin={{ top: 'small' }}
               label="view website"
-              href="https://moodqueue.herokuapp.com/"
+              href="https://moodqueue-stage.herokuapp.com/"
               target="_blank"
               icon={<Globe />}
             />
