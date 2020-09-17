@@ -116,17 +116,18 @@ const Code = (props: any) => {
           }
           style={{ zIndex: 1 }}
         >
-          <h3 className="vertical-timeline-element-title">mood queue</h3>
+          <h3 className="vertical-timeline-element-title">moodqueue</h3>
           <h4 className="vertical-timeline-element-subtitle">
             react web application
           </h4>
           <p>
-            a peer development project that allows spotify users to create
-            playlists and alter their queues purely based off of their mood
+            a peer development project that allows premium spotify users to
+            update their queues and non-premium users to create playlists based
+            upon the type of music they're currently in the mood for
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
-            react | typescript | grommet | spotify web api | dev ops | circle-ci
-            | heroku | cypress
+            react | typescript | next | grommet | spotify web api | react hooks
+            | circle-ci | heroku | cypress | jest | enzyme
           </p>
           <Box align="start">
             <Button
@@ -152,7 +153,7 @@ const Code = (props: any) => {
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
-          date="may 2020 - present"
+          date="may 2020 - jun 2020"
           iconStyle={
             props.mode === 'dark'
               ? { background: '#7D4CDB' }
@@ -165,7 +166,7 @@ const Code = (props: any) => {
         >
           <h3 className="vertical-timeline-element-title">idyllic paws</h3>
           <h4 className="vertical-timeline-element-subtitle">
-            react native mobile application(s)
+            react native mobile application
           </h4>
           <p>
             my loving attempt to provide my mom with a mobile app for her
@@ -213,14 +214,14 @@ const Code = (props: any) => {
         >
           <h3 className="vertical-timeline-element-title">cinelot</h3>
           <h4 className="vertical-timeline-element-subtitle">
-            react web/native application
+            react web application
           </h4>
           <p>
-            a reimagining of my passion project in both a web and mobile form
-            that was previously attempted as a senior-year college project -
-            cinelot allows users to keep track of, update, and query their
-            physical film collection on the go for both convenience and to avoid
-            the pain of double-purchasing
+            a reimagining of an old passion project of mine that was previously
+            attempted as a senior-year college project - cinelot allows users to
+            keep track of, update, and query their physical film collection on
+            the go for both convenience and to avoid the pain of
+            double-purchasing
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
             react web | react native | typescript | javascript | google firebase
@@ -234,7 +235,7 @@ const Code = (props: any) => {
             <Button
               label="visit website"
               primary
-              href="https://collections-film.netlify.app/"
+              href="https://cinelot.netlify.app/"
               target="_blank"
               icon={<Globe />}
             />
@@ -278,8 +279,8 @@ const Code = (props: any) => {
             projects, and personal hobbies
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
-            react | typescript | javascript | grommet | responsive | google
-            firebase
+            react | typescript | javascript | grommet | react particles |
+            responsive | google firebase
           </p>
           <Box
             direction={props.size !== 'small' ? 'row' : 'column'}
