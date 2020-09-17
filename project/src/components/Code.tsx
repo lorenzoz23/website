@@ -69,7 +69,7 @@ const Code = (props: any) => {
             purely based off their name, plot, and poster
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
-            vue | typescript | vuetify | google firebase | TMDb api
+            vue | typescript | vuetify | google firebase | TMDb api | netlify
           </p>
           <Box
             direction={props.size !== 'small' ? 'row' : 'column'}
@@ -225,7 +225,7 @@ const Code = (props: any) => {
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
             react web | react native | typescript | javascript | google firebase
-            | TMDb api | grommet | responsive
+            | TMDb api | grommet | responsive | netlify
           </p>
           <Box
             direction={props.size !== 'small' ? 'row' : 'column'}
@@ -280,7 +280,7 @@ const Code = (props: any) => {
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
             react | typescript | javascript | grommet | react particles |
-            responsive | google firebase
+            responsive | google firebase | netlify
           </p>
           <Box
             direction={props.size !== 'small' ? 'row' : 'column'}
