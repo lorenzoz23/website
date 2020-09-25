@@ -52,7 +52,9 @@ const Experience = (props: any) => {
           <h4 className="vertical-timeline-element-subtitle">
             isu extension and outreach - ames, ia
           </h4>
-          <p>maintainer of large codebase, performance tester</p>
+          <p>
+            maintainer of large codebase, performance tester, employee trainer
+          </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
             php | mysql | html | css | javascript
           </p>
