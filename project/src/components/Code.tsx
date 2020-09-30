@@ -127,16 +127,26 @@ const Code = (props: any) => {
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
             react | typescript | next | grommet | spotify web api | react hooks
-            | circle-ci | heroku | cypress | jest | enzyme
+            | circle-ci | heroku | cypress | jest | enzyme | storybook
           </p>
-          <Box align="start">
+          <Box
+            direction={props.size !== 'small' ? 'row' : 'column'}
+            gap="small"
+            pad={{ top: 'small' }}
+          >
             <Button
-              primary
-              margin={{ top: 'small' }}
               label="view website"
+              primary
               href="https://moodqueue-stage.herokuapp.com/"
               target="_blank"
               icon={<Globe />}
+            />
+            <Button
+              label="view source code"
+              href="https://github.com/scott-street/moodqueue"
+              target="_blank"
+              icon={<Github />}
+              reverse
             />
           </Box>
         </VerticalTimelineElement>
