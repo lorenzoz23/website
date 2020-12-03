@@ -33,7 +33,7 @@ const Experience = (props: any) => {
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
-          date="jan 2020 - present"
+          date="jan - nov 2020"
           iconStyle={
             props.mode === 'dark'
               ? { background: '#7D4CDB' }

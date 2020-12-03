@@ -126,8 +126,9 @@ const Code = (props: any) => {
             upon the type of music they're currently in the mood for
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
-            react | typescript | next | grommet | spotify web api | react hooks
-            | circle-ci | heroku | cypress | jest | enzyme | storybook
+            react | typescript | next.js | grommet ui | spotify web api | react
+            hooks | circle-ci | heroku | jest | enzyme | chai | storybook |
+            sentry analytics
           </p>
           <Box
             direction={props.size !== 'small' ? 'row' : 'column'}
@@ -186,8 +187,8 @@ const Code = (props: any) => {
             appointment reminders
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
-            react native | typescript | javascript | google firebase | native
-            base | react navigation
+            react native | typescript | javascript | native base ui | react
+            navigation
           </p>
           <Box align="start">
             <Button
@@ -234,8 +235,8 @@ const Code = (props: any) => {
             double-purchasing
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
-            react web | react native | typescript | javascript | google firebase
-            | TMDb api | grommet | responsive | netlify
+            react | typescript | javascript | google firebase | TMDb api |
+            grommet ui | responsive | netlify
           </p>
           <Box
             direction={props.size !== 'small' ? 'row' : 'column'}
@@ -289,8 +290,8 @@ const Code = (props: any) => {
             projects, and personal hobbies
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
-            react | typescript | javascript | grommet | react particles |
-            responsive | google firebase | netlify
+            react | typescript | javascript | grommet ui | react particles |
+            trello api | responsive | google firebase | netlify
           </p>
           <Box
             direction={props.size !== 'small' ? 'row' : 'column'}
@@ -326,7 +327,7 @@ const Code = (props: any) => {
               : { borderRight: '7px solid  rgb(255, 255, 255)' }
           }
           className="vertical-timeline-element--work"
-          date="jan 2020 - present"
+          date="jan - nov 2020"
           iconStyle={
             props.mode === 'dark'
               ? { background: '#7D4CDB' }
@@ -346,8 +347,19 @@ const Code = (props: any) => {
             residential parking spaces or host their own for profit
           </p>
           <p style={{ color: props.mode === 'light' ? '#6f6f6f' : '#FFFFAC' }}>
-            mern stack | react native | typescript | redux
+            mern stack | react native | typescript | redux | node | stripe api |
+            google maps api
           </p>
+          <Box align="start">
+            <Button
+              primary
+              margin={{ top: 'small' }}
+              label="view source code"
+              href="https://github.com/lorenzoz23/Parkour"
+              target="_blank"
+              icon={<Github />}
+            />
+          </Box>
         </VerticalTimelineElement>
         <VerticalTimelineElement
           position="right"
