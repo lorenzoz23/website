@@ -122,7 +122,7 @@ const App = () => {
                               />
                             }
                             target="_blank"
-                            href="https://www.linkedin.com/in/lorenzo-zenitsky-823257171/"
+                            href="https://www.linkedin.com/in/lorenzoz/"
                           />
                         </Nav>
                       </Box>
@@ -216,7 +216,7 @@ const App = () => {
                             />
                           }
                           target="_blank"
-                          href="https://www.linkedin.com/in/lorenzo-zenitsky-823257171/"
+                          href="https://www.linkedin.com/in/lorenzoz/"
                         />
                       </Nav>
                     </Box>
